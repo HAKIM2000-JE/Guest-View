@@ -1,0 +1,129 @@
+@import "../../../../assets/styles/yaago2-style";
+
+:host {
+  pointer-events: none;
+  background-color: initial;
+}
+
+button {
+  @extend .Medium;
+  opacity: 1;
+  padding: 0 32px 0 32px;
+  cursor: pointer;
+  border-radius: 80px;
+  height: 48px;
+  width: inherit;
+  pointer-events: auto;
+
+  p {
+    margin-bottom: 0 !important;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
+    p {
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
+.primary {
+  background-color: $color-dunnessant !important;
+  color: white !important;
+
+  .mat-icon {
+    fill: white;
+    color: white;
+  }
+}
+
+.secondary {
+  background-color: transparent !important;
+  border: 1px solid $color-greenVogue;
+  color: $color-greenVogue !important;
+  font-family: $font-Roboto-Bold;
+
+  .mat-icon {
+    fill: $color-greenVogue;
+    color: $color-greenVogue;
+  }
+}
+.secondary-small {
+  background-color: transparent !important;
+  border: 1px solid $color-greenVogue;
+  color: $color-greenVogue !important;
+  font-family: $font-Roboto-Bold;
+  @extend .X-small;
+  opacity: 1;
+  padding: 0 16px 0 16px;
+  cursor: pointer;
+  border-radius: 80px;
+  height: 32px;
+  width: inherit;
+  pointer-events: auto;
+  line-height: initial;
+
+  .mat-icon {
+    fill: $color-greenVogue;
+    color: $color-greenVogue;
+  }
+}
+
+.secondary-x-small {
+  background-color: transparent !important;
+  border: 1px solid $color-greenVogue;
+  color: $color-greenVogue !important;
+  font-family: $font-Roboto-Bold;
+  font-size: 12px;
+  opacity: 1;
+  padding: 0 14px 0 14px;
+  cursor: pointer;
+  border-radius: 80px;
+  height: 32px;
+  width: inherit;
+  pointer-events: auto;
+  line-height: initial;
+
+  .mat-icon {
+    fill: $color-greenVogue;
+    color: $color-greenVogue;
+  }
+}
+
+.secondary-light {
+  background-color: transparent !important;
+  border: 1px solid white;
+  color: white !important;
+  font-family: $font-Roboto-Bold;
+
+  .mat-icon {
+    fill: white;
+    color: white;
+  }
+}
+
+.shadow {
+  @extend .Small;
+  background-color: rgba(20, 20, 20, 0.6);
+  color: white !important;
+  font-family: $font-Roboto-Bold;
+
+  .mat-icon {
+    fill: white;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  button {
+    width: 100%;
+    padding: 0 16px 0 16px;
+  }
+}
+
+mat-icon {
+  @include md-icon-size(16px);
+}
+

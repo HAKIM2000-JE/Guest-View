@@ -1,0 +1,155 @@
+@import "../../../../assets/styles/gusl-shared";
+#list-guides-container{
+  padding: 35px 18px;
+  .list-media{
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+.img-container{
+  margin-bottom: 30px;
+  margin-right: 21px;
+  width: 149px;
+  border-radius: 20px;
+  height: 149px;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+
+
+
+img{
+  height: 209px;
+  width: 149px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+}
+  .content{
+    font-family:$guru-font-hind;
+    font-size: 14px;
+    line-height: 1.96;
+    color: #7d818c;
+  }
+}
+.title-style{
+  font-family:$guru-font-hind;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 0.79;
+  letter-spacing: normal;
+  color: #1d2c5a;
+  display: block;
+  margin-bottom: 31px;
+  margin-top: 40px;
+}
+ul.nav-list li {
+  display: inline-block;
+  margin-right: 28px;
+  opacity: 0.7;
+  font-family: $guru-font-hind;
+  font-size: 16px;
+  line-height: 1.19;
+  color: #7d818c;
+  position: relative;
+
+}
+ul.nav-list li.active{
+  font-family: $guru-font-hind;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.19;
+  letter-spacing: normal;
+  color: #1d2c5a;
+  opacity: 1;
+}
+ul.nav-list li.active:after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #6183e5;
+  position: absolute;
+  left: 0px;
+  bottom: -6px;
+
+}
+ul.nav-list li:last-child{
+  margin-right: 0px;
+}
+.nav-top {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: 100%;
+
+}
+.nav-top.scrolled{
+  overflow-x: scroll !important;
+
+}
+ul.nav-list {
+  list-style: none;
+  padding: 0px;
+  margin-bottom: 30px;
+  width: 200%;
+}
+span.sub-title{
+  font-family: $guru-font-hind;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d2c5a;
+  display: block;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.list-attachements {
+  width: 100%;
+  height: 50px;
+  padding-top: 9px;
+  margin-bottom: 11px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.list-attachements ul {
+  list-style: none;
+  display: block;
+  width: 200%;
+  margin-bottom: 27px;
+  li{
+    display: inline-block;
+    a{
+      border: 1px solid  #6183e5;
+      border-radius: 24px;
+      padding: 8px 12px;
+      margin-right: 9px
+    }
+    a span{
+      text-decoration: none;
+      font-family: $guru-font-hind;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6183e5;
+    }
+    a span , .icon{
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+}
+iframe{
+  width: 100%;
+  height: calc(100vw/1.77);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.container {
+  //max-width: 1240px;
+  background-color: white;
+  color: black;
+  padding-top: 37px;
+  padding-bottom: 37px;
+}

@@ -1,0 +1,61 @@
+<div class="section-container">
+  <p class="gest-title-style" >
+    <span>{{'guest-hygiene-page.title' | translate}}</span>
+    <img src="../../../../../assets/icon/hygieneLine.svg" alt="">
+  </p>
+  <div class="content" [ngClass]="{'hideText': !fulldescription}">
+      <div class="card-header">
+        <img src="assets/covid-img.svg"/>
+        <h3 class="covid-title" >COVID-19 {{'guest-hygiene-page.measures' | translate}}</h3>
+      </div>
+      <p class="covid-desc">
+        {{'guest-hygiene-page.top-text' | translate}} <strong>COVID-19.</strong>
+      </p>
+      <div class="list-top" *ngFor="let forces of listForceMajeurTodisplay" #listTop>
+        <div class="wrappper" #wrapper>
+          <ng-container *ngIf="forces.name == 'essential'">
+            <div class="list-top-item" *ngFor="let force of forces?.categoryItems">
+              <h4 class="sub-title">{{force.title}}</h4>
+              <p class="sub-desc">{{force.description}}</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <span class="detail-more" (click)="readmore()">
+        {{fulldescription ? ('guest-detail-booking.hide' | translate) : ('guest-hygiene-page.read-more' | translate)}}
+        <img src="../../../../../assets/icon/drop-down-arrow.svg" alt="" [class.opened]="fulldescription">
+      </span>
+  </div>
+
+  <mat-accordion *ngFor="let forces of listForceMajeurTodisplay; let iconNumber = index">
+    <div *ngIf="forces.name != 'essential'">
+      <div *ngIf="forces?.categoryItems.length > 0">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <img class="icon" src='{{ "assets/images/forcemajeur/" + iconNumber + ".svg" }}'/>
+              <span >
+                {{forces?.name}}
+              </span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div  class="collaps-content" >
+            <div class="list-bottom-item" *ngFor="let force of forces?.categoryItems">
+              <h4>{{force.title}}</h4>
+              <p>{{force.description}}</p>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </mat-accordion>
+
+  <div class="org-img">
+    <img src="../../../../../assets/images/forcemajeur/logo_world_health_organization.svg" />
+    <a class="big-btn" target="_blank" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" >
+      {{'guest-hygiene-page.more-info-btn' | translate}}
+    </a>
+  </div>
+
+</div>

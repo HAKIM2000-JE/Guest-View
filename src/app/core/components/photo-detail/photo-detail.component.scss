@@ -1,0 +1,37 @@
+
+#detail-image {
+  .closeIcon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 8px;
+    border-radius: 100%;
+    background: #ffffff75;
+  }
+  .photodetail{
+    width: 100%;
+  }
+}
+.nav-barre{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  padding: 6px;
+  .nav-btn{
+    img{
+      width: 20px;
+    }
+    background: #ffffff94;
+    padding: 9px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+  }
+  .prev{
+    float: left;
+  }
+  .next{
+    float: right;
+  }
+}

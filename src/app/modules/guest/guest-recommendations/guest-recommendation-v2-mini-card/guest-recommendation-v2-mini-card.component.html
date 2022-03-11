@@ -1,0 +1,25 @@
+<div class="mini-card-container" *ngIf="recommendation" [ngStyle]="{bottom: isDesktopMode() ? '24px': '116px'}" @slideInOut>
+  <div class="mini-card flex flex-row padding-16">
+
+    <img class="main-photo" src="{{recommendation?.mainPhoto}}" alt="picture">
+
+    <div class="flex flex-column margin-left-12 infos-container">
+      <div class="flex flex flex-row flex-align-center flex-space-between">
+        <span class="mcqueen Medium txt-color-black width-75 txt-nowrap txt-ellipsis hidden-overflow">{{recommendation?.title}}</span>
+        <div class="flex flex-row flex-align-center">
+          <img src="assets/icon/star-yellow.svg" alt="icon">
+          <span class="roboto bold X-small margin-left-6 margin-right-12">{{recommendation?.ranking?.rating}}</span>
+          <img src="{{recommendation?.category?.mapIcon}}" alt="picto" class="category-icon">
+        </div>
+      </div>
+      <div class="flex flex flex-row flex-align-center margin-top-12">
+        <img src="assets/icon/full-place.svg" alt="icon">
+        <span class="margin-left-8 hidden-overflow roboto X-small txt-color-scorpion txt-nowrap txt-ellipsis">{{recommendation?.fullAddress}}</span>
+      </div>
+      <div class="flex flex flex-row flex-align-center flex-space-between margin-top-12">
+        <span class="mcqueen X-small txt-color-grvogue">{{'guest-recommendation.card.' + recommendation?.comment?.type | translate}}</span>
+        <span class="roboto bold X-small txt-color-grvogue underline clickable" (click)="seeMore()">{{'guest-recommendation.see-more' | translate}}</span>
+      </div>
+    </div>
+  </div>
+</div>

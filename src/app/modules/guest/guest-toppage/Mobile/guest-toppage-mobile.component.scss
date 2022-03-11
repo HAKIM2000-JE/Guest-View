@@ -1,0 +1,142 @@
+@import "../../../../../assets/styles/gusl-shared";
+@import "../../../../../assets/styles/yaago2-style";
+
+.top-image-container {
+  overflow: hidden;
+  position: relative;
+  height: 325px;
+
+  .mainPhotoLandingPage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fab-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $color-greenVogue;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    .mat-icon {
+      @include md-icon-size(18px);
+    }
+  }
+
+  .previous {
+    left: 24px;
+  }
+
+  .next {
+    right: 24px;
+  }
+
+  .owner-word {
+    position: absolute;
+    background-color: rgba(250, 250, 250, 0.95);
+    border-radius: 10px 10px 10px 0;
+    padding: 16px;
+    width: 160px;
+    top: 32px;
+    left: 32px;
+
+    .header {
+      color: $color-scorpion;
+      @extend .XX-small;
+      font-family: $font-Roboto;
+      text-decoration: underline;
+      text-underline-offset: 8px;
+      text-underline-color: $color-alto;
+    }
+
+    .message {
+      @extend .Small;
+      color: $color-greenVogue;
+      margin-top: 16px;
+      font-family: $font-McQueen;
+    }
+  }
+}
+
+.journey-summary {
+  padding: 24px;
+  display: flex;
+  flex-flow: column nowrap;
+
+  .welcome-container {
+    font-size: 20px;
+    color: $color-black;
+    flex: 1;
+
+    p {
+      font-family: $font-McQueen;
+    }
+  }
+
+  .nights-container {
+    padding: 16px;
+    border: solid 1px $color-greenVogue;
+    border-radius: 10px;
+    color: $color-greenVogue;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-family: $font-McQueen;
+    }
+
+    .number {
+      font-size: 24px;
+      letter-spacing: 1px;
+      margin-top: 8px;
+    }
+  }
+
+  .date-cards {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0 auto;
+    margin-top: 24px;
+
+    .date-card {
+      background: white;
+      border-radius: 20px;
+      color: $color-greenVogue;
+      padding: 16px;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      min-width: 151px;
+      height: 79px;
+      box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+
+      img {
+        height: 45px;
+        width: auto;
+        margin-right: 16px;
+      }
+
+      .title {
+        @extend .Small;
+        font-family: $font-McQueen;
+        margin-bottom: 8px;
+      }
+
+      .date {
+        @extend .Small;
+        font-weight: 700;
+        font-family: $font-Roboto;
+      }
+    }
+  }
+
+  .buttons {
+    margin-top: 24px;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}

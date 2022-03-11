@@ -1,0 +1,48 @@
+<div *ngIf="guides && guides.length>0" id="propertyGuide" name="propertyGuide"
+     class="guest-view-desktop-property-guide separator" #propertyGuide>
+
+  <div class="container-guide">
+    <div class="title-wrapper">
+      <h3 *ngIf="!property?.host?.btobInfo" class="margin-top-16">{{'guest-guid-page.title' | translate}}</h3>
+      <h3 *ngIf="property?.host?.btobInfo">{{'guest-guid-page.btob-title' | translate}}</h3>
+        <!--<img src="../../../../assets/icon/propertyGuideLine.svg">-->
+
+    </div>
+
+    <div class="width-100 flex flex-column">
+
+      <span class="roboto txt-color-scorpion Small margin-top-8" *ngIf="!property?.host?.btobInfo">{{'guest-guid-page.title-explanation' | translate}}</span>
+
+      <div class="width-100 margin-top-44 ">
+        <app-tabs-menu  [tabs]="categoryTabs" (selected)="onTabMenuSelected($event)"></app-tabs-menu>
+      </div>
+
+      <div class="width-100 flex flex-row flex-wrap margin-top-42" style="min-height: 240px">
+        <div *ngFor="let guide of currentGuidesList; let i = index">
+          <div *ngIf="needToShowGuide(guide)" class="width-100 guide-card flex flex-row flex-align-center margin-right-16 margin-bottom-16 padding-18 clickable" matRipple
+
+                (click)="openGuideDetails(guide)">
+            <img class="guide-cover" src="{{getGuideCover(guide)}}" alt="cover">
+
+            <span class="mcqueen guide-title txt-color-grvogue margin-left-16">
+             {{ guide?.translations[0]?.title}}
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="details-dialog-container" *ngIf="currentGuide && showGuideDetails">
+
+  <div class="details-container">
+    <img src="assets/icon/close-round.svg" alt="icon" class="closee clickable" (click)="closeGuide()">
+
+    <app-guide-details [property]="property" [guide]="currentGuide"></app-guide-details>
+  </div>
+
+</div>

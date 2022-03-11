@@ -1,0 +1,91 @@
+<div class="map-mobile">
+  <div class="map-wrapper">
+    <div id="guruMap" #guruMap></div>
+    <div class="location-search-container">
+      <!--Left container-->
+      <div class="flex-row flex-align-center">
+        <!-- Retour button-->
+        <div class="flex-row flex-align-center margin-right-16 clickable" (click)="closeMap()">
+          <img src="/assets/icon/icon-arrow-left.svg" alt="left">
+        </div>
+        <!--search bar container-->
+        <div class="flex-row flex-align-center location-search">
+          <img src="/assets/icon/search.svg" alt="search" class="margin-right-12 margin-left-16">
+          <input  id="fullAddress" type="text" placeholder="{{'guest-recommendation.indicate-place' | translate}}" class="width-75">
+        </div>
+      </div>
+
+      <img src="/assets/icon/filter.svg" (click)="showHideFilters()" alt="filter-icon" class="filter-icon clickable">
+      <span class="filters-badge" *ngIf="selectedCategory && selectedCategory !== 'all-categories'"><span>•</span></span>
+
+    </div>
+    <div class="all-filters flex flex-column padding-16" *ngIf="showFilters">
+      <!--TABS-->
+      <div class="flex-row margin-bottom-8">
+        <span class="roboto Small clickable txt-color-grvogue padding-bottom-8 {{filterType === 'categories' ? 'tab-selected' : ''}}" (click)="filterType = 'categories'">
+          {{'guest-recommendation.by-categories' |translate}}
+        </span>
+        <span class="roboto Small clickable txt-color-grvogue padding-bottom-8 margin-left-32 {{filterType === 'types' ? 'tab-selected' : ''}}" (click)="filterType = 'types'">
+          {{'guest-recommendation.by-types' |translate}}
+      </span>
+      </div>
+
+      <!--CATEGORY & TAGS  -->
+      <div class="flex flex-column overflow-y-auto {{filterType === 'categories' ? '' : 'display-none'}}">
+        <div>
+          <mat-form-field >
+            <mat-select class="select-category" panelClass="yaago-myclass-mobile" [placeholder]="'guest-recommendation.choose-category' |translate" [ngModelOptions]="{standalone: true}" [ngModel]="selectedCategory" (ngModelChange)="categoryChanged($event)"  >
+
+              <mat-select-trigger>
+                <div class="flex-row flex-align-center">
+                  <img *ngIf="selectedCategory !== 'all-categories'" class="margin-right-12" src="{{'assets/icon/recommendation/icon-category-colored-' + selectedCategory + '.svg'}}" alt="picto">
+                  <span class="mcqueen text-large txt-color-black"> {{('guest-recommendation.'+ selectedCategory ) | translate}}</span>
+                </div>
+              </mat-select-trigger>
+              <mat-option  [value]="'all-categories'" style="display: flex; flex-flow: row;align-items: center">
+                {{'guest-recommendation.all-categories' | translate}}
+              </mat-option>
+              <mat-option *ngFor="let cat of categories"  [value]="cat.key" style="display: flex; flex-flow: row;align-items: center">
+                <img *ngIf="cat.key != 'all'" class="img-small-category margin-right-12" src="{{'assets/icon/recommendation/icon-category-colored-' + cat.key + '.svg'}}">
+                {{('recommendation.'+ cat.key) | translate}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="flex-row flex-wrap overflow-x-auto grey-scroll">
+          <div class="flex-row flex-align-center margin-bottom-8 margin-right-8 tag-element clickable {{isTagSelected(tag.id) ? 'selected-tag' : ''}}"
+               *ngFor="let tag of categoryTags; let i = index" (click)="chooseTag(tag.id)" >
+            <span class="mcqueen Small txt-color-black">#{{getTagName(tag.id)}}</span>
+          </div>
+        </div>
+      </div>
+
+      <!--CHECKBOXES-->
+      <div class="flex flex-column {{filterType === 'types' ? '' : 'display-none'}}">
+        <div class="choice-container" >
+          <mat-checkbox  [(ngModel)]="isMine" [disabled]="!isYaago && !isCommunity && !isInfluencer" (ngModelChange)="reloadRecommendations()"></mat-checkbox>
+          <span class="roboto Small txt-color-grvogue margin-left-16">{{'guest-recommendation.my-host-addresses' | translate}}</span>
+        </div>
+        <div class="choice-container community-line" *ngIf="property?.host?.includeCommunityRecommendation">
+          <mat-checkbox  [(ngModel)]="isCommunity" [disabled]="!isMine && !isYaago && !isInfluencer" (ngModelChange)="reloadRecommendations()"></mat-checkbox>
+          <span class="roboto Small txt-color-grvogue margin-left-16">{{'guest-recommendation.community-addresses' | translate}}</span>
+        </div>
+        <div class="choice-container community-line-bottom" *ngIf="property?.host?.includeCommunityRecommendation">
+          <mat-checkbox  [(ngModel)]="isYaago" [disabled]="!isMine && !isCommunity && !isInfluencer" (ngModelChange)="reloadRecommendations()"></mat-checkbox>
+          <span class="roboto Small txt-color-grvogue margin-left-16">{{'guest-recommendation.yaago-addresses' | translate}}</span>
+        </div>
+        <div class="choice-container " >
+          <mat-checkbox  [(ngModel)]="isInfluencer" [disabled]="!isYaago && !isCommunity && !isMine" (ngModelChange)="reloadRecommendations()"></mat-checkbox>
+          <span class="roboto Small txt-color-grvogue margin-left-16">{{'guest-recommendation.influencer-addresses' | translate}}</span>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <app-guest-recommendation-v2-mini-card></app-guest-recommendation-v2-mini-card>
+  <app-guest-recommendations-card></app-guest-recommendations-card>
+  <app-guest-recommendations-reviews></app-guest-recommendations-reviews>
+
+</div>

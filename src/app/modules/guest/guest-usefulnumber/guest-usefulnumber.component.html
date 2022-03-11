@@ -1,0 +1,8 @@
+<!--<div *ngIf="property?.usefulNumbers && property?.usefulNumbers.length > 0" class="mobile useful">-->
+<div class="mobile useful">
+  <app-mobile-guest-usefulnumber *ngIf="!isDesktopMode()" [property]="property"></app-mobile-guest-usefulnumber>
+</div>
+<div #mytemplate style="background-color: #fafafa">
+  <app-desktop-guest-usefulnumber *ngIf="isDesktopMode() && property"  [property]="property"></app-desktop-guest-usefulnumber>
+</div>
+

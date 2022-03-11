@@ -1,0 +1,479 @@
+body * {
+  border-color: #e5e5e5;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+audio,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+mark,
+menu,
+meter,
+nav,
+output,
+progress,
+section,
+summary,
+time,
+video {
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0;
+  margin: 0;
+  padding: 0;
+}
+footer {
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-width-fixer {
+  width: 100%;
+}
+
+.elementor {
+  -webkit-hyphens: manual;
+  -ms-hyphens: manual;
+  hyphens: manual;
+}
+.elementor *,
+.elementor :after,
+.elementor :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.elementor-7675
+  .elementor-element.elementor-element-91c455c:not(.elementor-motion-effects-element-type-background),
+.elementor-7675
+  .elementor-element.elementor-element-91c455c
+  > .elementor-motion-effects-container
+  > .elementor-motion-effects-layer {
+  background-color: #242a70;
+}
+
+.elementor-7675 .elementor-element.elementor-element-91c455c {
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  padding: 20px 0;
+}
+.elementor-section {
+  position: relative;
+}
+
+.elementor-section.elementor-section-boxed > .elementor-container {
+  max-width: 1140px;
+}
+.elementor-section .elementor-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.elementor-row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.elementor-column {
+  min-height: 1px;
+}
+.elementor-column-wrap {
+  width: 100%;
+}
+.elementor-column,
+.elementor-column-wrap {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.elementor-column-gap-default
+  > .elementor-row
+  > .elementor-column
+  > .elementor-element-populated
+  > .elementor-widget-wrap {
+  padding: 10px;
+}
+.elementor:not(.elementor-bc-flex-widget) .elementor-widget-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.elementor-widget-wrap {
+  position: relative;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+.elementor-widget-wrap > .elementor-element {
+  width: 100%;
+}
+
+.elementor-widget:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.elementor-widget {
+  position: relative;
+}
+
+.elementor-7675
+  .elementor-element.elementor-element-1f6f4ab
+  .elementor-heading-title {
+  color: #fff;
+  font-family: "Arimo", Sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+}
+.elementor-widget-heading .elementor-heading-title {
+  color: var(--e-global-color-primary);
+  font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-primary-font-weight);
+}
+.elementor-kit-5535 h2 {
+  font-family: "Arimo", Sans-serif;
+}
+.elementor-heading-title {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+.elementor-7675 .elementor-element.elementor-element-449962c {
+  --e-icon-list-icon-size: 14px;
+}
+
+#left-area ul.elementor-icon-list-items,
+.elementor-edit-area .elementor-element ul.elementor-icon-list-items,
+.elementor .elementor-element ul.elementor-icon-list-items {
+  padding: 0;
+}
+.elementor-widget .elementor-icon-list-items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.elementor-widget .elementor-icon-list-item,
+.elementor-widget .elementor-icon-list-item a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: inherit;
+}
+.elementor-widget .elementor-icon-list-item {
+  margin: 0;
+  padding: 3px;
+  position: relative;
+}
+.elementor-widget.elementor-list-item-link-full_width a {
+  width: 100%;
+}
+
+.elementor a {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-decoration: none;
+}
+.elementor-7675
+  .elementor-element.elementor-element-449962c
+  .elementor-icon-list-text {
+  color: #fff;
+}
+.elementor-icon-list-items .elementor-icon-list-item .elementor-icon-list-text {
+  display: inline-block;
+}
+.elementor-widget-icon-list .elementor-icon-list-text {
+  color: var(--e-global-color-secondary);
+}
+
+.elementor-element .elementor-widget-container {
+  -webkit-transition: background 0.3s, border 0.3s, -webkit-border-radius 0.3s,
+    -webkit-box-shadow 0.3s;
+  transition: background 0.3s, border 0.3s, -webkit-border-radius 0.3s,
+    -webkit-box-shadow 0.3s;
+  -o-transition: background 0.3s, border 0.3s, border-radius 0.3s,
+    box-shadow 0.3s;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s,
+    -webkit-border-radius 0.3s, -webkit-box-shadow 0.3s;
+}
+.elementor-7675
+  .elementor-element.elementor-element-3074743
+  .elementor-heading-title {
+  color: #fff;
+  font-family: "Arimo", Sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+}
+.elementor-7675 .elementor-element.elementor-element-95c7519 {
+  --e-icon-list-icon-size: 14px;
+}
+
+.elementor-7675
+  .elementor-element.elementor-element-95c7519
+  .elementor-icon-list-items:not(.elementor-inline-items)
+  .elementor-icon-list-item:not(:last-child) {
+  padding-bottom: calc(10px / 2);
+}
+
+.elementor-widget.elementor-widget-icon-list .elementor-icon-list-icon {
+  text-align: var(--e-icon-list-icon-align);
+}
+.elementor-widget .elementor-icon-list-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.elementor-7675
+  .elementor-element.elementor-element-95c7519
+  .elementor-icon-list-icon
+  i {
+  color: #fff;
+}
+.elementor-widget-icon-list .elementor-icon-list-icon i {
+  color: var(--e-global-color-primary);
+}
+.elementor-widget .elementor-icon-list-icon i {
+  width: 1.25em;
+  font-size: var(--e-icon-list-icon-size);
+}
+.fa,
+.fas {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.fa,
+.fab,
+.fad,
+.fal,
+.far,
+.fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+.elementor-7675
+  .elementor-element.elementor-element-95c7519
+  .elementor-icon-list-text {
+  color: #fff;
+}
+.elementor-widget-icon-list
+  .elementor-icon-list-item
+  > .elementor-icon-list-text,
+.elementor-widget-icon-list .elementor-icon-list-item > a {
+  font-family: var(--e-global-typography-text-font-family), Sans-serif;
+  font-weight: var(--e-global-typography-text-font-weight);
+}
+
+.elementor-widget .elementor-icon-list-icon + .elementor-icon-list-text {
+  -ms-flex-item-align: center;
+  align-self: center;
+  padding-left: 5px;
+}
+
+.elementor-7675
+  .elementor-element.elementor-element-95c7519
+  .elementor-icon-list-items:not(.elementor-inline-items)
+  .elementor-icon-list-item:not(:first-child) {
+  margin-top: calc(10px / 2);
+}
+
+.elementor-7675
+  .elementor-element.elementor-element-8ccc4ab
+  .elementor-heading-title {
+  color: #fff;
+  font-family: "Arimo", Sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.elementor-widget-image {
+  text-align: center;
+}
+
+.elementor-7675 .elementor-element.elementor-element-eb2656c {
+  text-align: center;
+}
+
+.elementor-7675 .elementor-element.elementor-element-86cd081 {
+  text-align: center;
+}
+
+.elementor-7675 .elementor-element.elementor-element-86cd081 img {
+  width: 50%;
+  max-width: 47%;
+}
+.elementor-widget-image img {
+  vertical-align: middle;
+  display: inline-block;
+}
+.elementor img {
+  height: auto;
+  max-width: 100%;
+  border: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.elementor-7675 .elementor-element.elementor-element-eb2656c img {
+  width: 50%;
+  max-width: 47%;
+}
+.elementor-kit-5535 {
+  --e-global-color-primary: #6ec1e4;
+  --e-global-color-secondary: #54595f;
+  --e-global-color-text: #7a7a7a;
+  --e-global-color-accent: #f9b13d;
+  --e-global-color-1fe1019: #29306e;
+  --e-global-color-2168d4f: #f9b13d;
+  --e-global-color-20e0c17e: #000;
+  --e-global-color-2a9e5eb0: #fff;
+  --e-global-color-df4edbd: #a9a9a9;
+  --e-global-typography-primary-font-family: "Roboto";
+  --e-global-typography-primary-font-weight: 600;
+  --e-global-typography-secondary-font-family: "Roboto Slab";
+  --e-global-typography-secondary-font-weight: 400;
+  --e-global-typography-text-font-family: "Roboto";
+  --e-global-typography-text-font-weight: 400;
+  --e-global-typography-accent-font-family: "Roboto";
+  --e-global-typography-accent-font-weight: 500;
+  font-family: "Montserrat", Sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 1024px;
+  }
+  .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 1024px;
+  }
+  .elementor-row {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 768px) {
+  .elementor-column.elementor-col-100,
+  .elementor-column[data-col="100"] {
+    width: 100%;
+  }
+  .elementor-7675 .elementor-element.elementor-element-3b8e3d4 {
+    width: 29.085%;
+  }
+  .elementor-column.elementor-col-33,
+  .elementor-column[data-col="33"] {
+    width: 33.333%;
+  }
+  .elementor-7675 .elementor-element.elementor-element-69d2226 {
+    width: 40.99%;
+  }
+  .elementor-7675 .elementor-element.elementor-element-41af83c {
+    width: 29.192%;
+  }
+  .elementor-column.elementor-col-33,
+  .elementor-column[data-col="33"] {
+    width: 33.333%;
+  }
+
+  .elementor-column {
+    width: 100%;
+  }
+  // .elementor-row{
+
+  //    display: unset
+  // }
+}
+@media only screen and (max-width: 767px) {
+  .elementor-row {
+    display: unset;
+  }
+}

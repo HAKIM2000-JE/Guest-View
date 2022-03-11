@@ -1,0 +1,13 @@
+.img-header-page{
+    margin-left: 40px;
+    //margin-right: 40px;
+    width:100px;
+    object-position: center;
+    object-fit: cover;
+    flex-grow: 0;
+    cursor: pointer;
+}
+
+::ng-deep .owl-carousel .owl-item img{
+    // width: 70% !important;
+}

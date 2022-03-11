@@ -1,0 +1,13 @@
+<div matRipple  class="inline-blue-upload clickable" *ngIf="btnType === 'inline-blue'">
+  <img class="margin-right-8" src="assets/icon/upload.svg" alt="picto" *ngIf="!isUploading">
+  <img src="assets/icon/loading.svg" alt="picto" class="margin-right-8 rotate-loader" *ngIf="isUploading">
+  <span class="roboto bold X-small txt-color-grvogue">{{btnLabel | translate}}</span>
+
+  <input [disabled]="isUploading" class="upload-input clickable" matRipple (change)="onFileChoosed($event)"
+         #fileUploader id="{{id}}"
+         [accept]="allowedTypes"
+         [multiple]="uploadType === 'multiple'"
+         type="file"
+         title=""
+  >
+</div>

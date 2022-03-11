@@ -1,0 +1,22 @@
+
+
+
+
+
+<app-desktop-online-check-details *ngIf="isDesktopMode()  && !property?.checkInOnline "
+[booking]="booking"
+[property]="property"></app-desktop-online-check-details>
+
+<app-mobile-online-check-details *ngIf="!isDesktopMode() && !property?.checkInOnline "
+[booking]="booking"
+[property]="property"></app-mobile-online-check-details>
+
+
+<!-- note: booking id : 61ef6ec5da6150167175834a onLineCheck:
+checkStatus: "VALIDATED" others no onLineCheck return from the back 
+test to change --property?.checkInOnline-- to 'booking?.onLineCheck.checkStatus === ****'' -->
+
+<app-online-check-waiting *ngIf="isDesktopMode() && property?.checkInOnline"
+></app-online-check-waiting>
+
+<app-mobile-online-check-waiting *ngIf=" !isDesktopMode()  && property?.checkInOnline" ></app-mobile-online-check-waiting>

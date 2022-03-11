@@ -1,0 +1,19 @@
+<div class="number-card-container">
+  <div class="number-card-left">
+    <div>
+      <div class="number-title-category">{{number.category}}</div>
+      <div class="number-title">{{number.title}}</div>
+    </div>
+    <div *ngIf="number?.distance" class="XX-small number-distance">
+      <img src="assets/icon/useful-numbers/geoloc-number.svg">
+      à {{utilService.displayDistance(number.distance)}}</div>
+  </div>
+
+  <div class="number-card-right">
+    <div class="number-line">
+      <div class="number-number Small" (click)="Call(number)">{{number?.phoneNumber}}</div>
+    </div>
+    <div *ngIf="number.fullAddress" class="number-address X-small">{{number?.fullAddress}}</div>
+  </div>
+
+</div>

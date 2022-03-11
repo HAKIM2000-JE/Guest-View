@@ -1,0 +1,75 @@
+<div class="main-recommendation">
+  <div class="recommendation">
+    <div class="recommendation-wrapper">
+
+      <div class="header">
+        <div class="title mcqueen">
+            <h2 class="mcqueen">
+              {{'guest-recommendation.recommendation-label' | translate}}
+              <img src="../../../../assets/icon/underline.svg" alt="">
+            </h2>
+        </div>
+        <div class="explore">
+          <button class="btn-explore">
+            {{'guest-recommendation.btn-seeMore' | translate}}
+            <img src="../../../../assets/icon/icon-arrow-right-white.svg" alt="">
+          </button>
+        </div>
+      </div>
+
+      <div class="categories">
+        <div class="categories-wrapper">
+            <span [ngClass]="{'active': recommendationSearch.categories.indexOf(category.key) !== -1}"
+                  (click)="searchByCategory(category.key)"
+                  *ngFor="let category of recommendationCategory.list; let i = index;">
+              {{'guest-recommendation.'+category.key | translate}}
+            </span>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="cards-wrapper">
+
+          <span *ngIf="!recommendations.length" class="no-results">
+            {{'guest-recommendation.no-results' | translate}}
+          </span>
+
+          <div class="card" *ngFor="let recommendation of recommendations">
+            <div class="card-image">
+              <div class="image-bg"></div>
+              <img src="{{recommendation.mainPhoto}}" alt="">
+              <div class="title">
+                {{recommendation.title}}
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="address">
+                <img src="../../../../assets/icon/icon-address.svg" alt="">
+                <span class="text">{{recommendation.distance}} {{'guest-recommendation.km' | translate}}</span>
+              </div>
+              <div class="rates">
+                <div class="rate-price">
+                  <span class="icon" [ngStyle]="{'left': icon.position + 'px'}"
+                        *ngFor="let icon of recommendation.priceRanking.icons">
+                    <img src="../../../{{icon.url}}" alt="">
+                  </span>
+                  <span class="rate-label icon"
+                        [ngStyle]="{'left': recommendation.priceRanking.icons.length * 14 + 'px'}">
+                    {{'guest-recommendation.'+recommendation.priceRanking.label | translate}}
+                  </span>
+                </div>
+                <div class="rate-place">
+                  <span class="rate-label">{{recommendation.ranking}}</span>
+                  <img src="../../../../assets/icon/icon-rate-star.svg" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

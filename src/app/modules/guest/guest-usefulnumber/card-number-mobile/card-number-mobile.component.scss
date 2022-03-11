@@ -1,0 +1,82 @@
+@import "../../../../../assets/styles/colors-yaago2";
+@import "../../../../../assets/styles/yaago2-fonts";
+
+
+
+.number-card-container {
+  margin-bottom: 16px;
+
+  .number-card-top {
+    border: 0.5px solid $color-silver;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: $color-catskill;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 54px;
+    padding: 16px;
+
+    .number-title {
+        font-family: $font-McQueen;
+        font-size: 14px;
+        color: $color-greenVogue;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .number-title-category {
+      font-family: $font-McQueen;
+      font-size: 16px;
+      color: $color-greenVogue;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      font-weight: bold;
+    }
+  }
+
+  .number-card-bottom {
+    background-color: white;
+    height: 150px;
+    border: 0.5px solid $color-silver;
+    border-top: none;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    display: flex;
+    flex-flow: column;
+    padding: 24px;
+    .number-line {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      .number-number {
+        width: 100%;
+        color: $color-greenVogue;
+        font-family: $font-Roboto-Bold;
+
+      }
+      .number-icon {
+        display: flex;
+        flex-flow: row;
+      }
+
+    }
+    .number-email {
+      margin-top: 8px;
+      color: $color-greenVogue;
+    }
+    .number-address {
+      margin-top: 8px;
+      color: $color-scorpion;
+    }
+  }
+}
+
+@media (min-width: 997px) {
+  .number-card-container {
+    // padding-left: 16px;
+    padding-right: 16px;
+  }
+}

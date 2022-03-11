@@ -1,0 +1,7 @@
+<div *ngIf="showFull" class="loader-container">
+  <div (click)="closeLoader()" class="loader-content">
+    <h4 class="loader-title">{{'loader.loading' | translate }}</h4>
+    <div class="text-large margin-top-16">{{'loader.please_wait' | translate}}</div>
+    <ng-lottie [options]="options" style="margin-left: 40px"></ng-lottie>
+  </div>
+</div>

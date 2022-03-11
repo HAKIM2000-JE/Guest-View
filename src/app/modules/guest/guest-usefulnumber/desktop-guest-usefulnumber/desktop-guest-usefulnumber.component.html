@@ -1,0 +1,123 @@
+<div id="usefulNumbers" class="main-container-useful desktop "
+     *ngIf="landingNumber && landingNumber.length > 0">
+  <div class="guest-view-desktop-useful">
+  <div class="header" >
+    <h3>{{'guest-view-useful-number.useful-number' | translate }}
+      <!--<img src="../../../assets/icon/usefullNumbersLine.svg">-->
+    </h3>
+    <div *ngIf="numberOfItems > 2" class="secondary-button" style="background-color: transparent" [routerLink]="['useful-number-full-list']">{{'guest-view-useful-number.more' | translate }} </div>
+<!--<button *ngIf="numberOfItems > 8" class="link " [routerLink]="['useful-number-full-list']">
+  {{'guest-view-useful-number.more' | translate }}
+  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" fill="none" viewBox="0 0 8 12">
+    <path stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.5 1l5 5-5 5"/>
+  </svg>
+</button>-->
+  </div>
+
+    <div class="useful-number" #parent [class.bb-none]="landingNumber.length <= 4">
+
+
+      <div class="" *ngFor="let number of landingNumber">
+          <app-card-number-mobile [number]="number" [property]="property"></app-card-number-mobile>
+      </div>
+
+
+
+
+<!--      <div *ngIf="numberOfItems > 8" class="more-list" [routerLink]="['useful-number-full-list']" >-->
+<!--        {{'guest-view-useful-number.more' | translate }}-->
+<!--        <img class="arrow" src="../../../assets/icon/arrow.svg" alt="arrow icon" >-->
+<!--      </div>-->
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!--
+<div class="details-useful-number-desktop number" *ngFor="let UsefulNumber of hostPhones, let last = last" >
+  <p class="name" >{{'guest-view-useful-number.co-host' | translate}}</p>
+  <div class="content-container-block">
+    <img class="photo HostPhoto"  *ngIf="UsefulNumber.pictureUrl" [src]="UsefulNumber.pictureUrl" alt="HostPhoto">
+    <img class="photo HostPhoto"  *ngIf="!UsefulNumber.pictureUrl" src="../../../assets/images/booking/EmptyGuest.svg" alt="HostPhoto">
+    <div class="user-info">
+      <p class="firstname" >{{UsefulNumber.firstName}} {{UsefulNumber.lastName}}</p>
+
+    </div>
+
+  </div>
+  <div class="user-info-data">
+
+    <div class="icon-block numbers-block">
+      <p *ngIf="UsefulNumber?.phone" (click)="Call(UsefulNumber , 'usefull')">
+        <img src="../../../../assets/icon/phoneSVG.svg" alt="">
+        <span>{{UsefulNumber.phone}}</span>
+      </p>
+      <p *ngIf="UsefulNumber?.email" (click)="emailPerson(UsefulNumber)">
+        <img src="../../../../assets/icon/email.svg" alt=""><span>{{UsefulNumber.email}}</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="property.teammates && property.teammates.length > 0 && property.teammates[0].showMyDetails">
+  <div  class="details-useful-number-desktop number" *ngFor="let UsefulNumber of teammatePhones, let last = last" >
+    <p class="name" >{{'guest-view-useful-number.teammate' | translate}}</p>
+    <div class="content-container-block">
+      <img  class="photo HostPhoto" *ngIf="UsefulNumber.pictureUrl"  [src]="UsefulNumber.pictureUrl" alt="HostPhoto">
+      <img class="photo HostPhoto"  *ngIf="!UsefulNumber.pictureUrl" src="../../../assets/images/booking/EmptyGuest.svg" alt="HostPhoto">
+
+      <div class="user-info">
+        <p class="firstname" >{{UsefulNumber.firstName}} {{UsefulNumber.lastName}}</p>
+
+      </div>
+
+    </div>
+
+    <div class="icon-block numbers-block">
+      <p>
+        <img src="../../../../assets/icon/phoneSVG.svg" alt="">
+        <span>{{UsefulNumber.phone}}</span>
+      </p>
+      <p>
+        <img src="../../../../assets/icon/email.svg" alt="">
+        {{UsefulNumber.email}}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="details-useful-number-desktop number number-detail" *ngFor="let UsefulNumber of landingNumber, let last = last , let i = index"
+     [ngClass]="{'last-child': last}">
+  <div class="name" *ngIf="UsefulNumber?.title">{{UsefulNumber?.title}}
+    <span *ngIf="UsefulNumber.distance > 0"> ({{UsefulNumber?.distance.toFixed(2)}} km)</span>
+  </div>
+  <div class="content-container-block">
+    <div class="user-info-content">
+      <div class="icon-block numbers-block">
+        <p *ngIf="UsefulNumber?.phoneNumber" (click)="Call(UsefulNumber , 'coHost')">
+          <img src="../../../../assets/icon/phoneSVG.svg" alt=""><span>{{UsefulNumber?.phoneNumber}}</span>
+        </p>
+        <p *ngIf="UsefulNumber?.fullAddress">
+          <img src="../../../../assets/icon/location.svg" /><span>{{UsefulNumber?.fullAddress}}</span>
+        </p>
+
+
+
+      </div>
+    </div>
+  </div>
+  <div *ngIf="UsefulNumber?.fullAddress" class="get-direction" (click)="getDirection(UsefulNumber?.fullAddress)">
+    {{'guest-view-useful-number.get-directions' | translate}}
+    <img src="../../../../assets/icon/red_arrow.svg" />
+  </div>
+
+</div>
+</div>
+-->

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+    <g id="Current-location-icon" transform="translate(-5312 -1655)">
+        <circle id="Ellipse_5" cx="28" cy="28" r="28" fill="rgba(255,243,238,0.95)" data-name="Ellipse 5" transform="translate(5312 1655)"/>
+        <g id="Ellipse_6" fill="#FE3945" stroke="#fff" stroke-width="2px" data-name="Ellipse 6" transform="translate(5322 1665)">
+            <circle cx="18" cy="18" r="18" stroke="none"/>
+            <circle cx="18" cy="18" r="17" fill="none"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+<section id="BOOKLET-REVIEWS">
+  <div class="y2021-guest-section">
+    <div class="y2021-h3">{{'booklet-review.avis' | translate}}</div>
+    <div class="y2021-h3-subtitle">{{'booklet-review.avis-subtitle' | translate}} </div>
+
+    <div class="range-box margin-top-16">
+      <app-star-rating class="stars" [(rating)]="rating"></app-star-rating>
+      <div class="value">{{rating}}</div>
+    </div>
+
+    <div class="y2021-flexrow margin-top-16 div-button">
+      <div class="textarea-for-review">
+        <textarea style="width: 100%" rows="10" [(ngModel)]="textReview"></textarea>
+      </div>
+
+      <app-button [type]="'primary'" text="{{'booklet-review.avis-submit' | translate}}" (debounceClick)="saveReview()"></app-button>
+
+    </div>
+
+  </div>
+</section>

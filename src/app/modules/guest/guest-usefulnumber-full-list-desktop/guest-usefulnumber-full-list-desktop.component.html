@@ -1,0 +1,34 @@
+<!--<app-guest-menu-desktop [property]="property"  [target]="[null]"></app-guest-menu-desktop>
+<app-guest-menu-mobile [noreview]="true"></app-guest-menu-mobile>
+<app-guest-menu-desktop [noreview]="true" [property]="property" [target]="[]" ></app-guest-menu-desktop>
+-->
+
+<div id="usefulNumbers" class="main-container-useful"  >
+  <div class="guest-view-desktop-section-container" style="padding-top: 24px;">
+    <div class="header-seeMore" >
+      <a [routerLink]="['/guest',bookingId]" class="back-link"><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" />
+        {{'guest-global-text.back-btn' | translate}}
+      </a>
+        <h4 style="margin-top: 24px;">{{'guest-view-useful-number.useful-number' | translate }}</h4>
+        <!--<img src="../../../assets/icon/usefullNumbersLine.svg" alt="">-->
+    </div>
+
+
+
+    <div class="useful-number-seeMore" >
+
+      <div style=" width: 100%" *ngFor="let number of landingNumber">
+        <app-card-number-mobile [number]="number" [property]="property"></app-card-number-mobile>
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+</div>
+
+
+

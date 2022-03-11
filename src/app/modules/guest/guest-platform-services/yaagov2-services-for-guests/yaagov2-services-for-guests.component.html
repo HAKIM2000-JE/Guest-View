@@ -1,0 +1,23 @@
+<section *ngIf="!property?.host?.btobInfo && !property?.noshowPlatformServicesOnBooklet && platformServices?.length > 0" class="section-color">
+  <div class="service-container">
+
+    <h3 class="big-title">{{'guest-platefromservices-page.title' | translate}}</h3>
+    <div class="Small sub-title">{{'guest-platefromservices-page.description' | translate}}</div>
+
+
+    <div class="guest-view-block-card" >
+      <div class="card-block" *ngFor="let p of platformServices; let i = index">
+        <div class="partner-div">
+          <img [id]="'platformLogo' + i" class="picture-logo" [src]="p.logoUrl" alt="partner-img"/>
+        </div>
+        <p [id]="'platformDescription' + i" class="partner-info">{{p.translations[0].description}}</p>
+        <div class="partner-link">
+          <a [id]="'platformLink' + i" class="alink-no-decoration " target="_blank" [href]="p.translations[0].webSiteUrl">{{'guest-platefromservices-page.more-btn'  | translate}}
+            <!--<img class="arrow"  src="../../../assets/images/booking/Vector.svg">-->
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

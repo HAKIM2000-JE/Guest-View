@@ -1,0 +1,48 @@
+@media (max-width: 1024px) {
+  :host {
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+  }
+
+}
+//
+@media   (min-width: 1024px) {
+  :host {
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    overflow-x: hidden;
+  }
+}
+
+//@media (max-width: 1024px) {
+//  :host {
+//    overflow-x: hidden;
+//    flex-flow: unset;
+//    display: unset;
+//  }
+//}
+
+.scrollable-container {
+  margin: 0 !important;
+  //overflow: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  // height: 100vh;
+  position: relative;
+  @media (max-width: 1023px) {
+    //overflow: inherit;
+  }
+  //.main-container{
+  //  overflow-y: scroll;
+  //  height: 100%;
+  //}
+
+  //&>div{
+  //  overflow-y: scroll;
+  //  height: 100%;
+  //}
+}

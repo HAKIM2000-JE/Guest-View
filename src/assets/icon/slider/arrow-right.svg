@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10.822" height="16.446" viewBox="0 0 10.822 16.446">
+    <defs>
+        <style>
+            .cls-1,.cls-3{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3,.cls-4{stroke:#bfd7dd;stroke-linecap:round;stroke-width:2px}.cls-4{fill:#bfd7dd}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h10.822v16.446H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="arrow-slider" class="cls-2">
+        <path id="trace" d="M0 6.981L8 0" class="cls-3" transform="translate(1.411 8.053)"/>
+        <path id="trace-2" d="M1.079-.035L9 7" class="cls-4" data-name="trace" transform="translate(.411 1.035)"/>
+    </g>
+</svg>

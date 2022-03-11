@@ -1,0 +1,11 @@
+textarea {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px gainsboro;
+  -webkit-box-shadow: 0 0 0 1px gainsboro;
+  border: 5px solid transparent;
+  padding: 8px;
+  font-size: 14px;
+  font-family: $font-Roboto;
+  color: $color-greenVogue;
+  resize: none;
+}

@@ -1,0 +1,209 @@
+@import "../../../../../assets/styles/gusl-shared";
+
+
+.main-container-recommendation{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #f0f3f4;
+    padding: 30px 100px;
+
+    .rectangle-md{
+        width: 29px;
+        height: 2px;
+        background-color: #49b1d6;
+        margin:10px 0 30px 0;
+    }
+    .rectangle-bg{
+        width: 47px;
+        height: 4px;
+        background-color: #49b1d6;
+        margin-top: 15px;
+    }
+
+    .rec-wrapper{
+        width: 100%;
+        background-color: #ffffff;
+        border-radius: 24px;
+
+        .header{
+            width: 100%;
+            text-align: center;
+            font-family: $guru-font-hind;
+            color: #1d2c5a;
+            letter-spacing: normal;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .rec-title{
+                width: 100%;
+                padding: 20px 0;
+                font-size: 18px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+
+            }
+            .rec-label{
+                width: 100%;
+                font-size: 32px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+            }
+        }
+
+        .content{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .guest-form{
+                padding: 20px;
+                max-width: 450px;
+
+                .section-label{
+                    width: 100%;
+                    display: block;
+                    font-family: $guru-font-hind;
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: #001440;
+                    padding-top: 50px;
+                }
+
+                .categories{
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-left: -10px;
+                    .category{
+                        width: 33.33%;
+                        padding: 10px;
+                        display: flex;
+                        img{
+                            width: 64px;
+                            height: 64px;
+                            border-radius: 5px;
+                            display:block;
+                            padding: 14px;
+                            background-color: #f5f9fb;
+                        }
+                        span{
+                            width: 100%;
+                            float: left;
+                            text-align: center;
+                            padding: 7px 0;
+                        }
+
+                    }
+                }
+
+                .box-sm{
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding:40px 24px;
+                    border-radius:20px;
+                    box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.04);
+                    background-color: #ffffff;
+                }
+
+                .rate-input{
+                    width: 80%;
+                    padding-right: 10px;
+
+                    mat-slider {
+                        width: 100%
+                    }
+                }
+
+                .rate-label{
+                    width: 20%;
+                    padding-top: 13px;
+
+                    img{
+                        padding-right: 5px;
+                    }
+
+                    span{
+                        width: 20%;
+                        font-family: $guru-font-hind;
+                        font-size: 20px;
+                        font-weight: 600;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        color: #001440;
+                    }
+                }
+
+                .price{
+                    width: 20%;
+                    text-align: center;
+
+                    span{
+                        width: 100%;
+                        text-align: center;
+                        cursor: pointer;
+                        font-size: 12px;
+                        font-weight: 600;
+                        background-color:rgba(237, 115, 49, 0.12);
+                        color:#ed7331;
+                        padding:15px 20px;
+                        border-radius: 4px;
+                        border: solid 0.9px #ed7331;
+                    }
+                }
+
+                .tags-label{
+                    width: 100%;
+                    float: left;
+                    font-family: $guru-font-hind;
+                    font-size: 12px;
+                    font-weight: 600;
+                    opacity: 0.8;
+                    color: #001440;
+                    padding: 20px 0;
+                }
+
+                .suggested-tags{
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    font-family: $guru-font-hind;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #ed7331;
+                    span{
+                        padding:0 12px 10px 0;
+                        cursor: pointer;
+                    }
+                }
+
+                .added-tags{
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    span{
+                        padding: 3px 12px;
+                        border: solid 1px #40d09a;
+                        border-radius: 24px;
+                        cursor: pointer;
+                        color: #40d09a;
+                        margin: 5px 5px 5px 0;
+                        font-size: 10px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}

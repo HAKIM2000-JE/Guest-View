@@ -1,0 +1,368 @@
+@import "../../../../../assets/styles/gusl-shared";
+@import "../../../../../assets/styles/yaago2-style";
+
+
+.guest-view-desktop-useful {
+    width: 1024px;
+    margin: auto;
+}
+
+#usefulNumbers {
+  .header {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      display: inline;
+      padding: 0;
+      font-size: 50px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: left;
+      color: $gurubnb-titleColor;
+      position: relative;
+    }
+
+    img {
+      position: absolute;
+      width: 210px;
+      left: 0px;
+      bottom: -20px;
+    }
+  }
+}
+
+.useful-number {
+  width: 100%;
+  margin: 50px auto 0 auto;
+  overflow: hidden;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+
+  &.bb-none{
+    .details-useful-number-desktop {
+      border-bottom: none !important;
+    }
+  }
+}
+
+.details-useful-number-desktop {
+  margin: 0;
+  vertical-align: bottom;
+  border-left: 1px solid rgba(125, 129, 140, 0.3);
+  box-shadow: none;
+  border-radius: 0;
+  padding: 28px 0 35px 20px;
+  position: relative;
+  height: 277px;
+  .get-direction {
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 80px;
+    border: solid 1px $gurubnb-red;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: $gurubnb-red;
+    cursor: pointer;
+    padding: 16px 25px;
+    position: absolute;
+    bottom: 30px;
+
+    img {
+      height: 12px;
+      width: 12px;
+      margin-left: 10px;
+    }
+  }
+
+  &:nth-child(4n + 1){
+    border-left: none;
+  }
+
+
+  &:nth-child(-n + 4){
+      border-bottom: 1px solid rgba(125, 129, 140, 0.3);
+  }
+
+  &:nth-child(n + 5) {
+    &:nth-child(-n + 7) {
+      &:last-child {
+        border-right: 1px solid rgba(125, 129, 140, 0.3);
+
+      }
+    }
+  }
+
+  &:nth-child(-n + 3) {
+      &:last-child {
+        border-right: 1px solid rgba(125, 129, 140, 0.3);
+      }
+  }
+
+    &.number-detail {
+    .name {
+      line-height: normal;
+    }
+  }
+
+  &:nth-child(n + 9) {
+    display: none;
+  }
+}
+
+.HostPhoto {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 0;
+  margin-right: 21px;
+
+}
+
+.usefulnumber {
+  margin: 10px 0px;
+}
+
+.min-height {
+  height: 414px;
+}
+
+.firstname {
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #141414;
+  margin-bottom: 5px;
+  width: 85%;
+}
+
+.main-container-useful.desktop {
+  background-color: #fafafa;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  width: auto;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  color: $gurubnb-profiledata;
+  margin-bottom: 20px;
+  margin-right: 8px;
+  height: 27px;
+  // overflow-y: scroll;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: normal;
+}
+
+
+.usefulnumber {
+  width: 100%;
+  height: 19px;
+  font-family: $guru-font-hind;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #1d2c5a;
+}
+
+.more-list {
+  margin-top: 16px;
+  font-family: $guru-font-hind;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #6183e5;
+  cursor: pointer;
+
+  img {
+    margin-left: 20px;
+    vertical-align: middle;
+  }
+}
+
+.directions {
+  display: inline-block;
+  background: #f3f5fd;
+  border: 1.2px solid #91a5eb;
+  border-radius: 5px;
+  margin-left: 14px;
+  height: 34px;
+  line-height: 34px;
+  color: #869de9;
+  padding: 0px 9px;
+  font-size: 14px;
+  vertical-align: top;
+  cursor: pointer;
+
+  .icon {
+    width: 16px;
+    vertical-align: middle;
+  }
+}
+
+.details-useful-info .icon {
+  vertical-align: top;
+}
+
+.address-useful {
+  font-family: $guru-font-hind;
+  font-size: 12px;
+  color: #1d2c5a;
+  margin-bottom: 14px;
+}
+
+.useful-name {
+  margin: 10px 0px;
+}
+
+.content-container-block {
+  /*top: 50%;
+  position: relative;
+  transform: translateY(-50%);*/
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+
+
+}
+
+.user-info {
+  width: calc(100% - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  .details-useful-info, .icon-block {
+    text-align: left;
+  }
+
+
+}
+
+.user-info-data,
+.user-info-content {
+  width: 100%;
+}
+
+.icon-block {
+  p {
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: $gurubnb-profiledata;
+    margin-bottom: 6px;
+    line-height: 22px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      margin-right: 12px;
+      //height: 16px;
+      width: 19px;
+    }
+  }
+
+
+
+  &.numbers-block {
+    p {
+      display: flex;
+      align-items: baseline;
+      text-align: left;
+      padding-right: 10px;
+      word-break: break-word;
+      width: calc(100% - 25px);
+
+      span {
+        width: calc(100% - 25px);
+        word-break: break-word;
+        padding-right: 5px;
+      }
+    }
+  }
+}
+
+.icon-block.landing {
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+  right: 0px;
+}
+
+.container {
+  margin-right: 105px;
+  //margin-left: auto;
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.row {
+  display: flex;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.column {
+  width: 50%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+button.link {
+  height: 48px;
+  padding: 16px;
+  font-size: 16px;
+  object-fit: contain;
+  border-radius: 80px;
+  background-color: #fe3945;
+  color: #ffffff;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+
+
+.numbers-container-mobile {
+  margin-top: 32px;
+  display: flex;
+  flex-flow: column;
+}

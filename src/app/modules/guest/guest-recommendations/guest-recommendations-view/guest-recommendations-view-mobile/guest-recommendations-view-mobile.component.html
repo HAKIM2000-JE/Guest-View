@@ -1,0 +1,166 @@
+<div class="new-recommendation-section">
+  <div class="new-recommendation-section-content">
+
+    <div class="header1">
+      <div>
+
+        <h4 *ngIf="recommendationSearch.onlyMine">
+          {{property?.showMeAsHost ? property.host.firstName : property?.coHostInCharge?.firstName}} {{'guest-view-recommendation.you-recommend' | translate}}
+        </h4>
+        <h4 *ngIf="!recommendationSearch.onlyMine">{{'guest-view-recommendation.hosts-recommend' | translate}}</h4>
+
+        <div *ngIf="recommendationSearch.onlyMine" class="Small sous-titre">{{'guest-view-recommendation.select-category' | translate}}</div>
+        <div *ngIf="!recommendationSearch.onlyMine" class="Small sous-titre">{{'guest-view-recommendation.select-host-category' | translate}}</div>
+
+      </div>
+
+    </div>
+
+    <div>
+
+      <mat-form-field class="pr-1" appearance="fill" >
+        <div class="category-header">
+          <div></div>
+          <img class="ml-auto arrow-down" src="assets/icon/recommendation/V2_Icon_arrow-down.svg" style="transform: rotate(180deg);">
+        </div>
+        <mat-select name="selectedCategory" [ngModelOptions]="{standalone: true}" [ngModel]="selectedCategory" (selectionChange)="categorySelectionChange($event.value)" (ngModelChange)="selectedCategory"  >
+          <mat-option *ngFor="let cat of categories"  [value]="cat.key" 
+          (click)="onClickOnCategorieAtPage('Profile0' , cat)">
+            <img *ngIf="cat.key != 'all'" class="img-small-category" src="{{'./assets/icon/recommendation/blue/' + cat.key + '.svg'}}">
+            {{('recommendation.'+ cat.key) | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <section #SectionRecommendationCard>
+      <div>
+        <div class="new-recommendation-card-container" >
+          <div class="new-recommendation-card" (click)="openCard(recommendation) ;onClickOnRecomendationItemAtPage('Profile0',recommendation)" *ngFor="let recommendation of newRecommendations">
+            <img class="new-reco-photo" src="{{recommendation.mainPhoto == null ? 'assets/icon/recommendation/empty/' + recommendation.category.key : recommendation.mainPhoto}}"
+                 onerror="">
+
+            <div class="new-reco-descr">
+              <div class="header1 truncate-text">
+                <div class="reco-title truncate-text">{{recommendation.title }}</div>
+                <div class="category-container" style="margin-left: 8px">
+                  <img class="img-star" src="assets/icon/icon-rate-star.svg">
+                  <div class="distance">{{recommendation.ranking.rating}}</div>
+                </div>
+              </div>
+
+              <div class="header1 truncate-text" style="margin-top: 8px">
+                <div class="category-container">
+                  <img class="img-small-category" src="{{'./assets/icon/recommendation/map-cluster-' + recommendation.category.key + '.svg'}}">
+                  <div class="category truncate-text">{{('recommendation.' + recommendation.category.key) | translate}}</div>
+                </div>
+                <div class="distance" style="width: 70px">({{'guest-view-recommendation.at' | translate}} {{recommendation.distance}} km)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="header1">
+      <div class="km-legend">{{'guest-view-recommendation.calculated-distance' | translate}}</div>
+    </div>
+
+    <div>
+      <div class="secondary-button" (click)="showMap()" style="background-color: transparent">{{'guest-view-recommendation.see-on-map' | translate}}</div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<!--
+<div class="guest-view-mobile-section-container">
+
+  <div class="recommendation">
+    <div class="recommendation-wrapper">
+      <div class="header">
+        <h2 class="rec-title mcqueen">
+          {{'guest-recommendation.recommendation-label' | translate}}
+          <img src="../../../../../../assets/icon/underline.svg" alt="">
+        </h2>
+      </div>
+
+      <div class="categories">
+        <div class="category-active" (click)="openCategory()">
+          <img *ngIf="recommendationSearch.categories[0]" class="icon"
+            src="../../../../../assets/icon/recommendation/icon-category-active-{{recommendationSearch.categories[0]}}.svg" alt="">
+          <span class="label-active">{{'guest-recommendation.'+recommendationSearch.categories[0] | translate}}</span>
+          <span *ngIf="!recommendationSearch.categories[0]">{{'guest-recommendation.filterByCategory' | translate}}</span>
+          <img class="dropdown-icon" [ngStyle]="{'transform': startFilter ? 'rotate(180deg)' : '' }"
+               src="../../../../../../assets/icon/recommendation/icon-arrow-down-2.svg" alt="">
+        </div>
+
+        <div class="category-list" *ngIf="startFilter">
+            <div class="category" [ngStyle]="{'display':recommendationSearch.categories[0] == category.key ? 'none' : ''}"
+                 (click)="searchByCategory(category.key)" *ngFor="let category of recommendationCategory.list">
+              <img src="../../../../../{{category.icon}}" alt="">
+              <span>{{'guest-recommendation.'+category.key | translate}}</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="cards-wrapper">
+          <span *ngIf="!recommendations.length && !this.isLoading" class="no-results">
+            {{'guest-recommendation.no-results' | translate}}
+          </span>
+            <div class="card" (click)="openCard(recommendation)" *ngFor="let recommendation of recommendations">
+              <div class="card-image">
+                <div class="image-bg"></div>
+                <img *ngIf="recommendation.mainPhoto" src="{{recommendation.mainPhoto}}" alt="">
+                <img *ngIf="!recommendation.mainPhoto" src="../../../../../../assets/images/recommendation/no-image.png" alt="">
+                <span class="card-title">{{recommendation.title}}</span>
+              </div>
+              <div class="card-info">
+                <div class="address">
+                  <img src="../../../../../../assets/icon/icon-address.svg" alt="">
+                  <span class="text">{{recommendation.distance}} {{'guest-recommendation.km' | translate}}</span>
+                </div>
+                <div class="ratings">
+                  <div class="price-rate">
+                    <span class="icon"
+                          [ngStyle]="{
+                          'left': icon.position + 'px',
+                          'width': recommendation.priceRanking.rating == 1 ? '49px' : '26px'
+                        }"
+                          *ngFor="let icon of recommendation.priceRanking.icons">
+                    <img src="../../../../../{{icon.url}}" alt="">
+                  </span>
+                    <span class="icon-label" [ngStyle]="{'left': recommendation.priceRanking.icons.length * 14 + 'px'}">
+                    <span class="icon-wrapper">
+                      <span>{{'guest-recommendation.'+recommendation.priceRanking.label | translate}}</span>
+                    </span>
+                  </span>
+                  </div>
+
+                  <div class="place-rate">
+                    <span class="place-label">{{recommendation.ranking.rating.toFixed(1)}}</span>
+                    <img class="place-icon" src="../../../../../../assets/icon/icon-rate-star.svg" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <button class="explore-more" (click)="showMap()">
+        {{'guest-recommendation.btn-seeMore' | translate }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" fill="none" viewBox="0 0 8 12">
+          <path stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.5 1l5 5-5 5"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</div>
+-->
+<app-guest-recommendations-map></app-guest-recommendations-map>
+

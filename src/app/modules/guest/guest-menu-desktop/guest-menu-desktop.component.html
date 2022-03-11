@@ -1,0 +1,77 @@
+<div id="menu" [class.dark]="theme === 'dark'">
+  <div class="containermenu">
+    <div class="row-navbar navbar">
+      <a href="#" [routerLink]="['/guest', bookingId]">
+        <div class="logo">
+          <img *ngIf="property?.customLayout && property?.host?.btobInfo?.logoUrl" style="height: 60px; padding-right: 24px;" src="{{property?.host?.btobInfo?.logoUrl}}"/>
+
+          <img *ngIf="property?.customLayout && corporate?.corporateTag === 'COTOON'" style="height: 60px; padding-right: 24px;" src="../../../../assets/images/footers/cotoon/logo-cotoon.webp"/>
+
+          <img *ngIf="corporate?.logoUrl" style="height: 60px; padding-right: 24px;" [src]="corporate.logoUrl" (click)="loader()">
+          <img *ngIf="!corporate?.onlyWhiteLabel" src="../../../../assets/images/yaago.svg"/>
+
+        </div>
+      </a>
+      <div class="navigation">
+        <ul class="menu_list">
+          <li appToogleBtnSwitch ngClass="{{currentActiveMenu === 'details' ? 'open' : ''}}">
+            <button routerLink="{{'/guest/' + bookingId +'/details'}}"  (click)="currentActiveMenu='details'"
+              >{{'menu-desktop.bookingDetails' | translate}}</button>
+          </li>
+          <li *ngIf="property?.guides?.length > 0" ngClass="{{currentActiveMenu === 'guides' ? 'open' : ''}}">
+            <button routerLink="{{'/guest/' + bookingId +'/guides'}}" (click)="currentActiveMenu='guides'"
+              >{{'menu-desktop.propertyGuide' | translate}}</button>
+          </li>
+          <li *ngIf="!property?.noshowRecommendationOnBooklet" ngClass="{{currentActiveMenu === 'recommendations' ? 'open' : ''}}">
+            <button routerLink="{{'/guest/' + bookingId +'/recommendations'}}"  (click)="currentActiveMenu='recommendations'"
+              >{{'menu-desktop.recommendations' | translate}}</button>
+          </li>
+          <li
+            *ngIf="property?.usefulNumbers?.length > 0"
+            ngClass="{{currentActiveMenu === 'usefulnumber' ? 'open' : ''}}">
+            <button routerLink="{{'/guest/' + bookingId +'/usefulnumber'}}" (click)="currentActiveMenu='usefulnumber'"
+              >{{'menu-desktop.usefulNumbers' | translate}} </button>
+          </li>
+          <li *ngIf="!property?.host?.btobInfo && !property?.noshowPlatformServicesOnBooklet" ngClass="{{currentActiveMenu === 'services' ? 'open' : ''}}">
+            <button routerLink="{{'/guest/' + bookingId +'/services'}}"  (click)="currentActiveMenu='services'"
+              >{{'menu-desktop.platformServices' | translate}}</button>
+          </li>
+          <li *ngIf="property?.forceMajeureItems?.length > 0 && !property?.noshowHygieneOnBooklet" ngClass="{{currentActiveMenu === 'hygienes' ? 'open' : ''}}">
+            <button routerLink="{{'/guest/' + bookingId +'/hygienes'}}"  (click)="currentActiveMenu='hygienes'"
+              >{{'menu-desktop.hygiene' | translate}}</button>
+          </li>
+
+          <!--<li *ngIf="booking != null" ngClass="{{currentActiveMenu === 'messaging' ? 'open' : ''}}">
+            <button routerLink="{{'/guest/' + bookingId +'/messaging'}}"  (click)="currentActiveMenu='messaging'" style="position: relative "
+            >{{'menu-desktop.messaging' | translate}}<div *ngIf="hasUnreadMessages" class="badge"></div></button>
+          </li>-->
+
+          <div *ngIf="booking != null && hasUnreadMessages" class="margin-left-16 roboto Large nav-alert-placeholder" >
+            <img alt="avatar" src="assets/icons/guest-card/mail-inbox.svg"
+                 style="width: 25px;  margin-bottom: 3px;">
+            <div *ngIf="hasUnreadMessages" class="badge">&nbsp;</div>
+          </div>
+
+        </ul>
+
+        <app-button routerLink="{{'/guest/' + bookingId +'/messaging'}}" *ngIf="booking != null" [text]="'menu-desktop.messaging' | translate" [type]="'primary'" (debounceClick)="currentActiveMenu='messaging'"></app-button>
+
+        <div class="language-chooser flex flex-row flex-align-center clickable margin-left-24" (click)="this.languageChooserOpened = !this.languageChooserOpened;"
+             appClickOutside (clickOutside)="languageChooserOpened = false">
+
+          <img class="flag margin-left-8" src="{{getLanguage(currentLanguage)}}" alt="Flag">
+
+          <div class="chooser-container grey-scroll" *ngIf="languageChooserOpened">
+            <div class="flex flex-row flex-align-center clickable margin-top-12 margin-bottom-12"
+                 *ngFor="let lang of getLanguages()"
+                 (click)="changeLanguage(lang)">
+              <img class="flag margin-right-12" src="{{getLanguage(lang)}}" alt="Flag">
+              <span
+                class="roboto Small txt-color-black txt-nowrap">{{getNonTranslatedLanguageName(lang)}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

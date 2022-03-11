@@ -1,0 +1,75 @@
+@import "../../../../../assets/styles/yaago2-style";
+
+@media all and (max-width: 799px){
+    .request-confirm {
+        font-size: 18px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .container-modal{
+        padding: 32px 24px;
+    }
+}
+@media all and (min-width: 800px){
+    .request-confirm {
+        font-size: 24px;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    .container-modal{
+        padding: 40px;
+        width: 509px;
+        height: 222px;
+    }
+    .cancel{
+        width: 134px;
+    }
+    .confirm{
+       width: 169px;
+    }
+}
+
+.buttons-container{
+    margin-top: 16px;
+}
+
+.cancel{
+    @extend .Small;
+    height: 48px;
+    border-radius: 80px;
+    border: solid 1px $color-greenVogue;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: $color-greenVogue;
+}
+.confirm{
+    @extend .Small;
+    height: 48px;
+    border-radius: 80px;
+    background-color: $color-dunnessant;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: $color-white !important;
+    margin-left: 8px;
+}
+
+button,
+button:focus,
+button:active:focus,
+button.active:focus {
+    outline: none !important;
+    outline-style: none !important;
+}
+
+::ng-deep .mat-button-focus-overlay {
+    display: none;
+}
+

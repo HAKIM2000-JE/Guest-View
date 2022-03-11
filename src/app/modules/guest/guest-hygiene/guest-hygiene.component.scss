@@ -1,0 +1,141 @@
+@import "../../../../assets/styles/gusl-shared";
+.section-container{
+  background-color: #f4f4f4;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 40px;
+}
+.content{
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 1px 1Px 21px 1px #00000021;
+}
+.covid-title{
+  color: #eb5757;
+  font-family: "Hind Madurai", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  margin: 12px 0px;
+}
+.covid-desc{
+  font-family: $guru-font-hind;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  color: #1d2c5a;
+  margin-bottom: 40px;
+}
+.sub-title{
+  font-family: $guru-font-hind;
+  font-size: 15px;
+  font-weight: 600;
+  color: #001440;
+  margin-bottom: 15px;
+}
+.sub-desc{
+  font-family: $guru-font-hind;
+  font-size: 15px;
+  color: #7d818c;
+  }
+
+.collaps .header img.icon, .collaps .header span {
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.collaps .header img.icon{
+  width: 34px;
+}
+.collaps{
+  .header{
+    padding: 20px 0px;
+    .title {
+      cursor: pointer;
+      position: relative;
+      .icon-dwn{
+        position: absolute;
+        right: 0px;
+        top: 20px;
+      }
+      span{
+        font-family: $guru-font-hind;
+        font-size: 16px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #1d2c5a;
+      }
+    }
+
+  }
+
+  .collaps-content{
+    height: 0px;
+    opacity: 0;
+    display: none;
+    transition: height 0.4s;
+    h4{
+      font-family:  $guru-font-hind;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1d2c5a;
+    }
+    p{
+      font-family: $guru-font-hind;
+      font-size: 12px;
+      line-height: 1.59;
+      letter-spacing: normal;
+      color: #7d818c;
+      margin: 10px 0px 18px;
+    }
+  }
+
+}
+.collaps .header.open ~ .collaps-content{
+  height: auto;
+  opacity: 1;
+  display: block;
+  transition: height 0.4s;
+}
+.separator{
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: block;
+}
+.list-top-item,.list-bottom-item{
+  margin-bottom: 20px;
+}
+.big-btn{
+  width: 100%;
+  height: 54px;
+  border-radius: 8px;
+  background-color: #6183e5;
+  border: none;
+  color: #fff;
+  line-height: 54px;
+  font-family: $guru-font-hind;;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-transform: capitalize;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 30px;
+}
+.org-img {
+  text-align: center;
+  margin-top: 50px;
+
+}

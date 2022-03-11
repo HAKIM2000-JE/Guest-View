@@ -1,0 +1,189 @@
+.msg-auto {
+  color: #686868;
+  font-family: McQueenDisplay-Regular;
+  font-size: 20px;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  flex-direction: column;
+}
+.msg-auto p {
+  padding-bottom: 40px;
+}
+.result-null {
+  text-align-last: center;
+}
+.result-null p {
+  font-family: McQueenDisplay-Regular;
+  color: var(--greenVogue-color);
+  font-size: 20px;
+  font-weight: normal;
+}
+.result-null p:nth-of-type(2) {
+  color: #686868;
+  font-size: 18px;
+  padding-top: 14px;
+  padding-bottom: 35px;
+}
+.result-null img {
+  height: 150px;
+}
+.status p {
+  font-family: McQueenDisplay-Regular;
+  color: #686868;
+  font-size: 20px;
+}
+.status-waiting {
+  background-color: #fb9f50;
+  color: white;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+  width: 100px;
+  text-align: -webkit-center;
+}
+
+.status-validated {
+  background-color: #1d9c28;
+  color: white;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+  width: 100px;
+  text-align: -webkit-center;
+}
+.clickable {
+  cursor: pointer;
+}
+.status-position {
+  margin-top: -4px;
+  margin-left: 21px;
+}
+.status {
+  display: flex;
+}
+.informations {
+  padding-bottom: 20px;
+  padding-right: 75px;
+}
+.informations p,
+.contrat p {
+  font-size: 20px;
+  font-family: McQueenDisplay-Regular;
+  color: var(--greenVogue-color);
+  font-weight: 600;
+  padding-bottom: 25px;
+}
+
+.informations p:nth-of-type(2) {
+  color: red;
+}
+.identity {
+  font-size: 20px;
+  font-family: McQueenDisplay-Regular;
+  color: var(--greenVogue-color);
+  font-weight: 600;
+  padding-bottom: 25px;
+}
+.information-position {
+  width: 50%;
+}
+
+.contrat-position {
+  width: 50%;
+  display: inline-block;
+}
+
+.containers-block {
+  display: flex;
+  margin-top: 72px;
+}
+.display-informations {
+  display: flex;
+  justify-content: space-between;
+}
+.images > img {
+  height: 130px;
+  width: 217px;
+  padding-bottom: 5px;
+  margin-right: 8px;
+  border-radius: 16px;
+}
+
+.information-position-nocontrat {
+  display: flex;
+}
+.information-width {
+  width: 50%;
+}
+
+.primary-buttons {
+  font-size: 14px;
+  padding: 0 16px 0 16px;
+  cursor: pointer;
+  height: 33px;
+  width: inherit;
+  pointer-events: auto;
+  line-height: initial;
+  background-color: var(--dunnessant-color) !important;
+  color: white !important;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+  overflow: visible;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  width: 160px;
+  border-radius: 12px;
+}
+
+.status-button {
+  display: flex;
+  justify-content: space-between;
+}
+h3,
+h5 {
+  font-family: McQueenDisplay-Regular;
+}
+h5 {
+  font-size: 20px;
+  font-weight: 400;
+  padding-bottom: 8px;
+}
+.contrat p,
+.informations p {
+  font-size: 20px;
+  font-family: McQueenDisplay-Regular;
+  color: var(--greenVogue-color);
+  font-weight: 600;
+  padding-bottom: 25px;
+}
+
+.card-informations {
+  margin-top: 16px;
+
+  padding: 24px 32px 24px 24px;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 4px 20px 8px rgb(0 0 0 / 9%);
+  border: none !important;
+  padding: 48px;
+}
+
+.edit-button {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+}

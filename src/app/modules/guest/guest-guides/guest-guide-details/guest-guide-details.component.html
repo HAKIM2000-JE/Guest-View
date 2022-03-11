@@ -1,0 +1,284 @@
+
+<!--DESKTOP NOT WIFI DETAILS-->
+<div  class="flex flex-column flex-space-between padding-32" *ngIf="!showingSlider && guide.category !== 'wifi' && isDesktopMode()">
+
+  <span class="mcqueen  txt-color-black X-large margin-bottom-22">{{guide.translations[0]?.title}}</span>
+
+  <div class="flex flex-column" >
+    <div class="video-section margin-top-16 margin-bottom-24" *ngIf="guide?.videos && guide.videos.length > 0">
+      <img src="/assets/icon/arrow-down.svg" *ngIf="guide.videos.length > 2"  alt="previous" class="arrow clickable margin-right-16"
+           (click) = "divScroll(videoContainer, 'left')">
+      <div class="videos-container grey-scroll" #videoContainer>
+
+        <div class="video-item" *ngFor="let video of guide.videos">
+          <video controls *ngIf="video.type === DocType.VIDEO || video.type === DocType.EXTERNAL_VIDEO">
+            <source src="{{video.url + '#t=0.001'}}" >
+            Your browser does not support the video tag.
+          </video>
+
+          <app-external-video-box *ngIf="[DocType.YOUTUBE, DocType.VIMEO, DocType.DAILYMOTION].includes(video.type)"
+                                  [videoUrl]="video.url"
+          ></app-external-video-box>
+        </div>
+
+      </div>
+      <img src="/assets/icon/arrow-down.svg" *ngIf="guide.videos.length > 2" alt="next" class="arrow clickable rotate-180 margin-left-16"
+           (click) = "divScroll(videoContainer, 'right')">
+    </div>
+
+    <div class="overflow-auto grey-scroll margin-top-16 ql-editor" style="height: auto" *ngIf="guide?.translations?.length > 0"
+         [innerHTML]="guide.translations[0].description"
+    ></div>
+    <app-audio-play *ngIf="!property.noAudioDisplay" [textToSpeak]="getCleanTextToRead(guide.translations[0].description)"></app-audio-play>
+
+    <div class="flex flex-column margin-top-24" *ngIf="guide?.externalLinks && guide?.externalLinks?.length > 0">
+      <h6>{{'guest-guid-page.external-links' | translate}}</h6>
+
+      <div class="flex flex-row flex-align-center flex-space-between margin-top-8" *ngFor="let link of guide.externalLinks; let i = index">
+        <span class="roboto bold Medium underline clickable  width-90 txt-nowrap txt-ellipsis hidden-overflow" (click)="openLink(link.url)">{{link.title}}</span>
+      </div>
+    </div>
+
+    <span *ngIf="guide?.documents && guide?.documents.length > 0" class="margin-bottom-24 margin-top-32 txt-nowrap mcqueen Large txt-color-black">
+      {{'guest-guid-page.photos-documents' | translate}}
+    </span>
+
+    <div class="doc-section" *ngIf="guide?.documents && guide.documents.length > 0">
+      <img src="assets/icon/arrow-down.svg"  *ngIf="guide.documents.length > 2" alt="previous" class="arrow clickable margin-right-16"
+           (click) = "divScroll(docContainer, 'left')">
+      <div class="doc-container grey-scroll" #docContainer>
+
+        <div class="doc-item" *ngFor="let doc of guide.documents; let i= index" (click)="showSlider(i)">
+          <img *ngIf="doc.type === DocType.IMAGE" src="{{doc.url}}"  class="image" alt="pic">
+          <iframe *ngIf="doc.type === DocType.PDF"  class="grey-scroll"
+                  [src]="doc.url | safe2:'resourceUrl'" ></iframe>
+
+          <iframe *ngIf="doc.type === DocType.WORD" frameborder="0"
+                  [src]="('https://view.officeapps.live.com/op/embed.aspx?src=' + doc.url) |safe2 : 'resourceUrl'"></iframe>
+          <div class="element-mask"></div>
+        </div>
+
+      </div>
+      <img src="assets/icon/arrow-down.svg" *ngIf="guide.documents.length > 2" alt="next" class="arrow clickable rotate-180 margin-left-16"
+           (click) = "divScroll(docContainer, 'right')">
+    </div>
+  </div>
+
+  <!--<div class="overflow-auto grey-scroll padding-left-12" *ngIf="guide?.translations?.length > 0"
+    [innerHTML]="guide.translations[0].description"
+  ></div>-->
+
+</div>
+
+<!--DESKTOP WIFI DETAILS-->
+<div class="flex flex-row padding-32" *ngIf="!showingSlider &&  guide.category === 'wifi' && isDesktopMode()">
+
+  <app-qr-code [isCopyVisible]="false" url="{{getWifiCode()}}"></app-qr-code>
+  <!--<a href="{{getWifiUrl()}}">Wifi link</a>-->
+
+
+  <div class="margin-left-24 flex flex-column">
+    <span class="mcqueen Large txt-color-black margin-top-16 margin-bottom-16">
+      {{'guest-guid-page.wifi' | translate}} : {{guide.translations[0].title}}
+    </span>
+    <span class="roboto Small txt-color-scorpion">
+      {{'guest-guid-page.password' | translate}} : {{guide.translations[0].description}}
+    </span>
+    <span class="roboto Small txt-color-scorpion margin-top-8">
+      {{'guest-guid-page.security-type' | translate}} : {{guide.translations[0].wifiSecurityProtocol}}
+    </span>
+  </div>
+</div>
+
+<!--MOBILE NOT WIFI DETAILS-->
+<div class="width-100 flex flex-column padding-32" *ngIf="!showingSlider && guide.category !== 'wifi' && !isDesktopMode()">
+
+  <h4 *ngIf="guide.translations && guide.translations.length > 0" class="margin-bottom-8">{{guide.translations[0].title}}</h4>
+
+  <div class="video-mobile-section margin-top-16 margin-bottom-16" *ngIf="guide?.videos && guide.videos.length > 0">
+    <img src="/assets/icon/arrow-down.svg"  alt="previous" class="arrow clickable margin-right-8"
+         (click) = "divScroll(videoContainer, 'left')">
+    <div class="videos-mobile-container grey-scroll" #videoContainer>
+
+      <div class="video-mobile-item" *ngFor="let video of guide.videos">
+        <video controls *ngIf="video.type === DocType.VIDEO || video.type === DocType.EXTERNAL_VIDEO">
+          <source src="{{video.url + '#t=0.001'}}" >
+          Your browser does not support the video tag.
+        </video>
+
+        <app-external-video-box *ngIf="[DocType.YOUTUBE, DocType.VIMEO, DocType.DAILYMOTION].includes(video.type)"
+                                [videoUrl]="video.url"
+        ></app-external-video-box>
+      </div>
+
+    </div>
+    <img src="/assets/icon/arrow-down.svg" alt="next" class="arrow clickable rotate-180 margin-left-8"
+         (click) = "divScroll(videoContainer, 'right')">
+  </div>
+
+  <h5 *ngIf="guide?.documents && guide?.documents.length > 0" class="margin-bottom-24 margin-top-24 txt-nowrap ">
+    {{'guest-guid-page.photos-documents' | translate}}
+  </h5>
+
+  <div class="flex flex-row flex-space-between flex-wrap" *ngIf="!mobileDocListOpened && guide.documents?.length > 4">
+    <div class="doc-mobile-item" *ngFor="let i of [0,1,2,3]">
+      <img *ngIf="guide.documents[i].type === DocType.IMAGE" src="{{guide.documents[i].url}}"  class="image" alt="pic">
+      <iframe *ngIf="guide.documents[i].type === DocType.PDF"  class="grey-scroll"
+              [src]="guide.documents[i].url | safe2:'resourceUrl'" ></iframe>
+
+      <iframe *ngIf="guide.documents[i].type === DocType.WORD" frameborder="0"
+              [src]="('https://view.officeapps.live.com/op/embed.aspx?src=' + guide.documents[i].url) |safe2 : 'resourceUrl'"></iframe>
+      <div class="plus-counter-container mcqueen clickable" *ngIf="i === 3" (click)="mobileDocListOpened = true">
+        {{'+' + (guide.documents.length - 4)}}
+      </div>
+      <div class="plus-counter-container no-bg clickable"  *ngIf="i < 3" (click)="showSlider(i)">
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-row flex-space-between flex-wrap" *ngIf="mobileDocListOpened || guide.documents?.length <= 4">
+    <div class="doc-mobile-item" *ngFor="let doc of guide.documents; let i = index">
+      <img *ngIf="doc.type === DocType.IMAGE" src="{{doc.url}}"  class="image" alt="pic">
+      <iframe *ngIf="doc.type === DocType.PDF"  class="grey-scroll"
+              [src]="doc.url | safe2:'resourceUrl'" ></iframe>
+
+      <iframe *ngIf="doc.type === DocType.WORD" frameborder="0"
+              [src]="('https://view.officeapps.live.com/op/embed.aspx?src=' + doc.url) |safe2 : 'resourceUrl'"></iframe>
+      <div class="plus-counter-container no-bg clickable" (click)="showSlider(i)">
+    </div>
+  </div>
+  </div>
+
+  <div class="width-100 overflow-auto grey-scroll margin-top-32 ql-editor" style="height: auto" *ngIf="guide?.translations?.length > 0"
+       [innerHTML]="guide.translations[0].description"
+  ></div>
+  <app-audio-play *ngIf="!property.noAudioDisplay" [textToSpeak]="getCleanTextToRead(guide.translations[0].description)"></app-audio-play>
+
+    <div class="flex flex-column margin-top-24" *ngIf="guide?.externalLinks && guide?.externalLinks?.length > 0">
+      <h6>{{'property-guide.external-links' | translate}}</h6>
+
+      <div class="flex flex-row flex-align-center flex-space-between margin-top-8" *ngFor="let link of guide.externalLinks; let i = index">
+        <span class="roboto bold Medium underline clickable  width-90 txt-nowrap txt-ellipsis overflow-hidden" (click)="openLink(link.url)">{{link.title}}</span>
+      </div>
+    </div>
+
+
+<div class="flex flex-column flex-align-center" *ngIf="!showingSlider &&  guide.category === 'wifi' && !isDesktopMode()">
+
+  <app-qr-code [isCopyVisible]="false" url="{{getWifiCode()}}"></app-qr-code>
+
+
+  <div class="flex flex-column">
+    <span class="mcqueen Large txt-color-black margin-top-16 margin-bottom-16">
+      {{'guest-guid-page.wifi' | translate}} : {{guide?.translations[0]?.title}}
+    </span>
+    <span class="roboto Small txt-color-scorpion">
+      {{'guest-guid-page.password' | translate}} : {{guide?.translations[0]?.description}}
+    </span>
+    <span class="roboto Small txt-color-scorpion margin-top-8">
+      {{'guest-guid-page.security-type' | translate}} : {{guide?.translations[0]?.wifiSecurityProtocol}}
+    </span>
+  </div>
+</div>
+
+
+</div>
+
+<!--MOBILE WIFI DETAILS-->
+<div class="flex flex-column flex-align-center flex-justify-center padding-32" *ngIf="!showingSlider &&  guide.category === 'wifi' && !isDesktopMode()">
+
+  <app-qr-code [isCopyVisible]="false" url="{{getWifiCode()}}"></app-qr-code>
+
+
+  <div class="margin-left-24 flex flex-column">
+  <span class="mcqueen Large txt-color-black margin-top-16 margin-bottom-16">
+    {{'guest-guid-page.wifi' | translate}} : {{guide.translations[0].title}}
+  </span>
+    <span class="roboto Small txt-color-scorpion">
+    {{'guest-guid-page.password' | translate}} : {{guide.translations[0].description}}
+  </span>
+    <span class="roboto Small txt-color-scorpion margin-top-8">
+    {{'guest-guid-page.security-type' | translate}} : {{guide.translations[0].wifiSecurityProtocol}}
+  </span>
+  </div>
+</div>
+
+<!--SLIDER DESKTOP-->
+<div class="width-100 flex flex-column padding-32" *ngIf="showingSlider && isDesktopMode()">
+
+  <div class="flex flex-row flex-align-center clickable" (click)="showingSlider = false">
+    <img src="assets/icon/arrow-down.svg" alt="Icon" class="margin-right-8">
+    <span class="roboto bold Small txt-color-grvogue">{{'guest-guid-page.return' | translate}}</span>
+  </div>
+
+  <div class="slider-container margin-top-16">
+    <div class="slider-content" *ngIf="guide && guide.documents && guide.documents.length > 0">
+
+      <img *ngIf="guide?.documents[sliderIndex].type === DocType.IMAGE" src="{{guide?.documents[sliderIndex].url}}"
+           class="slider-picture" alt="">
+
+      <iframe *ngIf="guide?.documents[sliderIndex].type === DocType.PDF"
+              [src]="(guide?.documents[sliderIndex].url + '#toolbar=0') | safe2:'resourceUrl'"></iframe>
+
+      <iframe *ngIf="guide?.documents[sliderIndex].type === DocType.WORD" frameborder="0"
+              [src]="('https://view.officeapps.live.com/op/embed.aspx?src=' + guide?.documents[sliderIndex].url) |safe2 : 'resourceUrl'"></iframe>
+
+      <button *ngIf="guide.documents.length > 1" appDebounceClick (debounceClick)="previous()" class="fab-button arrow-left" mat-mini-fab color="primary"
+              aria-label="Previous">
+        <mat-icon>arrow_back_ios_new</mat-icon>
+      </button>
+      <button *ngIf="guide.documents.length > 1" appDebounceClick (debounceClick)="next()" class="fab-button arrow-right" mat-mini-fab color="primary"
+              aria-label="Next">
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </div>
+
+    <span class="roboto bold Small txt-color-grvogue margin-top-8">{{sliderIndex + 1}}
+      /{{guide?.documents?.length}}
+    </span>
+    <span class="roboto legend-viewer txt-color-scorpion">
+      {{guide?.documents[sliderIndex].description}}
+    </span>
+  </div>
+
+</div>
+
+<!--SLIDER MOBILE-->
+<div class="width-100 flex flex-column slider-mobile" *ngIf="showingSlider && !isDesktopMode()">
+
+  <div class="flex flex-row flex-align-center clickable margin-top-24 padding-left-32" (click)="showingSlider = false">
+    <img src="assets/icon/arrow-down.svg" alt="Icon" class="margin-right-8">
+    <span class="roboto bold Small txt-color-grvogue">{{'guest-guid-page.return' | translate}}</span>
+  </div>
+
+  <div class="slider-container margin-top-16">
+    <div class="slider-content" *ngIf="guide && guide.documents && guide.documents.length > 0">
+
+      <img *ngIf="guide?.documents[sliderIndex].type === DocType.IMAGE" src="{{guide?.documents[sliderIndex].url}}"
+           class="slider-picture" alt="">
+
+      <iframe *ngIf="guide?.documents[sliderIndex].type === DocType.PDF"
+              [src]="(guide?.documents[sliderIndex].url + '#toolbar=0') | safe2:'resourceUrl'"></iframe>
+
+      <iframe *ngIf="guide?.documents[sliderIndex].type === DocType.WORD" frameborder="0"
+              [src]="('https://view.officeapps.live.com/op/embed.aspx?src=' + guide?.documents[sliderIndex].url) |safe2 : 'resourceUrl'"></iframe>
+
+      <button *ngIf="guide.documents.length > 1" appDebounceClick (debounceClick)="previous()" class="fab-button arrow-left" mat-mini-fab color="primary"
+              aria-label="Previous">
+        <mat-icon>arrow_back_ios_new</mat-icon>
+      </button>
+      <button *ngIf="guide.documents.length > 1" appDebounceClick (debounceClick)="next()" class="fab-button arrow-right" mat-mini-fab color="primary"
+              aria-label="Next">
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </div>
+
+    <span class="roboto bold Small txt-color-grvogue margin-top-8">{{sliderIndex + 1}}
+      /{{guide?.documents?.length}}
+    </span>
+    <span class="roboto legend-viewer txt-color-scorpion">
+      {{guide?.documents[sliderIndex].description}}
+    </span>
+  </div>
+
+</div>

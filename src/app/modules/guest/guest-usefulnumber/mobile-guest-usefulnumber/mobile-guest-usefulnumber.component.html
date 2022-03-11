@@ -1,0 +1,33 @@
+<div class="main-container-useful  guest-view-mobile-section-container " [ngClass]="{'detail':detailPage}"
+     *ngIf="landingNumber && landingNumber.length > 0">
+  <div class="header">
+    <a *ngIf="detailPage" [routerLink]="['/guest',bookingId]" class="back-link"><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'guest-global-text.back-btn' | translate}}</a>
+    <h4>{{'guest-view-useful-number.useful-number' | translate }}</h4>
+  </div>
+
+
+  <div class="number">
+    <div class="useful-number">
+
+      <div class="" *ngFor="let number of landingNumber">
+        <app-card-number-mobile [number]="number" [property]="property"></app-card-number-mobile>
+      </div>
+
+      <div class="secondary-button"  [routerLink]="['useful-number']">
+        {{'guest-view-useful-number.more' | translate }}
+      </div>
+
+
+    <!--<button *ngIf="!detailPage" class="more-detail" [routerLink]="['useful-number']">
+      {{'guest-view-useful-number.more' | translate }}
+      <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" fill="none" viewBox="0 0 8 12">
+        <path stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.5 1l5 5-5 5"/>
+      </svg>
+    </button>-->
+
+  </div>
+
+
+</div>
+
+

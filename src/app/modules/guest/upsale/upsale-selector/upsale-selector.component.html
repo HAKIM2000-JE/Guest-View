@@ -1,0 +1,126 @@
+<app-guest-menu-desktop  [property]="property" [target]="[]" *ngIf="isDesktopMode()"></app-guest-menu-desktop>
+<app-guest-menu-mobile *ngIf="!isDesktopMode()"></app-guest-menu-mobile>
+
+<section id="upsale-Selector" class="section-upsale">
+  <div id="setup-container" class="setup-container" [ngClass]="{'desktop-mode' : isDesktopMode(), 'mobile-mode': !isDesktopMode()}">
+
+    <div class="us-basket-container">
+      <div>
+        <div style="flex-flow: row; display: flex; align-items: center">
+          <div style="position: relative; ">
+            <img style="height: 35px;" src="assets/icon/upsale/shopping-cart.png">
+            <div *ngIf="currentGuestOrder?.orderProducts?.length > 0" class="us-basket-badge">{{currentGuestOrder?.orderProducts?.length}}</div>
+          </div>
+          <app-button style="margin-left: 16px" [type]="'secondary-small'" [text]="'voir le panier'" (debounceClick)="openBasket()"></app-button>
+        </div>
+        <!--<span  *ngIf="currentGuestOrder?.orderProducts?.length > 0">{{currentGuestOrder?.orderProducts?.length}} produit(s) dans le panier</span>-->
+        </div>
+      <div>
+        <strong>Total :</strong> {{currentGuestOrder?.orderTotalAmount.amount | currency : currentGuestOrder?.orderTotalAmount.currency}}
+      </div>
+    </div>
+
+
+    <div class="us-content-container">
+
+      <div class="us-category-list">
+        <div *ngFor="let category of upsaleCategoryAndProductDtos" class="us-category-item category-selected" (click)="setCurrentCategory(category)"
+             [ngClass]="{'category-selected' : (selectedCategory.categoryId == category.categoryId)}">
+          <img class="us-category-picture" src="{{category.categoryPictureUrl == null ? 'assets/icon/recommendation/empty/activities.jpg' : category.categoryPictureUrl}}">
+          <div class="us-category-title-container">
+            <div class="us-category-title" [ngClass]="{'us-category-title-selected' : (selectedCategory.categoryId == category.categoryId)}">{{category.categoryTitle}}</div>
+            <div  class="us-category-subtitle"><span *ngIf="category.products?.length">{{category.products?.length}} produits</span></div>
+          </div>
+          <div >
+            <img class="us-category-arrow" [ngClass]="{'us-category-arrow-selected' : (selectedCategory.categoryId == category.categoryId)}" src="assets/icon/icon-arrow-right-white.svg">
+          </div>
+        </div>
+      </div>
+
+      <div class="us-product-container">
+
+        <div class="us-product-card-list clickable" *ngIf="currentProductList != null">
+          <div class="background-cat" *ngFor="let product of currentProductList" (click)="setCurrentProduct(product)">
+            <div *ngIf="product.productTitle !== 'Previous'" class="us-product-card text-truncate" >
+              <img class="us-product-photo" src="{{product.productPictureUrl == null ? 'assets/icon/recommendation/empty/activities.jpg' : product.productPictureUrl}}">
+              <div class="us-product-descr text-truncate">
+                <div class="header1 text-truncate">
+                  <div class="reco-title text-truncate">{{product.productTitle }}</div>
+                </div>
+                <div class="price">à partir de {{getPrice(product) | currency: getCurrency(product)}}  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="currentProduct != null">
+          <div class="us-alone-product">
+            <div class="us-alone-product-line">
+              <img class="us-alone-product-photo" src="{{currentProduct.productPictureUrl == null ? 'assets/icon/recommendation/empty/activities.jpg' : currentProduct.productPictureUrl}}">
+              <div class="us-alone-product-col-container  margin-left-16">
+                <div class="us-alone-product-col ">
+                  <div class="us-alone-product-title">
+                    {{currentProduct.productTitle}}
+                  </div>
+                  <div class="us-alone-product-descr">
+                    {{currentProduct.productDescription}}
+                  </div>
+                </div>
+
+                <div *ngIf="currentProduct.fixedPrice != null" class="us-alone-product-descr">
+                  {{currentProduct.fixedPrice.amount | currency: currentProduct.fixedPrice.currency}}
+                </div>
+
+                <div *ngIf="currentProduct.conditionalPrices != null" class="us-alone-product-descr" >
+
+                  <mat-radio-group
+                    aria-labelledby="example-radio-group-label"
+                    class="us-alone-product-col "
+                    [(ngModel)]="currentProductCondition"
+                    >
+                    <mat-radio-button class="us-alone-product-row padding-top-12" *ngFor="let price of currentProduct.conditionalPrices" [value]="price">
+                      <div class="us-alone-product-row" style="width: 350px;"
+                           [ngClass]="{'condition-selected' : (currentProductCondition === price)}">
+                        <div >{{price.condition}}</div>
+                        <div >{{price.conditionalPrice.amount | currency: price.conditionalPrice.currency}}</div>
+                      </div>
+                    </mat-radio-button>
+                  </mat-radio-group>
+
+                </div>
+
+                <div style="display: flex; flex-direction: row; justify-content: flex-end">
+                  <app-button (debounceClick)="addToCard(currentProduct, currentProductCondition)" [type]="'primary'" [text]="'Add to card'"></app-button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!--<div class="gris-back container-upsale" id="platformServices">
+      <div class="new-upsale-card-container clickable" >
+        <div class="new-upsale-card" *ngFor="let category of upsaleCategoryAndProductDtosForDisplay" (click)="setCurrentCategory(category)">
+          <img class="new-upsale-photo" src="{{category.categoryPictureUrl == null ? 'assets/icon/recommendation/empty/activities.jpg' : category.categoryPictureUrl}}">
+          <div class="new-upsale-descr">
+            <div class="header1 truncate-text">
+              <div class="reco-title truncate-text">{{category.categoryTitle}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-left">
+      <img class="arrow-img" *ngIf="sliceIndex > 0" src="assets/icon/icon-arrow-right-white.svg" style="transform: rotate(180deg);" (click)="previous()">
+    </div>
+    <div class="arrow-right">
+      <img class="arrow-img" src="assets/icon/icon-arrow-right-white.svg" (click)="next()">
+    </div>-->
+  </div>
+
+</section>

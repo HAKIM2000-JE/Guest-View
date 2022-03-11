@@ -1,0 +1,225 @@
+@import "../../../../assets/styles/gusl-shared";
+
+.container404 {
+  position: relative;
+  height: 100vh;
+}
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #001440;
+  font-family: $font-McQueen;
+}
+
+.desc {
+  text-align: center;
+  font-family: $font-Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #072d4d;
+
+}
+
+@media (max-width: 997px) {
+  .container404 {
+    position: relative;
+    height: 65vh;
+  }
+  .title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #001440;
+    font-family: $guru-font-hind;
+  }
+
+  .desc {
+    font-family: "Hind Madurai", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #072d4d;
+    margin-bottom: 64px;
+  }
+}
+
+
+
+@media (min-width: 997px) {
+  .container {
+    width: 100vw;
+    margin: 0;
+    max-width: initial;
+    background-color: #fff3ee;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+
+    .error-container {
+      width: 693px;
+      height: 326px;
+      padding: 44px 44px 80px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      margin: auto;
+
+      img {
+        display: inline-block;
+      }
+    }
+
+  }
+
+  .error-information {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .error-illustration-wrapper {
+      margin-right: 44px;
+      img {
+        width: 137.6px;
+        height: 128px;
+      }
+    }
+
+    .error-info-wrapper {
+      .title {
+        margin-bottom: 20px;
+        font-size: 40px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #001440;
+        font-family: $guru-font-hind;
+      }
+
+      .desc {
+        font-family: "Hind Madurai", sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #072d4d;
+      }
+    }
+  }
+
+  .icon-logo-wrapper {
+    margin-bottom: 44px;
+    .icon-logo{
+      width: 63px;
+    }
+  }
+}
+
+
+
+@media (max-width: 996px) {
+  .icon-logo-wrapper {
+    margin-top: 44px;
+    margin-bottom: 11px;
+    .icon-logo{
+      width: 107px;
+    }
+  }
+
+  .container {
+    width: 100vw;
+    margin: 0;
+    max-width: initial;
+    background-color: #fff3ee;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px;
+      background-color: #ffffff;
+      margin-right: 15px;
+      margin-left: 15px;
+
+      img {
+        display: inline-block;
+      }
+    }
+
+  }
+
+  .error-information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .error-illustration-wrapper {
+      img {
+        width: 137.6px;
+        height: 128px;
+      }
+    }
+
+    .error-info-wrapper {
+      margin: 28px 10px 170px;
+
+      .title {
+        margin-bottom: 20px;
+        font-size: 24px;
+        text-align: center;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #001440;
+        font-family: $guru-font-hind;
+      }
+
+      .desc {
+        font-family: "Hind Madurai", sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        text-align: center;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #072d4d;
+      }
+    }
+  }
+}

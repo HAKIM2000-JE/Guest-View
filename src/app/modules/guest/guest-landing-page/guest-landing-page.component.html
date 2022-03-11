@@ -1,0 +1,61 @@
+<app-guest-menu-desktop class="fixed-header" *ngIf="isDesktopMode()"
+                        [property]="property"
+                        [corporate]="corporate"
+                        [booking]="booking"
+                        [fragment]="landingPageFragment"
+                        [target]="[details['mytmpl'],
+                        guides['mytmpl'],
+                        usefulnumber['mytmpl'],
+                        services['mytmpl'],
+                        hygienes['mytmpl'],
+
+                        recommendations['mytmpl']]" ></app-guest-menu-desktop>
+<app-guest-menu-mobile *ngIf="!isDesktopMode()" [(booking)]="booking" [corporate]="corporate"></app-guest-menu-mobile>
+<div class="landing-page-container">
+
+  <app-guest-toppage  [property]="property" [(booking)]="booking"></app-guest-toppage>
+
+  <app-guest-booking-details  id="details" #details [booking]="booking" [property]="property" [corporate]="corporate"></app-guest-booking-details>
+
+  <app-guest-property-guides id="guides" #guides [booking]="booking" [property]="property" ></app-guest-property-guides>
+
+  <app-guest-recommendations-view  id="recommendations" #recommendations></app-guest-recommendations-view>
+  <app-guest-usefulnumber id="usefulnumber" #usefulnumber></app-guest-usefulnumber>
+
+  <app-upsale-category-list *ngIf="hasUpsales" id="upsales" #upsales [booking]="booking" ></app-upsale-category-list>
+
+  <app-guest-platform-services  id="services"  #services [property]="property" [platformServices]="platformAffiliateServices"></app-guest-platform-services>
+  <app-guest-hygiene id="hygienes"  #hygienes></app-guest-hygiene>
+  <app-footer-booklet-reviews *ngIf="booking != null" [bookingId]="booking?.id" [bookletReviews]="bookletReviews"></app-footer-booklet-reviews>
+  <app-guest-footer-page *ngIf="property?.host?.corporate" [corporate]="property?.host?.corporate"></app-guest-footer-page>
+  <!--<app-guest-messaging id="messaging"  #messaging ></app-guest-messaging>-->
+  <app-desktop-guest-arrived-left *ngIf="isDesktopMode() && booking" [booking]="booking" [property]="property"></app-desktop-guest-arrived-left>
+  <app-mobile-guest-arrived-left *ngIf="!isDesktopMode() && booking" [booking]="booking" [property]="property"></app-mobile-guest-arrived-left>
+</div>
+<section>
+  <ng-template [ngIf]="!property.customLayout">
+    <app-yaago2-yaago-footer></app-yaago2-yaago-footer>
+  </ng-template>
+
+  <ng-template [ngIf]="property.customLayout">
+    <!-- <app-yaago2-yaago-footer *ngIf="!property?.host?.btobInfo && property?.host?.email?.indexOf('cotoon')<0"></app-yaago2-yaago-footer> -->
+    <!--<app-vbca-footer *ngIf="property?.host?.btobInfo?.companyName==='Village By CA Rouen'" [property]="property"></app-vbca-footer>
+    <app-cotoon-footer *ngIf="property?.host?.email?.indexOf('cotoon')>=0" ></app-cotoon-footer>
+    <app-rentatranquille-footer *ngIf="property?.host?.email?.indexOf('rentatranquille')>=0" ></app-rentatranquille-footer>
+    <app-guest-adom-footer *ngIf="property?.host?.email?.indexOf('adom')>=0" ></app-guest-adom-footer>
+    <app-keylodge-footer  *ngIf="property?.host?.email?.indexOf('keylodge')>=0"></app-keylodge-footer>-->
+
+    <!--FOOTER BY CORPORATE TAG-->
+    <app-vbca-footer *ngIf="corporate?.corporateTag === 'VBCA_ROUEN'" [property]="property"></app-vbca-footer>
+    <app-cotoon-footer *ngIf="corporate?.corporateTag === 'COTOON'" ></app-cotoon-footer>
+    <app-rentatranquille-footer *ngIf="corporate?.corporateTag === 'RENTATRANQUILLE'" ></app-rentatranquille-footer>
+    <app-guest-adom-footer *ngIf="corporate?.corporateTag === 'GUESTADOM'" ></app-guest-adom-footer>
+    <app-keylodge-footer  *ngIf="corporate?.corporateTag === 'KEYLODGE'"></app-keylodge-footer>
+    <app-yaago2-powered-by-footer [corporate]="corporate"></app-yaago2-powered-by-footer>
+
+  </ng-template>
+
+
+</section>
+
+

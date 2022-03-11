@@ -1,0 +1,107 @@
+<section class="container-desktop">
+  <div  class="container-covid">
+    <h3 *ngIf="isDesktopMode()">Mesures COVID-19</h3>
+    <h4 *ngIf="!isDesktopMode()">Mesures COVID-19</h4>
+    <div class="mesure-text">
+      {{covid1}}
+    </div>
+    <app-audio-play *ngIf="!property.noAudioDisplay" [textToSpeak]="covid1"></app-audio-play>
+  </div>
+  <div class="mesure-text">
+
+  </div>
+</section>
+<section class="footer-area">
+  <div class="container-footer">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 single-footer-widget text-secondary text-center">
+        <img src="{{property?.host?.btobInfo?.logoUrl}}" alt="Le Village by CA Rouen Vallée de Seine" width="160px"><br>
+      </div>
+      <div class="col-lg-3 col-md-4 single-footer-widget">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a target="_blank" href="https://rouen.levillagebyca.com/le-village">Le Village by CA</a></li>
+          <li><a target="_blank" href="https://rouen.levillagebyca.com/start-up">Start-up</a></li>
+          <li><a target="_blank" href="https://rouen.levillagebyca.com/partenaires">Partenaires</a></li>
+          <li><a target="_blank" href="https://rouen.levillagebyca.com/formation">Formation</a></li>
+          <li><a target="_blank" href="https://rouen.levillagebyca.com/location-espaces-reunions-seminaires">Offre événementielle sur-mesure</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4 single-footer-widget ">
+        <h4>Encore + rapides</h4>
+        <ul>
+          <li><a target="_blank" href="https://rouen.levillagebyca.com/plan-acces-contact#contact">Nous contacter</a></li>
+          <li><a target="_blank" href="https://rouen.levillagebyca.com//nous-rejoindre">Intégrer le Village by CA</a></li>
+          <li><a href="mailto:contact.rouen@levillagebyca.com?subject=Devenir partenaire" target="_blank">Devenir partenaire </a></li>
+          <li><a target="_blank" href="https://rouen.levillagebyca.com//location-espaces-reunions-seminaires">Réserver nos espaces</a></li>
+          <li><a target="_blank" href="https://rouen.levillagebyca.com/evenements">Agenda du Village</a></li>
+
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-4 single-footer-widget text-center">
+        <h4>Tenez-vous au jus !</h4>
+        <div class="footer-social mb-4">
+          <a href="https://fr.linkedin.com/company/village-by-ca-rouen-vall%C3%A9e-de-seine" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/VillageCA_Rouen" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/channel/UCEL7v8NC4QnZLUZxej6A5Dg" target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+        </div>
+        <h5 class="text-white mb-0"><small><b>Juste de temps en temps, promis ;)</b></small></h5>
+
+
+        <!-- Begin Sendinblue Form -->
+        <!-- START - We recommend to place the below code in head tag of your website html  -->
+
+        <link rel="stylesheet" href="https://assets.sendinblue.com/component/form/2ef8d8058c0694a305b0.css">
+        <link rel="stylesheet" href="https://assets.sendinblue.com/component/clickable/b056d6397f4ba3108595.css">
+        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+        <!--  END - We recommend to place the above code in head tag of your website html -->
+
+        <!-- START - We recommend to place the below code where you want the form in your website html  -->
+        <div class="sib-form">
+          <div id="sib-form-container" class="sib-form-container">
+            <div id="sib-container" class="sib-container--large sib-container--vertical">
+              <form id="sib-form" method="POST" action="https://45a078a0.sibforms.com/serve/MUIEAPcrPY65AatJTCM3LoUXUUMyvW3uaj9hhcqN2PrQeg-ZPgJOfdj7WVd2rsB9jqXlrjf2nt0l8c_XuxQzNApZRkuwAKwRnHmw-MpjVSiS4hj4ZXcYLZGudvOGNtqA_dPtBUCApMszZr5JsT5yGBl3SSy4xERLn0FX58BzgTs64GawFyrh9vkGtIVeyRxLmY8ulgGkgkItLlk0">
+
+                <div class="sib-input sib-form-block">
+                  <div class="form__entry entry_block">
+                    <div class="form__label-row ">
+
+
+                      <!--<div class="entry__field">
+                        <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Votre email" data-required="true" required="">
+                        <button class="sib-form-block__button sib-form-block__button-with-loader click-btn btn btn-default text-uppercase" form="sib-form" type="submit">
+                          <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                      </div>-->
+                    </div>
+                    <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:&quot;Helvetica&quot;, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-width:px; border-color:#ff4949;">
+                    </label>
+                  </div>
+                </div>
+                <input type="text" name="email_address_check" value="" class="input--hidden">
+                <input type="hidden" name="locale" value="fr">
+                <input type="hidden" name="html_type" value="simple">
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row mt-5 margin-bottom-8">
+
+
+      <div class="col-lg-12 col-md-12 single-footer-widget text-secondary">
+        <b>Le Village by CA Rouen Vallée de Seine</b> : 107 Allée François Mitterrand 76100 ROUEN - <a href="mailto:contact.rouen@levillagebyca.com">contact.rouen@levillagebyca.com</a> - <a href="tel:0227766677">02 27 76 66 77</a>
+        <p class="footer-text m-0 pb-3 pt-2 col-12 text-center text-secondary">
+          <small><a href="/mentions-legales">Mentions légales</a> - Conçu avec <i class="fa fa-smile-beam" aria-hidden="true"></i> par le Village by CA Rouen Vallée de Seine</small>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div style="height: 16px">&nbsp; </div>
+</section>

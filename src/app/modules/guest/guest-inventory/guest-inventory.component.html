@@ -1,0 +1,286 @@
+<div class="div-full">
+
+  <div class="container-w-960 first" *ngIf="isDesktopMode()">
+
+    <a [routerLink]="['/guest', bookingId]" class="back-link"><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'guest-global-text.back-btn' | translate}}</a>
+
+    <div class="card-large">
+
+      <h3 class="inventory-title">
+        {{'guest-inventory.title-in' | translate}}
+      </h3>
+
+      <form novalidate [formGroup]="formInventoryCheckIn" #fform="ngForm" >
+        <div class="row0 mx-0 container-body">
+          <div class="column all-width">
+            <h4 class="check-title2 margin-bottom-8">{{'guest-inventory.add-comment' | translate}}</h4>
+            <p class="comment-paragraph margin-bottom-8">
+              {{'guest-inventory.add-comment-description' | translate}}
+            </p>
+            <textarea formControlName="comment" [(ngModel)]="inventoryCheckIn.comment" class="padding-left-8 padding-top-8" [placeholder]="'guest-inventory.comment-sample' | translate"></textarea>
+            <div class="primary-button" (click)="validate('checkin')">{{'guest-inventory.validate' | translate}}</div>
+          </div>
+
+          <div class="column row2 all-width">
+            <h4 class="check-title2 mt-4">{{'guest-inventory.share-photos' | translate}}</h4>
+            <div class="width-60 margin-top-16 margin-bottom-16">
+              <app-shared-upload [btnLabel]="'guest-inventory.upload'" [uploadType]="'multiple'" [allowedTypes]="allowedImages" (docUploaded)="onPictureInUploaded($event)"></app-shared-upload>
+            </div>
+            <div  class="row m-0">
+              <perfect-scrollbar class="scroll-container" [ngClass]="{'scroll-container-height': photosIn.length>3}" [config]="config">
+                <div class="container-imgs row mx-0">
+                  <div *ngFor="let photo of photosIn; let i = index" >
+                    <div class="container-img" *ngIf="photo">
+                      <div (click)="showDialog(i, 'in')" class="container-delete-icon clickable">
+                        <img class="icon-delete" src="assets/icon/inventory/delete.svg" alt="icon-delete"/>
+                      </div>
+                      <img class="Photo" [src]="photo" />
+                    </div>
+                    <div class="container-img" *ngIf="!photo">
+                      <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                    </div>
+                  </div>
+                  <div class="container-img" *ngIf="showSpinner">
+                    <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                  </div>
+                </div>
+              </perfect-scrollbar>
+            </div>
+            <!--VIDEO-->
+            <h4 class="check-title2 mt-4">{{'guest-inventory.share-videos' | translate}}</h4>
+            <div class="width-60 margin-top-16 margin-bottom-16">
+              <app-shared-upload [uploadType]="'multiple'" [btnLabel]="'guest-inventory.upload'"
+                                 [allowedTypes]="allowedVideos" (docUploaded)="onVideoInUploaded($event)"></app-shared-upload>
+            </div>
+            <div  class="row m-0">
+              <div class="width-100 draggable-container grey-scroll">
+                <div class="doc-container video-case" *ngFor="let video of videosIn; let i = index" >
+                  <video controls>
+                    <source src="{{video + '#t=0.001'}}">
+                    Your browser does not support the video tag.
+                  </video>
+
+                  <div (click)="deleteVideoIn(i)" class="doc-delete clickable">
+                    <img src="assets/icon/inventory/delete.svg" alt="Icon">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div *ngIf="message" class="mt-1 size-msg-err">{{message}}</div>
+
+          </div>
+        </div>
+      </form>
+
+      <div class="line"></div>
+
+      <h3 class="inventory-title margin-top-32">
+        {{'guest-inventory.title-out' | translate}}
+      </h3>
+      <form *ngIf="inventoryCheckOut != null" novalidate [formGroup]="formInventoryCheckOut" #fform="ngForm" >
+        <div class="row0 mx-0 container-body">
+          <div class="column all-width">
+            <h4 class="check-title2 margin-bottom-8">{{'guest-inventory.add-comment' | translate}}</h4>
+            <p class="comment-paragraph margin-bottom-8">
+              {{'guest-inventory.add-comment-description' | translate}}
+            </p>
+            <textarea formControlName="comment" [(ngModel)]="inventoryCheckOut.comment" class="padding-left-8 padding-top-8" [placeholder]="'guest-inventory.comment-sample' | translate"></textarea>
+            <div class="primary-button" (click)="validate('checkout')">{{'guest-inventory.validate' | translate}}</div>
+          </div>
+
+          <div class="column row2 all-width">
+            <h4 class="check-title2 mt-4">{{'guest-inventory.share-photos' | translate}}</h4>
+            <div class="width-60 margin-top-16 margin-bottom-16">
+              <app-shared-upload [btnLabel]="'guest-inventory.upload'" [uploadType]="'multiple'" [allowedTypes]="allowedImages" (docUploaded)="onPictureOutUploaded($event)"></app-shared-upload>
+            </div>
+            <div  class="row m-0">
+              <perfect-scrollbar class="scroll-container" [ngClass]="{'scroll-container-height': photosOut.length>3}" [config]="config">
+                <div class="container-imgs row mx-0">
+                  <div *ngFor="let photo of photosOut; let i = index" >
+                    <div class="container-img" *ngIf="photo">
+                      <div (click)="showDialog(i, 'out')" class="container-delete-icon clickable">
+                        <img class="icon-delete" src="assets/icon/inventory/delete.svg" alt="icon-delete"/>
+                      </div>
+                      <img class="Photo" [src]="photo" />
+                    </div>
+                    <div class="container-img" *ngIf="!photo">
+                      <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                    </div>
+                  </div>
+                  <div class="container-img" *ngIf="showSpinner">
+                    <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                  </div>
+                </div>
+              </perfect-scrollbar>
+            </div>
+
+            <!--VIDEO-->
+            <h4 class="check-title2 mt-4">{{'guest-inventory.share-videos' | translate}}</h4>
+            <div class="width-60 margin-top-16 margin-bottom-16">
+              <app-shared-upload [uploadType]="'multiple'" [btnLabel]="'guest-inventory.upload'"
+                                 [allowedTypes]="allowedVideos" (docUploaded)="onVideoOutUploaded($event)"></app-shared-upload>
+            </div>
+            <div  class="row m-0">
+              <div class="width-100 draggable-container grey-scroll">
+                <div class="doc-container video-case" *ngFor="let video of videosOut; let i = index" >
+                  <video controls>
+                    <source src="{{video + '#t=0.001'}}">
+                    Your browser does not support the video tag.
+                  </video>
+
+                  <div (click)="deleteVideoOut(i)" class="doc-delete clickable">
+                    <img src="assets/icon/inventory/delete.svg" alt="Icon">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div *ngIf="message" class="mt-1 size-msg-err">{{message}}</div>
+
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+
+  </div>
+
+  <div class="width-100 column padding-32 div-full-mobile" *ngIf="!isDesktopMode()">
+    <a [routerLink]="['/guest', bookingId]" class="back-link"><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'guest-global-text.back-btn' | translate}}</a>
+    <h4>
+      {{'guest-inventory.title-in' | translate}}
+    </h4>
+
+    <form novalidate [formGroup]="formInventoryCheckIn" #fform="ngForm" >
+      <div class="row0 mx-0 container-body-mobile flex-column">
+        <div class="all-width">
+          <h5 class="check-title2 margin-bottom-8">{{'guest-inventory.add-comment' | translate}}</h5>
+          <p class="comment-paragraph margin-bottom-8">
+            {{'guest-inventory.add-comment-description' | translate}}
+          </p>
+          <textarea formControlName="comment" [(ngModel)]="inventoryCheckIn.comment" class="padding-left-8 padding-top-8" [placeholder]="'guest-inventory.comment-sample' | translate"></textarea>
+          <div class="all-width margin-top-12">
+            <h4 class="check-title2 mt-4">{{'guest-inventory.share-photos' | translate}}</h4>
+            <div class="width-60 margin-top-16 margin-bottom-16">
+              <app-shared-upload [btnLabel]="'guest-inventory.upload'" [uploadType]="'multiple'" [allowedTypes]="allowedImages" (docUploaded)="onPictureInUploaded($event)"></app-shared-upload>
+            </div>
+            <div  class="row m-0">
+              <perfect-scrollbar class="scroll-container" [ngClass]="{'scroll-container-height': photosIn.length>3}" [config]="config">
+                <div class="container-imgs row mx-0">
+                  <div *ngFor="let photo of photosIn; let i = index" >
+                    <div class="container-img" *ngIf="photo">
+                      <div (click)="showDialog(i, 'in')" class="container-delete-icon clickable">
+                        <img class="icon-delete" src="assets/icon/inventory/delete.svg" alt="icon-delete"/>
+                      </div>
+                      <img class="Photo" [src]="photo" />
+                    </div>
+                    <div class="container-img" *ngIf="!photo">
+                      <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                    </div>
+                  </div>
+                  <div class="container-img" *ngIf="showSpinner">
+                    <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                  </div>
+                </div>
+              </perfect-scrollbar>
+            </div>
+            <!--VIDEO-->
+            <h4 class="check-title2 mt-4">{{'guest-inventory.share-videos' | translate}}</h4>
+            <div class="width-60 margin-top-16 margin-bottom-16">
+              <app-shared-upload [uploadType]="'multiple'" [btnLabel]="'guest-inventory.upload'"
+                                 [allowedTypes]="allowedVideos" (docUploaded)="onVideoInUploaded($event)"></app-shared-upload>
+            </div>
+            <div  class="row m-0">
+              <div class="width-100 draggable-container grey-scroll">
+                <div class="doc-container video-case" *ngFor="let video of videosIn; let i = index" >
+                  <video controls>
+                    <source src="{{video + '#t=0.001'}}">
+                    Your browser does not support the video tag.
+                  </video>
+
+                  <div (click)="deleteVideoIn(i)" class="doc-delete clickable">
+                    <img src="assets/icon/inventory/delete.svg" alt="Icon">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div *ngIf="message" class="mt-1 size-msg-err">{{message}}</div>
+
+          </div>
+          <div class="primary-button" (click)="validate('checkin')">{{'guest-inventory.validate' | translate}}</div>
+        </div>
+
+
+      </div>
+    </form>
+    <div class="line"></div>
+    <h4 class="margin-top-32">
+      {{'guest-inventory.title-out' | translate}}
+    </h4>
+    <form *ngIf="inventoryCheckOut != null" novalidate [formGroup]="formInventoryCheckOut" #fform="ngForm" >
+      <div class="row0 mx-0 container-body-mobile">
+        <div class="all-width">
+          <h5 class="check-title2 margin-bottom-8">{{'guest-inventory.add-comment' | translate}}</h5>
+          <p class="comment-paragraph margin-bottom-8">
+            {{'guest-inventory.add-comment-description' | translate}}
+          </p>
+          <textarea formControlName="comment" [(ngModel)]="inventoryCheckOut.comment" class="padding-left-8 padding-top-8" [placeholder]="'guest-inventory.comment-sample' | translate"></textarea>
+          <div class="all-width margin-top-12">
+            <h4 class="check-title2 mt-4">{{'guest-inventory.share-photos' | translate}}</h4>
+            <div class="width-60 margin-top-16 margin-bottom-16">
+              <app-shared-upload [btnLabel]="'guest-inventory.upload'" [uploadType]="'multiple'" [allowedTypes]="allowedImages" (docUploaded)="onPictureOutUploaded($event)"></app-shared-upload>
+            </div>
+            <div  class="row m-0">
+              <perfect-scrollbar class="scroll-container" [ngClass]="{'scroll-container-height': photosOut.length>3}" [config]="config">
+                <div class="container-imgs row mx-0">
+                  <div *ngFor="let photo of photosOut; let i = index" >
+                    <div class="container-img" *ngIf="photo">
+                      <div (click)="showDialog(i, 'out')" class="container-delete-icon clickable">
+                        <img class="icon-delete" src="assets/icon/inventory/delete.svg" alt="icon-delete"/>
+                      </div>
+                      <img class="Photo" [src]="photo" />
+                    </div>
+                    <div class="container-img" *ngIf="!photo">
+                      <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                    </div>
+                  </div>
+                  <div class="container-img" *ngIf="showSpinner">
+                    <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                  </div>
+                </div>
+              </perfect-scrollbar>
+            </div>
+            <!--VIDEO-->
+            <h4 class="check-title2 mt-4">{{'guest-inventory.share-videos' | translate}}</h4>
+            <div class="width-60 margin-top-16 margin-bottom-16">
+              <app-shared-upload [uploadType]="'multiple'" [btnLabel]="'guest-inventory.upload'"
+                                 [allowedTypes]="allowedVideos" (docUploaded)="onVideoOutUploaded($event)"></app-shared-upload>
+            </div>
+            <div  class="row m-0">
+              <div class="width-100 draggable-container grey-scroll">
+                <div class="doc-container video-case" *ngFor="let video of videosOut; let i = index" >
+                  <video controls>
+                    <source src="{{video + '#t=0.001'}}">
+                    Your browser does not support the video tag.
+                  </video>
+
+                  <div (click)="deleteVideoOut(i)" class="doc-delete clickable">
+                    <img src="assets/icon/inventory/delete.svg" alt="Icon">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div *ngIf="message" class="mt-1 size-msg-err">{{message}}</div>
+
+          </div>
+          <div class="primary-button" (click)="validate('checkout')">{{'guest-inventory.validate' | translate}}</div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

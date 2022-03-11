@@ -1,0 +1,78 @@
+ <div class="header-top" *ngIf="!drawer.opened">
+    <div class="icons">
+      <span>
+
+        <img *ngIf="corporate?.logoUrl" style="height: 42px; padding-right: 24px;" [src]="corporate.logoUrl">
+        <img *ngIf="!corporate?.onlyWhiteLabel" class="logo" src="assets/images/yaago.svg" alt="">
+      </span>
+    </div>
+
+    <div class="header-top-right-side">
+      <div *ngIf="booking?.hostWords && !booking?.hostWordsDisplayed && !tmpHostWord" appDebounceClick [matBadge]="1" class=" host-words margin-right-16" matBadgeSize="small" matBadgeColor="warn"
+           matBadgeOverlap="true" matBadgePosition="above after" (debounceClick)="closeHostWord()">
+        <img src="/assets/icon/icon_message.svg" alt="mail">
+      </div>
+      <div appDebounceClick *ngIf="booking?.hostWords && tmpHostWord" class=" host-words margin-right-16" (debounceClick)="openHostWord()">
+        <img src="/assets/icon/icon_message.svg" alt="mail">
+      </div>
+      <div class="language-chooser flex flex-row flex-align-center clickable" (click)="this.languageChooserOpened = !this.languageChooserOpened;"
+           appClickOutside (clickOutside)="languageChooserOpened = false">
+
+        <img class="flag margin-left-8" src="{{getLanguage(currentLanguage)}}" alt="Flag">
+
+        <div class="chooser-container grey-scroll" *ngIf="languageChooserOpened">
+          <div class="flex flex-row flex-align-center clickable margin-top-12 margin-bottom-12"
+               *ngFor="let lang of getLanguages()"
+               (click)="changeLanguage(lang)">
+            <img class="flag margin-right-12" src="{{getLanguage(lang)}}" alt="Flag">
+            <span
+              class="roboto Small txt-color-black txt-nowrap">{{getNonTranslatedLanguageName(lang)}}</span>
+          </div>
+        </div>
+      </div>
+      <button class="hamburger" aria-label="Example icon-button with menu icon" style="position: relative ">
+        <mat-icon (click)="drawer.toggle()" style="width: 100%;height: 100%">menu
+        </mat-icon>
+        <div *ngIf="hasUnreadMessages" class="badge"></div>
+      </button>
+    </div>
+  </div>
+  <mat-drawer-container class="menu-container" autosize [ngStyle]="{'pointer-events' : !drawer.opened ? 'none': 'all'}">
+    <mat-drawer #drawer class="menu-sidenav" mode="side">
+      <mat-icon (click)="drawer.toggle();" class="close-icon">close</mat-icon>
+      <ul class="menu_list">
+        <li appToogleBtnSwitch>
+          <button routerLink="." fragment="details" (click)="this.drawer.toggle();"
+            >{{'menu-desktop.bookingDetails' | translate}}</button>
+        </li>
+        <li *ngIf="property?.guides?.length > 0" appToogleBtnSwitch>
+          <button routerLink="." fragment="guides" (click)="this.drawer.toggle();"
+            >{{'menu-desktop.propertyGuide' | translate}}</button>
+        </li>
+        <!-- <li><a href="#" >Recommendations</a> </li>-->
+        <li>
+          <button routerLink="." fragment="recommendations" (click)="this.drawer.toggle();"
+            >{{'menu-desktop.recommendations' | translate}}</button>
+        </li>
+        <li
+          *ngIf="property?.usefulNumbers?.length > 0"
+          appToogleBtnSwitch>
+          <button routerLink="." fragment="usefulnumber" (click)="this.drawer.toggle();"
+          >{{'menu-desktop.usefulNumbers' | translate}} </button>
+        </li>
+        <li *ngIf="!property?.host?.btobInfo" appToogleBtnSwitch>
+          <button routerLink="." fragment="services" (click)="this.drawer.toggle();"
+            >{{'menu-desktop.platformServices' | translate}}</button>
+        </li>
+        <li *ngIf="property?.forceMajeureItems?.length > 0" appToogleBtnSwitch>
+          <button routerLink="." fragment="hygienes" (click)="this.drawer.toggle();"
+            >{{'menu-desktop.hygiene' | translate}}</button>
+        </li>
+        <li *ngIf="booking != null" appToogleBtnSwitch>
+          <button routerLink="./messaging" fragment="messaging" (click)="this.drawer.toggle();" style="position: relative "
+          >{{'menu-desktop.messaging' | translate}}<div *ngIf="hasUnreadMessages" class="badge"></div></button>
+
+        </li>
+      </ul>
+    </mat-drawer>
+  </mat-drawer-container>

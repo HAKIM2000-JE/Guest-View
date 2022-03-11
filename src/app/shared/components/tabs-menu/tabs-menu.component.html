@@ -1,0 +1,10 @@
+<nav>
+  <ul class="grey-scroll">
+    <li appDebounceClick *ngFor="let tab of tabs"
+        (debounceClick)="onClick(tab)"
+        [ngClass]="{'selected' : tab === selectedTab}"
+        class="clickable">
+      <button mat-flat-button>{{tab.title |translate | titlecase}}</button>
+    </li>
+  </ul>
+</nav>

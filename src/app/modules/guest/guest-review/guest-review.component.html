@@ -1,0 +1,103 @@
+<app-guest-menu-desktop  [noreview]="true" [property]="property" [target]="[]" *ngIf="isDesktopForMenu()"></app-guest-menu-desktop>
+<app-guest-menu-mobile *ngIf="!isDesktopForMenu()" [noreview]="true"></app-guest-menu-mobile>
+
+<div class="div-full">
+  <div id="setup-container"
+       [ngClass]="{'desktop-mode' : isDesktopMode(), 'mobile-mode': !isDesktopMode()}">
+
+      <div class="container-content">
+        <a *ngIf="booking" [routerLink]="['/guest', booking.id]" class="back-link"><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'guest-global-text.back-btn' | translate}}</a>
+        <a *ngIf="!booking" [routerLink]="['/guest', property?.id]" class="back-link"><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'guest-global-text.back-btn' | translate}}</a>
+
+          <div class="form-container">
+            <h3 *ngIf="isDesktopMode()">{{'review-page.title' | translate}}</h3>
+            <h4 *ngIf="!isDesktopMode()">{{'review-page.title' | translate}}</h4>
+
+          <div class="content-container">
+            <div class="property-title">{{property?.title}}</div>
+            <ul class="ratingItem">
+            <li *ngFor="let rating of bookingRating.ratingItems">
+              <h4 class="section-title" lang>{{'review-page.'+rating.type | translate}}</h4>
+              <div class="range-box">
+                <app-star-rating class="stars" [(rating)]="rating.rating"></app-star-rating>
+                <div class="value">{{rating.rating}}</div>
+              </div>
+            </li>
+            </ul>
+          </div>
+
+
+            <div *ngIf="!booking">
+              <div class="noteBlock">
+                <mat-form-field appearance="fill">
+                  <h4 class="section-title">{{'review-page.email' | translate}}</h4>
+                  <input type="text"
+                    matInput [(ngModel)]="propertyRating.email" />
+                </mat-form-field>
+              </div>
+
+              <div style="display: flex; flex-flow: row; justify-content: space-between">
+                <div class="noteBlock" style="width: 45%">
+                  <mat-form-field appearance="fill">
+                    <h4 class="section-title">{{'review-page.firstname' | translate}}</h4>
+                    <input type="text"
+                           matInput [(ngModel)]="propertyRating.firstname" />
+                  </mat-form-field>
+                </div>
+
+                <div class="noteBlock" style="width: 45%">
+                  <mat-form-field appearance="fill">
+                    <h4 class="section-title">{{'review-page.lastname' | translate}}</h4>
+                    <input type="text"
+                           matInput [(ngModel)]="propertyRating.lastname" />
+                  </mat-form-field>
+                </div>
+              </div>
+
+
+              <div style="display: flex; flex-flow: row; justify-content: space-between">
+              <div class="noteBlock"  style="width: 45%">
+                <mat-form-field appearance="fill">
+                  <h4 class="section-title">{{'review-page.companyName' | translate}}</h4>
+                  <input type="text"
+                         matInput [(ngModel)]="propertyRating.companyName" />
+                </mat-form-field>
+              </div>
+
+              <div class="noteBlock"  style="width: 45%">
+                <mat-form-field appearance="fill">
+                  <h4 class="section-title">{{'review-page.phoneNumber' | translate}}</h4>
+                  <input type="text"
+                         matInput [(ngModel)]="propertyRating.phoneNumber" />
+                </mat-form-field>
+              </div>
+              </div>
+            </div>
+
+          <div class="noteBlock">
+            <mat-form-field appearance="fill">
+            <h4 class="section-title">{{'review-page.prompt' | translate}}</h4>
+            <textarea style="min-height: 150px"
+                      placeholder="{{'review-page.prompt-placeholder' | translate}}"
+
+                      matInput matTextareaAutosize  [(ngModel)]="bookingRating.ratingComment" ></textarea>
+            </mat-form-field>
+          </div>
+
+          <div class="noteBlock-bottom">
+            <!--<span *ngIf="!property?.host?.btobInfo" class="noteBlock-section-title">{{'review-page.teammate-question' | translate}}</span>-->
+            <div class="buttons">
+
+              <div *ngIf="!property.host.subscriptionForLivretSeul" class="primary-button margin-right-8" lang="{{urlLang}}" (click)="saveReview()" >{{'review-page.save-review-btn' | translate}}</div>
+              <div *ngIf="property.host.subscriptionForLivretSeul" class="primary-button margin-right-8" lang="{{urlLang}}" (click)="saveReviewLivretSeul()" >{{'review-page.save-review-btn' | translate}}</div>
+
+              <div class="secondary-button" *ngIf="!property?.host?.btobInfo && !property.host.subscriptionForLivretSeul" lang="{{urlLang}}" [routerLink]="['../review-teammate']" (click)="setData()" >{{'review-page.review-btn' | translate}}</div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,605 @@
+@import "../../../../../assets/styles/gusl-shared";
+@import "../../../../../assets/styles/yaago2-style";
+@import "../../../../../assets/styles/y-global-style";
+
+.picture-list-container {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+
+}
+
+.guide-menu-sub-item {
+  font-family: $font-Roboto-Light;
+  font-size: 12px;
+  font-weight: normal ;
+  padding-bottom: 8px;
+}
+.guest-view-desktop-property-guide{
+  padding-top: 48px;
+  padding-bottom: 48px;
+  width: 100%;
+}
+
+.guest-view-desktop-section-container {
+  width: 1024px;
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#propertyGuide {
+  .title-wrapper {
+    display: inline-block;
+    position: relative;
+
+    h3 {
+      img {
+        position: absolute;
+        width: 210px;
+        left: 0px;
+        bottom: -20px;
+      }
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 0;
+      font-size: 50px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: normal;
+      color:$gurubnb-titleColor;
+      font-family: "Hind Madurai", sans-serif;
+      position:relative;
+
+    }
+
+
+  }
+
+  ::ng-deep app-guest-property-guides-desktop mat-form-field.mat-form-field {
+    width: auto;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+
+    .mat-form-field-infix, .mat-form-field-subscript-wrapper {
+      padding: 0;
+      margin: 0;
+    }
+
+    .mat-form-field-label-wrapper {
+      padding: 0;
+      overflow: visible;
+      top: -11px;
+    }
+
+    .mat-form-field-infix {
+      border: none;
+      min-width: 105px;
+      width: 100%;
+      max-width: 200px;
+    }
+
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+      transform: unset;
+    }
+
+    .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+      transform: translateY(-30%);
+    }
+
+    .mat-form-field-underline {
+      bottom: -15px;
+      background-color: #7d818c;
+    }
+
+    .mat-select-trigger {
+      position: absolute;
+      right: 0;
+      top: 11px;
+    }
+
+    .mat-form-field-label {
+      color: #7d818c;
+    }
+
+    .mat-select-arrow {
+      margin-bottom: -4px;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 7px solid;
+    }
+
+    .mat-form-field-ripple {
+      opacity: 0 !important;
+    }
+
+    .mat-form-field-flex {
+      &:hover {
+        .mat-form-field-underline {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+}
+
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+  top: 57px !important;
+}
+
+.container-desktop {
+  margin: auto;
+}
+
+::ng-deep app-guest-property-guides-desktop mat-option.mat-option {
+  padding: 20px 27px 6px 27px;
+  .mat-option-text {
+    color: #7d818c;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+}
+
+.guest-view-desktop-property-guide.separator {
+  padding-top: 48px;
+  //padding-top: 88px;
+  padding-bottom: 48px;
+  background:#fafafa;
+}
+
+.min-detail-guide {
+  width: 100%;
+  margin-top: 57px;
+  .row{
+    .column{
+      padding:0;
+      &:nth-child(2){
+        padding:0 0px 0 30px;
+        @media (max-width: 1366px) {
+          paddinf-left:  30px;
+        }
+      }
+    }
+  }
+}
+
+ul.menu-list-guides {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 34px 0 0 0;
+  text-align: center;
+  flex-wrap: wrap;
+
+
+  > li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 3.3%;
+    &.visited{
+      .mat-button, &>span{
+       color:#000;
+        svg{
+          fill:#000;
+        }
+      }
+      .mat-icon{
+        color:#000;
+      }
+    }
+
+
+    .mat-button, &>span{
+      font-size: 12px;
+      color:$color-greenVogue;
+      cursor: pointer;
+      // line-height: 28px;
+      display:block;
+      padding: 0 0 14px 0;
+
+      @media(min-width: 700px) {
+        font-size: 14px;
+      }
+
+
+      &[aria-expanded = "true"]{
+        svg{
+        transform: rotate(180deg);
+        }
+      }
+      svg{
+        width: 18px;
+        height: 12px;
+        fill:#5b5b5b;
+        transition: 0.3s all ease;
+      }
+
+    }
+    &>span{
+      //line-height: 28px;
+      display:block;
+    }
+
+
+    .mat-button-wrapper{
+      font-size: 12px;
+      //font-weight: 600;
+      color: #5b5b5b;
+
+    }
+
+
+
+
+      &.visited {
+
+        span {
+          color: #000 !important;
+        }
+
+        &:after {
+          content: " ";
+          position: absolute;
+          bottom: -3px;
+          left: 0;
+          width: 100%;
+          height: 2.5px;
+          background-color: #141414;
+        }
+
+        ::ng-deep app-guest-property-guides-desktop mat-form-field.mat-form-field {
+          .mat-form-field-label {
+            color: #000 !important;
+          }
+
+          .mat-form-field-underline {
+            background-color: transparent !important;
+          }
+
+          .mat-select-arrow {
+            color: #000 !important;
+          }
+        }
+
+      }
+
+
+      ul.sub-menu-guides {
+        display: none;
+        position: absolute;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+        background-color: #ffffff;
+        list-style: none;
+        margin: 0px;
+        border-radius: 8px;
+        padding: 16px 0px;
+        z-index: 2;
+        top: 20px;
+        left: 0;
+        //min-width: 200px;
+        width: max-content;
+
+        li {
+          width: 100%;
+          padding: 0 12px;
+          padding-bottom: 8px;
+          margin-bottom: 14px;
+          &:last-child, &:first-child{
+            margin: 0;
+          }
+          &:last-child {
+            padding-bottom: 0;
+          }
+
+          div {
+
+            background: #fff;
+            padding: 0px;
+            font-family: $font-Roboto-Light;
+            //line-height: 28px;
+            font-size: 14px;
+            color: $color-greenVogue;
+            cursor: pointer;
+            display:block;
+            text-align: left;
+
+          }
+          &:hover{
+            div {
+              font-weight: bold;
+            }
+          }
+        }
+
+      }
+
+      &:hover > ul {
+        display: block;
+      }
+    }
+
+  > li.close {
+    ul.sub-menu-guides {
+      display: none;
+    }
+  }
+
+  > li.open {
+    ul.sub-menu-guides {
+      display: block;
+    }
+
+    &:first-child {
+      ul.sub-menu-guides {
+        left: 0px;
+        /* right: -431px;*/
+    }
+  }
+
+  &:last-child {
+    ul.sub-menu-guides {
+      /*  left: -459px;*/
+      right: 0px;
+    }
+  }
+
+  a {
+    font-family: $guru-font-hind;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6183e5;
+    padding: 12px 15px;
+    border-radius: 12px;
+    background-color: rgba(97, 131, 229, 0.08);
+  }
+}
+
+  @media all and (max-width: 1226px){
+    > li{
+      margin-right: 1.9%;
+    }
+  }
+}
+
+.img-container {
+  width: 100%;
+  height: 100%;
+  max-height: 415px;
+  border-radius: 10px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.menu-item-class {
+  font-family: $font-Roboto;
+  font-size: 12px;
+}
+.desc-container {
+  padding-top: 48px;
+  h3 {
+    padding-bottom: 24px;
+  }
+  width: 100%;
+  h4 {
+    // font-size: 32px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
+    text-align: left;
+    color:$gurubnb-titleColor;
+    margin-bottom:35px
+  }
+
+  p.description {
+    font-family: $font-Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.96;
+    letter-spacing: normal;
+    text-align: left;
+    color: $gurubnb-primary-textColor;
+    height: 248px;
+    //overflow-y: auto;
+    margin-bottom: 57px;
+
+      display: block;
+      display: -webkit-box;
+      -webkit-line-clamp: 8;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+  }
+
+  ol {
+    margin: 0px;
+    padding-left: 22px;
+  }
+
+  .link {
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+height: 48px;
+    display: block;
+    letter-spacing: normal;
+    text-align: center;
+    cursor: pointer;
+    color: #ffffff;
+    background-color:$gurubnb-red;
+    padding: 16px;
+    border-radius: 60px;
+    border: none;
+    img {
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.img-container, .desc-container {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.container-guide {
+
+  width: 1024px;
+  margin: auto;
+
+  //margin-right: 123px;
+  //padding-left: 15px;
+  //padding-right: 15px;
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  width: 50%;
+  //padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+::ng-deep app-guest-property-guides-desktop .mat-menu-panel {
+  min-width: 150px !important;
+}
+  ::ng-deep  app-guest-property-guides-desktop .mat-menu-content:not(:empty) {
+    padding: 20px 0 !important;
+    button{
+      height: auto;
+      line-height: 28px;
+      font-size: 20px;
+      color: #a8a8a8;
+      margin-bottom: 14px;
+      padding:5px 12px;
+      transition: 0.3s all ease;
+      &:hover{
+        //background:#efefef;
+        color:#5b5b5b;
+
+      }
+      &:last-child{
+        margin:0;
+
+      }
+
+    }
+  }
+
+
+::ng-deep app-guest-property-guides-desktop button.mat-menu-item{
+  color:red;
+}
+.mat-menu-item {
+  font-size: 12px;
+  font-family: $font-Roboto-Light;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  background: transparent;
+  color: $color-greenVogue;
+  transition: 0.3s all ease;
+  &:hover{
+    color:$color-greenVogue;
+    background:none;
+  }
+}
+
+::ng-deep app-guest-property-guides-desktop .mat-button-focus-overlay{
+  background-color: transparent!important;
+}
+
+.guides-list-container{
+  height: 240px;
+  max-height: 240px;
+  display: flex;
+  flex-flow: column wrap;
+  overflow: auto;
+}
+.guide-card{
+  width: 304px;
+  height: 102px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+
+
+}
+.guide-cover {
+  width: 90px;
+  min-width: 90px;
+  height: 69px;
+  background: #C4C4C4;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.details-dialog-container{
+  position: fixed;
+  z-index: 999999999999;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  margin: auto;
+  background: rgba(38, 38, 38, 0.7);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  overflow: auto;
+
+  .details-container{
+    width: 790px;
+    background: white;
+    border-radius: 30px;
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+
+
+    .closee{
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+.guide-title{
+  font-size: 15px;
+  line-height: 19px;
+  max-height: 57px;
+  overflow: hidden;
+}

@@ -1,0 +1,228 @@
+@import "../../../../assets/styles/yaago2-style";
+
+/*.footer-area {
+  padding: 300px 0px 0px;
+  // background-image:url(../../../../assets/images/footers/yaago/footer-yaago.png) ;
+  z-index: 10;
+  font-size: 13px;
+  position: relative;
+  text-align: center !important;
+  color: white;
+  font-family: $font-Roboto;
+}
+
+
+footer {
+  background: white;
+  //padding-top: 80px;
+  border-top: solid 1px $color-alto;
+
+  .logotype-yaago {
+    width: 136px;
+    height: auto;
+  }
+
+  .yaago-slogan {
+    @extend .Small;
+    color: $color-scorpion;
+    margin-top: 8px !important;
+    margin-bottom: 56px;
+  }
+
+  .content-container {
+    width: 1024px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .actions-container {
+    display: flex;
+    flex-flow: row nowrap;
+    padding-bottom: 60px;
+
+    .socials {
+      flex: 1;
+    }
+
+    .newsletter-container {
+      flex: 2;
+      padding: 0 64px;
+      display: flex;
+      flex-flow: column nowrap;
+
+      .email-input {
+        margin-top: 16px;
+        width: 320px;
+        max-width: 320px;
+        height: 50px;
+        position: relative;
+
+        input {
+          width: 100%;
+          height: 100%;
+          border-radius: 50px;
+          border: solid 1px #DFDFDF;
+          padding: 0 24px;
+          color: $color-scorpion;
+          font-family: $font-Roboto;
+          outline: none;
+          appearance: none;
+        }
+
+        .send {
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          right: 27px;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    .partners {
+      flex: 1;
+      display: flex;
+      flex-flow: column nowrap;
+
+      .icons-container {
+        margin-top: 24px;
+      }
+    }
+
+    .icons-container {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      margin-top: 56px;
+
+      img {
+        max-height: 50px;
+        width: auto;
+      }
+
+      a {
+        margin-right: 32px;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+
+    label {
+      @extend .Medium;
+    }
+  }
+
+  .vogue-container {
+    height: 56px;
+    background: $color-greenVogue;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    .common-info {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+
+      p {
+        color: $color-alabaster-light;
+        font-size: 12px;
+        font-family: $font-Roboto;
+        flex: 1;
+      }
+    }
+  }
+}
+
+// Mobile
+@media (max-width: 1023px) {
+
+  footer {
+
+    border: none;
+    padding: 0;
+
+    .content-container {
+      width: 100%;
+      padding: 0 32px;
+    }
+
+    .actions-container {
+      flex-flow: column nowrap;
+      padding: 32px;
+    }
+
+    .icons-container {
+      margin-top: 48px;
+    }
+
+    .newsletter-container {
+      padding: 0 !important;
+      margin: 32px 0;
+
+      label {
+        margin-bottom: 0;
+      }
+
+      .email-input {
+        width: 100% !important;
+      }
+    }
+
+    .partners {
+      .icons-container {
+        align-self: center;
+      }
+    }
+
+    .vogue-container {
+      height: 100px;
+      align-items: stretch;
+
+      .common-info {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: initial;
+        flex: 1;
+
+        > div {
+          flex: 1;
+
+          p {
+            flex: initial;
+          }
+        }
+      }
+    }
+  }
+
+}
+.flex-row {
+  display: flex;
+  flex-flow: row;
+}
+.justify-content-space-between {
+  justify-content: space-between;
+}
+.align-center {
+  align-items: center;
+}*/
+
+.blue-container{
+  font-family: $font-Roboto;
+   // background: $color-greenVogue;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // color: $color-white;
+
+  a{
+    // color: $color-white;
+  }
+}

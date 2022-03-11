@@ -1,0 +1,2 @@
+<app-guest-toppage-mobile *ngIf="!isDesktopMode()" [property]="property" [(booking)]="booking"></app-guest-toppage-mobile>
+<app-guest-toppage-desktop *ngIf="isDesktopMode()" [property]="property" [booking]="booking" ></app-guest-toppage-desktop>

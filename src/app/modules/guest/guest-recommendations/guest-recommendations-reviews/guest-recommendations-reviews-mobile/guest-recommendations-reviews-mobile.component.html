@@ -1,0 +1,56 @@
+<div class="main-review" *ngIf="reviews">
+  <div class="reviews grey-scroll">
+
+
+    <div class="flex flex-row flex-align-center clickable " (click)="close()">
+      <img src="assets/icon/arrow-down.svg" alt="">
+      <span class="roboto bold Small txt-color-grvogue margin-left-12">{{'guest-recommendation.return' | translate}}</span>
+    </div>
+
+
+
+    <div class="reviews-wrapper">
+      <h4 class="margin-top-32">{{'guest-recommendation.the-reviews' | translate}}</h4>
+
+      <!--COMMENTS-->
+      <div class="comments">
+        <div *ngFor="let review of showReviews; let i = index;"  class="comment-container margin-top-32" >
+          <div class="flex flex-row flex-align-center flex-space-between">
+            <!--Name Bloc-->
+            <div class="flex flex-row flex-align-center">
+              <img class="profile-container" *ngIf="review.pictureUrl" src="{{review.pictureUrl}}" alt="picture">
+              <span *ngIf="!review.pictureUrl" class="roboto Large picture-placeholder">
+              {{getFirstLetter(review)}}
+          </span>
+              <div class="margin-left-16 flex flex-column">
+                <span class="mcqueen Small txt-color-black margin-bottom-4">{{review?.name | titlecase}}</span>
+                <span class="mcqueen Small txt-color-grvogue" *ngIf="review.type && review.type!== 'community'">{{'guest-recommendation.card.' + review.type | translate}}</span>
+              </div>
+            </div>
+
+            <!--Rating and time Bloc-->
+            <div class="flex flex-column flex-justify-end">
+              <div class="flex flex-row align-items-center flex-justify-end">
+                <img src="assets/icon/star-yellow.svg" alt="picto" class="pin-icon">
+                <span class="roboto bold Small txt-color-grvogue  margin-left-8 width-min-content">{{review.ranking}}</span>
+              </div>
+              <span class="roboto XX-small txt-color-scorpion margin-top-8" *ngIf="review.created?.typeTime">
+            {{'recommendation.added-since' |translate}} {{review.created?.time}} {{'guest-recommendation.card.' + review.created?.typeTime | translate}}
+          </span>
+            </div>
+          </div>
+          <p class="roboto Small txt-color-scorpion margin-top-16 grey-scroll">"{{review.comment}}"</p>
+        </div>
+      </div>
+
+      <!--PAGINATOR TODO make this as component-->
+      <div class="flex flex-row flex-align-center flex-justify-center margin-top-48 padding-bottom-32" *ngIf="paginate.totalPages > 1">
+        <img src="assets/icons/arrow-down.svg" alt="back" class="margin-right-16 clickable {{paginate.page > 1 ? '' : 'hidden'}}" (click)="back()">
+        <div *ngFor="let page of pages" class="roboto bold Medium txt-color-grvogue margin-right-16 margin-left-16 {{page === paginate.page ? 'active-page' : ''}}">
+          {{page}}
+        </div>
+        <img src="assets/icons/arrow-down.svg" alt="next" class="margin-left-16 rotate-180 clickable {{paginate.page < paginate.totalPages ? '' : 'hidden'}}" (click)="next()">
+      </div>
+    </div>
+  </div>
+</div>

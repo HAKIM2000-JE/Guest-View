@@ -1,0 +1,102 @@
+<div *ngIf="!property?.matterportUrl || property.noshowMatterportOnBooklet" class="top-image-container">
+  <img class="mainPhotoLandingPage" *ngIf="(!property?.matterportUrl || property.noshowMatterportOnBooklet) && mainPropertyPhoto != null" [src]="mainPropertyPhoto" alt="mainPhoto">
+  <img class="mainPhotoLandingPage" *ngIf="(!property?.matterportUrl || property.noshowMatterportOnBooklet) && !mainPropertyPhoto" src="assets/defaut-top-img.png" alt="mainPhoto">
+
+
+
+  <button *ngIf="_hasPrevious" appDebounceClick (debounceClick)="previous()" class="fab-button previous" mat-mini-fab color="primary" aria-label="Previous">
+    <mat-icon>arrow_back_ios_new</mat-icon>
+  </button>
+  <button *ngIf="_hasNext" appDebounceClick (debounceClick)="next()" class="fab-button next" mat-mini-fab color="primary" aria-label="Next">
+    <mat-icon>arrow_forward_ios</mat-icon>
+  </button>
+
+  <app-button *ngIf="property?.matterportUrl && property.noshowMatterportOnBooklet"
+              [text]="'guest-top-page.see-3D' | translate"
+              class="margin-bottom-16" style="position: absolute; top: 75% ; right: 16px"
+              [type]="ButtonType.SHADOW"
+              [leftIcon]="Icons.PhotoCamera"
+              (debounceClick)="property.noshowMatterportOnBooklet = !property.noshowMatterportOnBooklet"></app-button>
+
+  <app-button *ngIf="property?.matterportUrl && !property.noshowMatterportOnBooklet"
+              [text]="'guest-top-page.see-diapo' | translate"
+              class="margin-bottom-16" style="position: absolute; top: 75%; right: 16px"
+              [type]="ButtonType.SHADOW"
+              [leftIcon]="Icons.PhotoCamera"
+              (debounceClick)="property.noshowMatterportOnBooklet = !property.noshowMatterportOnBooklet"></app-button>
+
+  <div *ngIf="booking?.hostWords && !booking?.hostWordsDisplayed" [@slideOutLeft] class="owner-word">
+    <div class="row justify-content-sb align-items-center">
+      <p *ngIf="!property?.host?.btobInfo" class="header">{{'guest-top-page.host-words' | translate}}</p>
+      <p *ngIf="property?.host?.btobInfo" class="header">{{'guest-top-page.btob-host-words' | translate}}</p>
+      <img appDebounceClick alt="close" src="assets/icon/v2/close-bulle.svg" (debounceClick)="closeHostWord()">
+    </div>
+    <p class="message">{{booking.hostWords}}</p>
+  </div>
+</div>
+
+<div *ngIf="property?.matterportUrl && !property.noshowMatterportOnBooklet && utilService.videoUrlType(property?.matterportUrl) !== DocType.YOUTUBE" style="height: 50vh; width: 100%;">
+  <iframe style="width: 100%; height: 100%" [src]="transform(property?.matterportUrl)"></iframe>
+</div>
+
+<div style="height: calc(796px)" *ngIf="property?.matterportUrl && !property.noshowMatterportOnBooklet && utilService.videoUrlType(property?.matterportUrl) === DocType.YOUTUBE">
+  <app-external-video-box [videoUrl]="property?.matterportUrl"></app-external-video-box>
+</div>
+ 
+<div *ngIf="booking != null" class="journey-summary">
+  <div class="row justify-content-sb align-items-center">
+    <div class="welcome-container">
+      <p class="margin-bottom-16">{{'guest-top-page.welcome' | translate}}</p>
+      <p>{{booking?.guests[0]?.firstName | titlecase}} <span *ngIf="property?.host?.btobInfo">{{booking?.guests[0]?.lastName | titlecase}}</span></p>
+      <p *ngIf="property?.host?.btobInfo" class="company-name">{{booking?.guests[0]?.companyName | titlecase}}</p>
+    </div>
+    <div *ngIf="!property?.host?.btobInfo" class="nights-container">
+      <p class="Small">{{'guest-top-page.nights-desktop' | translate}}</p>
+      <p class="number">{{booking?.nights}}</p>
+    </div>
+  </div>
+  <div *ngIf="booking?.startDate !== booking?.endDate" class="date-cards">
+    <div class="date-card margin-right-16">
+      <img src="assets/images/illustrations/men-fly.svg" alt="start">
+      <div class="date-container">
+        <p class="title">{{'guest-top-page.start' | translate}}</p>
+        <p class="date">{{booking?.startDate | moment: currentLang | titlecase}}</p>
+      </div>
+    </div>
+    <div class="date-card">
+      <img src="assets/images/illustrations/men-luaggage.svg" alt="departure">
+      <div class="date-container">
+        <p class="title">{{'guest-top-page.end' | translate}}</p>
+        <p class="date">{{booking?.endDate | moment: currentLang | titlecase}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAME DATE : RESERVATION -->
+  <div *ngIf="booking?.startDate === booking?.endDate" class="date-cards">
+    <div class="date-card ">
+      <img src="assets/images/illustrations/men-fly.svg" alt="start">
+      <div class="date-container">
+        <p class="title">{{'guest-top-page.your-resa' | translate}}</p>
+        <p class="date">{{booking?.startDate | moment: currentLang  | titlecase}}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="buttons">
+    <app-button *ngIf="!property?.host?.btobInfo" [text]="'guest-top-page.request-btn' | translate" [routerLink]="['./booking-setup']"></app-button>
+    <app-button *ngIf="!property?.host?.btobInfo" [text]="'guest-top-page.leave-review' | translate"
+                [type]="ButtonType.SECONDARY"
+                [routerLink]="['/guest/'+this.bookingId+'/review']"
+                class="margin-top-16"
+    ></app-button>
+
+    <app-button *ngIf="property?.host?.btobInfo" [text]="'guest-top-page.request-btob-btn' | translate" [routerLink]="['./booking-setup']"></app-button>
+    <app-button *ngIf="property?.host?.btobInfo" [text]="'guest-top-page.leave-btob-review' | translate"
+                [type]="ButtonType.SECONDARY"
+                [routerLink]="['/guest/'+this.bookingId+'/review']"
+                class="margin-top-16"
+    ></app-button>
+  </div>
+</div>

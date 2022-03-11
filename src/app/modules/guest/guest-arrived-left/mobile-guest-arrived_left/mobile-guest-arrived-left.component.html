@@ -1,0 +1,37 @@
+<div class="courses-container" *ngIf="isStartDate || isEndDate">
+  <div [ngClass]="{ courseOpened: showInfoCard, courseClosed: !showInfoCard }">
+    <div
+      *ngIf="isStartDate"
+      class="course-preview"
+      (click)="showInfoCard = !showInfoCard"
+    >
+      <p>{{ "guest-arrived.cardTitle" | translate }}</p>
+    </div>
+    <div
+      *ngIf="isEndDate"
+      class="course-preview"
+      (click)="showInfoCard = !showInfoCard"
+    >
+      <p>{{ "guest-left.cardTitle" | translate }}</p>
+    </div>
+    <div class="course-info">
+      <div *ngIf="isStartDate" class="title-card">
+        {{ "guest-arrived.subtext" | translate }}
+      </div>
+      <div *ngIf="isEndDate" class="title-card">
+        {{ "guest-left.subtext" | translate }}
+      </div>
+
+      <app-button
+        *ngIf="isStartDate"
+        (debounceClick)="guestIn()"
+        [text]="'guest-arrived.button' | translate"
+      ></app-button>
+      <app-button
+        *ngIf="isEndDate"
+        (debounceClick)="guestOut()"
+        [text]="'guest-left.button' | translate"
+      ></app-button>
+    </div>
+  </div>
+</div>

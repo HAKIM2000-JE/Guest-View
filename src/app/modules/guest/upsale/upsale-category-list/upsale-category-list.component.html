@@ -1,0 +1,55 @@
+<section class="section-upsale">
+  <div class="gris-back container-upsale" id="platformServices">
+    <div class="guest-view-desktop-services separator">
+      <div style="width: 100%">
+
+
+        <h3 class="big-title">{{'guest-platefromservices-page.title' | translate}}</h3>
+        <div class="Small sub-title">{{'guest-platefromservices-page.description' | translate}}</div>
+
+        <!-- CATEGORY LIST -->
+        <div class="new-upsale-card-container clickable" *ngIf="currentProductList == null">
+          <div class="new-upsale-card" *ngFor="let category of upsaleCategoryAndProductDtos" (click)="setCurrentCategory(category)">
+            <img class="new-upsale-photo" src="{{category.categoryPictureUrl == null ? 'assets/icon/recommendation/empty/activities.jpg' : category.categoryPictureUrl}}">
+            <div class="new-upsale-descr">
+              <div class="header1 truncate-text">
+                <div class="reco-title truncate-text">{{category.categoryTitle }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCT LIST -->
+        <div class="new-upsale-card-container clickable" *ngIf="currentProductList != null">
+          <div class="new-upsale-card background-cat" *ngFor="let product of currentProductList" (click)="setCurrentProduct(product)">
+            <div *ngIf="product.productTitle === 'Previous'" >
+              <div class="previous-photo-container">
+                <img *ngIf="product.productTitle === 'Previous'" class="previous-photo" src="assets/icon/upsale/Back_Arrow.svg.png">
+              </div>
+            </div>
+
+            <div *ngIf="product.productTitle !== 'Previous'" class="new-upsale-card">
+              <img class="new-upsale-photo" src="{{product.productPictureUrl == null ? 'assets/icon/recommendation/empty/activities.jpg' : product.productPictureUrl}}">
+              <div class="new-upsale-descr">
+                <div class="header1 truncate-text">
+                  <div class="reco-title truncate-text">{{product.productTitle }}</div>
+                </div>
+                <div class="price">à partir de {{getPrice(product) | currency: getCurrency(product)}}  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--<div class="category-card-container">
+          <div *ngFor="let category of upsaleCategoryAndProductDtos">
+            <div *ngIf="category.products?.length>0" class="category-card">
+              {{category.categoryTitle}}
+            </div>
+          </div>
+        </div>-->
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,8 @@
+<div *ngIf="textToSpeak && textToSpeak !== ''" class="secondary-button" style="width: fit-content">
+  <div class="flex flex-row" style="line-height: 28px;">
+    <div style="padding-right: 8px;">{{'audio-component.listen' | translate}}</div>
+    <img *ngIf="!isPlay" class="audio-button" src="./assets/icon/audio/play-button.svg" (click)="playText()">
+    <img *ngIf="isPlay" class="audio-button margin-left-8" src="./assets/icon/audio/pause.svg" (click)="pauseText()">
+    <img *ngIf="!isPlay && isPause" class="audio-button margin-left-8" src="./assets/icon/audio/continuous.svg" (click)="resumeText()">
+  </div>
+</div>

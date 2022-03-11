@@ -1,0 +1,287 @@
+@import "../../../../../assets/styles/gusl-shared";
+@import "../../../../../assets/styles/yaago2-style";
+
+
+:host {
+  background-color: #fafafa;
+}
+
+.guest-view-mobile-section-container {
+  padding-left: 0;
+  padding-bottom: 0;
+
+  .title {
+    padding-top: 28px;
+    padding-left: 28px;
+    padding-right: 0;
+    font-size: 40px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #000000;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+}
+
+.details-useful-number-info {
+  display: flex;
+}
+
+.main-container-useful {
+
+  background-color: #f4f4f4;
+  padding: 40px 32px;
+  width: auto;
+}
+
+.main-container-useful.detail {
+  background-color: #fff;
+
+}
+
+.icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 52px;
+  flex-shrink: 0;
+  margin-right: 22px;
+}
+
+.number {
+  padding-top: 16px;
+  //padding: 0 28px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  margin-right: 0;
+}
+
+.details-useful-number {
+  max-width: 320px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  margin: 0 auto !important;
+  border-bottom: solid 1px rgba(125, 129, 140, 0.3);
+  display: none;
+
+  &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(3) {
+    display: block;
+  }
+}
+
+.details-useful-number-seeMore{
+  max-width: 320px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  margin: 0 auto !important;
+  border-bottom: solid 1px rgba(125, 129, 140, 0.3);
+}
+
+
+.space {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.details-useful {
+  width: auto;
+  margin-bottom: 5px;
+  margin-left: 0;
+}
+
+.name {
+  font-family: $guru-font-hind;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  width: 100%;
+  height: auto;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  color: #141414;
+  margin-bottom: 10px;
+  line-height: 32px;
+
+
+  &.custom {
+    color: #03224c;
+  }
+}
+
+.usefulnumber {
+  font-family: "Hind Madurai", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #141414;
+}
+
+.phone {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.icon-phone {
+  cursor: pointer;
+}
+
+.address {
+  width: 122px;
+  height: 34px;
+  font-family: $guru-font-hind;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #1d2c5a;
+  margin-top: 12px;
+}
+
+.more-detail {
+  margin: 29px auto 0;
+  width: auto;
+  //max-width: 320px;
+  height: 48px;
+  border-radius: 80px;
+  background-color: #fe3945;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 25px;
+  border: none;
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+  }
+}
+
+.more {
+  width: 84px;
+  height: 22px;
+  font-family: $guru-font-hind;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #6183e5;
+  margin-top: 3px;
+}
+
+.arrow {
+  margin-left: 12px;
+}
+
+.back-icon {
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.icon-part {
+  width: 100%;
+
+  p {
+    font-family: "Hind Madurai", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #141414;
+    margin-bottom: 6px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      width: 14px;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+  }
+
+  .get-direction {
+    margin-top: 25px;
+    width: 100%;
+    height: 45px;
+    border-radius: 80px;
+    border: solid 1px #fe3945;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fe3945;
+    background-color: #ffffff;
+
+    img {
+      vertical-align: middle;
+      width: 12px;
+      margin-left: 8px;
+    }
+  }
+
+  .icon-right {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+.directions {
+  display: inline-block;
+  background: #f3f5fd;
+  border: 1.2px solid #91a5eb;
+  border-radius: 5px;
+  height: 34px;
+  line-height: 34px;
+  color: #869de9;
+  padding: 0px 9px;
+  vertical-align: top;
+  cursor: pointer;
+
+  .icon {
+    width: 16px;
+  }
+}
+.fullAddress {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

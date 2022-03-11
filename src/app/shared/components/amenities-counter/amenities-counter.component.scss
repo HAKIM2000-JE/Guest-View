@@ -1,0 +1,36 @@
+@import "../../../../assets/styles/yaago2-colors";
+@import "../../../../assets/styles/yaago2-fonts";
+//work around until we have global styles
+@import "../../../../assets/styles/y-global-style";
+
+.amenities-counter-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.icon-container{
+  width: 48px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-greenVogue;
+}
+.amenities-count{
+  font-family:$font-McQueen;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 100%;
+}
+.amenities-title{
+  font-family: $font-McQueen;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 100%;
+  width: 50%;
+}
+.img-amenities {
+  width: 48px;
+}

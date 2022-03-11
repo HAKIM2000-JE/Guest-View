@@ -1,0 +1,388 @@
+@import "../../../../assets/styles/gusl-shared";
+@import "../../../../assets/styles/yaago2-style";
+
+@media (min-width: 997px) {
+
+.main-container-useful {
+  width: 1024px;
+  margin: auto;
+}
+
+  .useful-number {
+    margin-top: 50px;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .details-useful-number-desktop-seeMore {
+    flex: 1 0 21%;
+    display: block;
+    margin: 0;
+    vertical-align: bottom;
+    position: relative;
+    border-left: 1px solid rgba(125, 129, 140, 0.3);
+    box-shadow: none;
+    border-radius: 0;
+    padding: 28px 0 35px 20px;
+    border-bottom: 1px solid rgba(125, 129, 140, 0.3);
+    height: 277px;
+  }
+
+  .details-useful-number-desktop-seeMore:nth-child(4n), .details-useful-number-desktop-seeMore:last-child {
+    border-right: 1px solid rgba(125, 129, 140, 0.3);
+  }
+  .details-useful-number-desktop-seeMore:nth-child(-n+4) {
+    border-top: 1px solid rgba(125, 129, 140, 0.3);
+  }
+
+  .useful-number-seeMore {
+    width: 100%;
+    margin: 50px auto 0 auto;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+
+  .header-seeMore {
+    display: flex;
+    flex-direction: column;
+    .title {
+      margin-top: 33px;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      font-size: 40px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: left;
+      color: $gurubnb-titleColor;
+      img {
+        width: 8%;
+        margin-left: 164px;
+      }
+    }
+
+    .back-link {
+
+    }
+  }
+
+
+  .guest-view-desktop-section-container .line {
+    height: 3px;
+    width: 29px;
+    background-color: #6183e5;
+    margin: 9px;
+  }
+
+  .guest-view-desktop-section-container .title {
+    text-align: left;
+  }
+  .address-useful {
+    font-family: $guru-font-hind;
+    font-size: 12px;
+    color: #1d2c5a;
+    margin-bottom: 14px;
+  }
+  .useful-name {
+    margin: 10px 0px;
+  }
+
+  .photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .firstname {
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #141414;
+    width: 100%;
+  }
+
+  .icon-block {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    //img{
+    //  width: 100%;
+    //}
+  }
+
+  .contact {
+    width: 100%;
+    display: flex;
+    margin-bottom: 8px;
+    align-items: baseline;
+
+    img {
+      margin-right: 12px;
+      width: 19px;
+    }
+
+    span {
+      text-align: left;
+      display: flex;
+      align-items: center;
+      line-height: 22px;
+      font-size: 16px;
+      color: #141414;
+      font-weight: normal;
+      letter-spacing: normal;
+    }
+
+    .get-direction {
+      background: #fff;
+      margin-top: 20px;
+      border-radius: 80px;
+      border: solid 1px $gurubnb-red;
+      font-size: 16px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: center;
+      color: $gurubnb-red;
+      cursor: pointer;
+      padding: 16px 25px;
+      position: absolute;
+      bottom: 30px;
+
+      img {
+        height: 12px;
+        width: 12px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .content-container-block {
+    /*top: 50%;
+    position: relative;
+    transform: translateY(-50%);*/
+  }
+
+  .details-useful-info {
+    //width: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .fullAddress {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 996px) {
+  ::ng-deep .useful-menu-mobile .header-top {
+    background-color: #fafafa !important;
+  }
+
+  .main-container-useful {
+    background-color: #fafafa;
+
+  }
+
+  .useful-number {
+    margin-top: 50px;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .details-useful-number-desktop-seeMore {
+    display: block;
+    margin: 0;
+    vertical-align: bottom;
+    position: relative;
+    border-bottom: 1px solid rgba(125, 129, 140, 0.3);
+    border-left: 1px solid rgba(125, 129, 140, 0.3);
+    border-right: 1px solid rgba(125, 129, 140, 0.3);
+    box-shadow: none;
+    border-radius: 0;
+    flex: 1 0 80%;
+    padding: 36px;
+  }
+
+  .details-useful-number-desktop-seeMore:first-child {
+    border-top: 1px solid rgba(125, 129, 140, 0.3);
+  }
+
+  .useful-number-seeMore {
+    width: 100%;
+    margin: 41px auto 0 auto;
+    overflow: hidden;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header-seeMore {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      padding: 0;
+      font-size: 30px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: left;
+      color: $gurubnb-titleColor;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+
+      img {
+        width: 35%;
+        margin-left: 110px;
+        margin-top: 10px;
+      }
+    }
+
+
+    .back-link {
+      .icon-btn {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .guest-view-desktop-section-container {
+    margin-left: 28px;
+    margin-right: 28px;
+    padding: 20px 0px 0px;
+  }
+
+  .guest-view-desktop-section-container .line {
+    height: 3px;
+    width: 29px;
+    background-color: #6183e5;
+    margin: 9px;
+  }
+
+  .guest-view-desktop-section-container .title {
+    text-align: left;
+  }
+  .address-useful {
+    font-family: $guru-font-hind;
+    font-size: 12px;
+    color: #1d2c5a;
+    margin-bottom: 14px;
+  }
+  .useful-name {
+    margin: 10px 0px;
+  }
+
+  .photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .firstname {
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #141414;
+    width: 100%;
+  }
+
+  .icon-block {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    //img{
+    //  width: 100%;
+    //}
+  }
+
+  .contact {
+    width: 100%;
+    display: flex;
+    margin-bottom: 8px;
+    align-items: baseline;
+
+    img {
+      margin-right: 12px;
+    }
+
+    span {
+      text-align: left;
+      display: flex;
+      align-items: center;
+      line-height: 22px;
+      font-size: 16px;
+      color: #141414;
+      font-weight: normal;
+      letter-spacing: normal;
+    }
+
+    .get-direction {
+      background: #fff;
+      margin-top: 20px;
+      border-radius: 80px;
+      border: solid 1px $gurubnb-red;
+      font-size: 16px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: center;
+      color: $gurubnb-red;
+      cursor: pointer;
+      height: 45px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        height: 12px;
+        width: 12px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .content-container-block {
+    /*top: 50%;
+    position: relative;
+    transform: translateY(-50%);*/
+  }
+
+  .details-useful-info {
+    //width: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .fullAddress {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.3;
+  }
+}

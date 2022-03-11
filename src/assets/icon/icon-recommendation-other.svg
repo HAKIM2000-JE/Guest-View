@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60.156" height="50.403" viewBox="0 0 60.156 50.403">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-1,.cls-5,.cls-6,.cls-7{stroke:#01085c}.cls-1,.cls-2,.cls-4,.cls-5,.cls-6,.cls-7{stroke-linecap:round}.cls-1,.cls-2,.cls-4{stroke-linejoin:round}.cls-1,.cls-6{stroke-width:2px}.cls-2{fill:#fbb926}.cls-10,.cls-3{fill:#01085c}.cls-4{fill:#fe6b0c}.cls-5,.cls-6,.cls-7,.cls-9{fill:none}.cls-6,.cls-7{stroke-miterlimit:10}.cls-10,.cls-8{stroke:none}
+        </style>
+    </defs>
+    <g id="icon-recommendation-other" transform="translate(-269 -227.724)">
+        <g id="trace" class="cls-1">
+            <path d="M0 0h7v50H0z" class="cls-8" transform="translate(292.149 227.724)"/>
+            <path d="M1 1h5v48H1z" class="cls-9" transform="translate(292.149 227.724)"/>
+        </g>
+        <g id="trace-2" class="cls-2" data-name="trace">
+            <path d="M36.446 14.647H1V1h35.474l6.639 6.48-6.667 7.167z" class="cls-8" transform="translate(284.646 231.132)"/>
+            <path d="M2 2v11.647h34.01l5.706-6.133L36.066 2H2M0 0h36.881l7.63 7.447-7.63 8.2H0V0z" class="cls-10" transform="translate(284.646 231.132)"/>
+        </g>
+        <path id="trace-3" d="M0 0h3v4H0z" class="cls-3" data-name="trace" transform="translate(288.149 233.724)"/>
+        <path id="trace-4" d="M0 0h3v4H0z" class="cls-3" data-name="trace" transform="translate(288.149 239.724)"/>
+        <g id="trace-5" class="cls-4" data-name="trace">
+            <path d="M43.51 14.647H8.064L1.397 7.48 8.037 1H43.51v13.647z" class="cls-8" transform="translate(269 249.013)"/>
+            <path d="M8.443 2L2.794 7.514 8.5 13.647h34.01V2H8.443M7.63 0H44.51v15.647H7.63L0 7.447 7.629 0z" class="cls-10" transform="translate(269 249.013)"/>
+        </g>
+        <path id="trace-6" d="M0 0h3.353v3.353H0z" class="cls-3" data-name="trace" transform="translate(306.804 252.366)"/>
+        <path id="trace-7" d="M0 0h3.353v3.353H0z" class="cls-3" data-name="trace" transform="translate(306.804 257.954)"/>
+        <path id="trace-8" d="M13.411 0H0" class="cls-5" data-name="trace" transform="translate(290.794 254.043)"/>
+        <path id="trace-9" d="M0 0h44.704" class="cls-6" data-name="trace" transform="translate(277.382 277.127)"/>
+        <path id="trace-10" d="M0 0l1.619 1.235" class="cls-7" data-name="trace" transform="rotate(-83 296.592 -60.227)"/>
+        <path id="trace-11" d="M0 0l3.259 2.489" class="cls-7" data-name="trace" transform="rotate(-83 295.71 -59.448)"/>
+        <path id="trace-12" d="M0 0l.891.688" class="cls-7" data-name="trace" transform="rotate(-83 294.641 -60.887)"/>
+    </g>
+</svg>

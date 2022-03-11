@@ -1,0 +1,6 @@
+
+<div #mytemplate>
+  <app-guest-recommendations-view-desktop *ngIf="isDesktopMode() && !property?.noshowRecommendationOnBooklet"></app-guest-recommendations-view-desktop>
+</div>
+<app-guest-recommendations-view-mobile *ngIf="!isDesktopMode() && !property?.noshowRecommendationOnBooklet"></app-guest-recommendations-view-mobile>
+

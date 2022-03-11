@@ -1,0 +1,10 @@
+<div class="main-container-useful  guest-view-mobile-section-container detail" >
+  <div class="header" >
+    <img class="back-icon" src="../../../assets/icon/backbutton.svg" alt="back icon"
+         [routerLink]="['/guest',bookingId]" />
+    <p class="title">Photo Gallery</p>
+    <div class="line"></div>
+  </div>
+  <app-guest-gallery-detail-mobile *ngIf="property" [property] = "property"></app-guest-gallery-detail-mobile>
+
+</div>

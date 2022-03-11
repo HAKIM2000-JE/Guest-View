@@ -1,0 +1,29 @@
+<footer>
+
+  <section class="footer-area2">
+    <div class="vogue-container">
+      <div *ngIf="isDesktopMode()" class="content-container common-info">
+        <!-- TODO: Uncomment when language available.
+              <p class="text-left"></p> &lt;!&ndash; Empty <p> waiting for platform to be in several languages&ndash;&gt;
+        -->
+        <p class="text-left">{{'footer.copyrights' | translate:{date: year} }}</p>
+        <a href="https://yaago.com/fr/documentation-legale"><p class="text-right clickable">{{'footer.legal' | translate}}</p></a>
+      </div>
+      <div *ngIf="!isDesktopMode()" class="common-info">
+        <div class="flex-row justify-content-space-between">
+          <!--        TODO: Uncomment when language available.
+                  <div class="flex-row justify-content-center align-center flex1">
+                    <p></p>
+                  </div>-->
+          <div class="flex-row justify-content-center align-center flex1">
+            <a href="https://yaago.com/fr/documentation-legale"><p class="clickable">{{'footer.legal' | translate}}</p></a>
+          </div>
+        </div>
+        <div class="flex-row justify-content-center align-center">
+          <p>{{'©' + year +('footer.copyrights' | translate) }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</footer>

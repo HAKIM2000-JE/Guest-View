@@ -1,0 +1,263 @@
+@import "../../../../assets/styles/colors-yaago2";
+@import "../../../../assets/styles/yaago2-fonts";
+@import "../../../../assets/styles/gusl-shared";
+@import "../../../../assets/styles/yaago2-style";
+.page-container {
+  // background-color: $color-background;
+}
+.next-button {
+  display: flex;
+  flex-flow: column-reverse;
+  position: absolute;
+  bottom: 11px;
+  right: 50px;
+}
+.stepper-padding {
+//   padding: 24px 32px 24px 24px;
+//   width: 1024px;
+//   border-radius: 30px;
+ // box-shadow: 0 4px 20px 8px rgb(0 0 0 / 9%);
+ padding-bottom: 60px;
+  min-height: 630px;
+//   margin: 60px 22px 60px 22px;
+//   border: none!important;
+padding-top: 42px;
+  position: relative;
+}
+.header-padding{
+    padding: 24px 0 32px 0px;
+}
+.check-container {
+  padding-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1024px;
+
+  min-height: 500px;
+}
+
+.mat-step-label {
+  font-size: 16px;
+  font-family: $font-Roboto;
+}
+.col-2 {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.title > h2 {
+  text-align: center;
+}
+
+.journey-summary {
+  padding: 32px;
+  padding: 24px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.position-container .second-level .journey-summary .nights-container p {
+  font-family: McQueenDisplay-Regular;
+}
+.Small {
+  font-size: 14px;
+  font-family: McQueenDisplay-Regular;
+}
+.number {
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  font-family: McQueenDisplay-Regular;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #03224c;
+}
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: #03224c;
+}
+// ::ng-deep .mat-form-field-underline{
+//   display: none;
+// }
+::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+.position-container .second-level .journey-summary .nights-container {
+  padding: 16px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.journey-summary .welcome-container {
+    font-size: 20px;
+    color: #141414;
+    flex: 1;
+}
+.journey-summary .welcome-container p {
+    font-family: McQueenDisplay-Regular;
+}
+
+.logo{
+    padding-left: 28px;
+    width: 120px;
+}
+.title-position{
+    padding-top: 32px;
+}
+.title p {
+  font-family: McQueenDisplay-Regular;
+  font-size: 32px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 68%;
+}
+.title-position{
+    text-align: -webkit-center;
+}
+.journey-summary .nights-container {
+padding: 16px;
+    border: 1px solid #03224c;
+    border-radius: 10px;
+    color: #03224c;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+.journey-summary .date-cards {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 24px auto 0;
+}
+.journey-summary .date-cards .date-card {
+    background: #fff;
+    border-radius: 20px;
+    color: #03224c;
+    padding: 16px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    min-width: 151px;
+    height: 79px;
+    box-shadow: 0 4px 24px rgb(0 0 0 / 15%);
+}
+
+.journey-summary .date-cards .date-card img {
+  height: 45px;
+  width: auto;
+  margin-right: 16px;
+}
+.journey-summary .date-cards .date-card .title {
+  font-family: McQueenDisplay-Regular;
+  margin-bottom: 8px;
+}
+.journey-summary .date-cards .date-card .date {
+  font-weight: 700;
+  font-family: Roboto;
+}
+.journey-summary .date-cards .date-card .title {
+  font-size: 14px;
+}
+.margin-right-16 {
+  margin-right: 16px;
+}
+
+.stepper-size{
+  width: 960px;
+  padding: 0 32px;
+  margin: 70px auto 0;
+
+
+  border: none!important;
+}
+
+.container-imgs {
+  display: flex;
+  padding-top: 48px;
+  flex-wrap: wrap;
+  padding-bottom: 16px;
+}
+.container-img{
+  padding: 6.1px;
+  background-color: #fff;
+  box-shadow: 0 4px 16px 0 rgb(0 0 0 / 4%);
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-left: 2px;
+}
+
+.picture-width {
+  height: 167px;
+  width: 217px;
+  border-radius: 10px;
+  object-fit: cover;
+
+}
+.container-delete-icon {
+  position: absolute;
+  // right: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  padding-top: auto;
+  padding-bottom: auto;
+  background-color: #ffffff;
+  border-bottom-right-radius: 5px;
+  height: 26px;
+  width: 26px;
+  z-index: 1;
+}
+.icon-delete {
+  width: 29px;
+  height: 17.7px;
+  flex-grow: 0;
+  margin-top: -1px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  image-orientation: from-image;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.signature-pad {
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-end;
+  bottom: 10px;
+  position: absolute;
+  width: 90%;
+}
+
+@media (max-width: 1024px) {
+  .col-2 {
+    margin-right: 8px;
+    margin-left: 8px;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.margin-right-12 {
+  margin-right: 12px;
+}
+
+.signature-pad--body {
+  border: 1px solid $color-greenVogue;
+}

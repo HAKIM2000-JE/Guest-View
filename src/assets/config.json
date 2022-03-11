@@ -1,0 +1,13 @@
+{
+  "system": {
+    "localapiEndPoint": "http://localhost:8080/",
+    "dapiEndPoint": "http://localhost:8080/",
+    "apiEndPoint": "https://guest.staging.yaago.com/",
+    "prodapiEndPoint": "https://guest.yaago.com/",
+    "local-apiEndPoint": "http://localhost:8080/",
+    "stg-apiEndPoint": "https://guest.staging.yaago.com/",
+    "prod-apiEndPoint": "https://guest.yaago.com/",
+    "qa-apiEndPoint": "https://guest.qa.yaago.com/",
+    "demo-apiEndPoint": "https://guest.demo.yaago.com/"
+  }
+}

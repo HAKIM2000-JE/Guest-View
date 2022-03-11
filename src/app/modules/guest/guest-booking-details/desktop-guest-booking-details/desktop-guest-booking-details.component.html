@@ -1,0 +1,384 @@
+<div  id="bookingDetail" class="guest-view-desktop-section-container padding-right-16 padding-left-16">
+
+  <div class="row margin-bottom-48 margin-top-64" >
+    <div class="column padding-right-24">
+
+      <div class="main-title margin-bottom-48">
+
+        <h3 *ngIf="!property?.host?.btobInfo  && booking == null">{{'guest-view-booking-details.property-details' | translate}}</h3>
+        <h3 *ngIf="!property?.host?.btobInfo  && booking">{{'guest-view-booking-details.booking-details' | translate}}</h3>
+        <h3 *ngIf="property?.host?.btobInfo">{{'guest-view-booking-details.resa-details' | translate}}</h3>
+        <!--<img src="assets/icon/bookingDetailsLine.svg">-->
+      </div>
+
+      <div class="map-wrapper">
+        <div #gMap class="map-container">
+        </div>
+        <div class="find-direction-btn">
+          <app-button [text]="'guest-detail-booking.find-direction' | translate"
+                         (debounceClick)="findDirection()"
+        ></app-button></div>
+
+      </div>
+
+      <h4 class="mcqueen X-Large txt-color-black txt-nowrap txt-ellipsis hidden-overflow width-75 margin-top-64 " style="height: 96px">
+        {{property.title}}
+      </h4>
+
+      <p *ngIf="property?.description"  [innerHTML]="property.description"
+         class="property-description roboto Medium txt-color-scorpion  margin-top-32 margin-bottom-16 ql-editor
+                   {{(property?.description && property?.description.length > 300 && !showingMoreDescription) ? 'description-max-height' : ''}}">
+      </p>
+
+      <span class="roboto Small bold underline txt-color-grvogue flex flex-justify-center clickable"
+            *ngIf="property?.description && property?.description.length > 300"
+            (click)="showingMoreDescription = !showingMoreDescription">
+    {{(showingMoreDescription ? 'guest-view-booking-details.show-less' :'guest-view-booking-details.show-more') | translate }}
+  </span>
+
+      <app-audio-play *ngIf="this.property?.description && !property?.noAudioDisplay" [textToSpeak]="utilService.getCleanTextToRead(property.description)"></app-audio-play>
+      <!--<div class="flex-row ">
+        <div class="secondary-button-small" (click)="playDescription()">Play</div>
+        <div class="secondary-button-small margin-left-8"  (click)="pause()">Pause</div>
+        <div class="secondary-button-small margin-left-8"  (click)="resume()">Resume</div>
+      </div>-->
+
+      <div *ngIf="!property?.host?.btobInfo || !property?.noshowBedsDetail " class="amenities width-100">
+        <app-amenities-counter *ngIf="booking" [type]="'travelers'" [count]="counter('travelers')"></app-amenities-counter>
+        <div class="div-amenities">
+            <app-amenities-counter *ngIf="property.doubleBeds > 0" [type]="'doublebeds'" [count]="counter('doublebeds')"></app-amenities-counter>
+            <app-amenities-counter *ngIf="property.singleBeds > 0" [type]="'singlebeds'" [count]="counter('singlebeds')"></app-amenities-counter>
+        </div>
+        <div class="div-amenities ">
+          <app-amenities-counter *ngIf="property.sofaBeds > 0" [type]="'sofabeds'" [count]="counter('sofabeds')"></app-amenities-counter>
+          <app-amenities-counter *ngIf="property.bathrooms > 0" [type]="'baths'" [count]="counter('baths')"></app-amenities-counter>
+        </div>
+      </div>
+
+    </div>
+    <div class="column padding-left-96">
+
+      <div class="checkin-out-container">
+        <span class="checkin-text margin-right-24" *ngIf="(booking?.expectedCheckinLocalTime || property?.defaultCheckInTime) && property?.host?.btobInfo ">
+          {{'guest-detail-booking.btob-arrival'  | translate}}
+        </span>
+        <span class="checkin-text margin-right-24" *ngIf="(booking?.expectedCheckinLocalTime || property?.defaultCheckInTime) && !property?.host?.btobInfo  ">
+          {{'guest-detail-booking.arrival'  | translate}}
+        </span>
+
+        <span class="time-tag margin-right-32" *ngIf="booking?.expectedCheckinLocalTime || property?.defaultCheckInTime">
+          {{getTime(booking?.expectedCheckinLocalTime, property?.defaultCheckInTime)}}
+        </span>
+
+        <span class="checkin-text margin-right-32" *ngIf="(booking?.expectedCheckoutLocalTime || property?.defaultCheckOutTime) && property?.host?.btobInfo">
+          {{'guest-detail-booking.btob-departure'  | translate}}
+        </span>
+        <span class="checkin-text margin-right-32" *ngIf="(booking?.expectedCheckoutLocalTime || property?.defaultCheckOutTime) && !property?.host?.btobInfo">
+          {{'guest-detail-booking.departure'  | translate}}
+        </span>
+
+        <span class="time-tag" *ngIf="booking?.expectedCheckoutLocalTime || property?.defaultCheckOutTime">
+          {{getTime(booking?.expectedCheckoutLocalTime, property?.defaultCheckOutTime)}}
+        </span>
+      </div>
+
+      <div *ngIf="property?.host?.btobInfo" class="map-container margin-bottom-64">
+        <img *ngIf="property && mainPropertyPhoto" class="map-container object-fit-cover width-100" [src]="mainPropertyPhoto"
+             alt="mainPhoto">
+        <img *ngIf="property && !mainPropertyPhoto" class="map-container object-fit-cover" src="assets/defaut-top-img.png"
+             alt="mainPhoto">
+      </div>
+
+      <h5 *ngIf="canShowIglooHome() || canShowTheKeys() || isSwiklyConfigured() || (property.needPreCheck && booking) || (importantGuides && importantGuides.length > 0)" class="txt-color-black margin-top-8 margin-bottom-24">{{'guest-view-booking-details.important-info' | translate}}</h5>
+
+      <div class="partner-section margin-bottom-24" *ngIf="canShowIglooHome() || canShowTheKeys() || isSwiklyConfigured() || (property.needPreCheck && booking) || (importantGuides && importantGuides.length > 0)">
+        <img src="/assets/icon/icon-arrow-left.svg" alt="previous" class="clickable margin-right-16" *ngIf="getImportantInfoCount() > 2" (click) = "partnerScroll(partnerContainer, 'left')">
+        <div class="partners-container" #partnerContainer>
+
+          <div *ngIf="property.needPreCheck && booking"
+               class="partner-bloc clickable margin-right-16 {{activePartner === 'precheckin' ? 'active' : ''}} {{booking?.preCheckIn == null ? 'logement-not-ready': 'logement-ready' }}"
+               (click)="activePartner = 'precheckin'">
+            <img *ngIf="isPropertyReady()" class="iglohoome-icon" src="assets/images/yaagov2-hygiene/valid.svg" alt="igloohome">
+            <img *ngIf="!isPropertyReady()" class="iglohoome-icon" src="assets/images/yaagov2-hygiene/not-valid.svg" alt="igloohome">
+            <div *ngIf="isPropertyReady()" class="partner-name margin-top-8 txt-align-center">{{'guest-view-booking-details.logement-ready' | translate}}</div>
+            <div *ngIf="!isPropertyReady()" class="partner-name margin-top-8  txt-align-center">{{'guest-view-booking-details.logement-not-ready' | translate}}</div>
+          </div>
+
+          <!-- IGLOOHOME -->
+          <div *ngIf="canShowIglooHome()"
+               class="partner-bloc clickable margin-right-16 {{activePartner === 'igloohome' ? 'active' : ''}}"
+               (click)="activePartner = 'igloohome'">
+            <img class="iglohoome-icon" src="assets/icon/partner/igloohome.png" alt="igloohome">
+            <div class="partner-name margin-top-8">{{'guest-detail-booking.smartlock'  | translate}}</div>
+            <p *ngIf="(booking.iglooHomeAccess ? booking.iglooHomeAccess.code : booking.iglooHomeLockCode) as code" class="margin-top-24 roboto Small bold txt-color-scorpion" (click)="clipBoardCopy(code)">{{code}}🔓</p>
+          </div>
+
+          <!-- THE KEYS -->
+          <div *ngIf="canShowTheKeys()"
+               class="partner-bloc clickable margin-right-16 {{activePartner === 'thekeys' ? 'active' : ''}}"
+               (click)="activePartner = 'thekeys'">
+            <img class="iglohoome-icon" src="assets/icon/partner/thekeys.png" alt="thekeys">
+            <div class="partner-name margin-top-8">{{'guest-detail-booking.smartlock'  | translate}}</div>
+            <p class="margin-top-24 roboto Small bold txt-color-scorpion" (click)="clipBoardCopy(utilService.getTheKeysCode(booking))">{{utilService.getTheKeysCode(booking)}}</p>
+            <a class="margin-top-8 swikly-btn" *ngIf="utilService.getTheKeysLink(booking) != ''" href="{{utilService.getTheKeysLink(booking)}}" target="_blank">{{'guest-detail-booking.smartlock-link' | translate}}</a>
+            <!--<p class="margin-top-8 roboto Small bold txt-color-scorpion" (click)="clipBoardCopy(utilService.getTheKeysLink(booking))">{{utilService.getTheKeysLink(booking)}}</p>-->
+          </div>
+
+          <div *ngIf="isSwiklyConfigured()"
+                class="partner-bloc clickable margin-right-16 {{activePartner === 'swikly'  ? 'active' : ''}} "
+               (click)="activePartner = 'swikly'">
+            <img class="swikly-icon" src="assets/icon/partner/swikly.svg" alt="swikly">
+            <div class="partner-name margin-top-8">Swikly</div>
+            <div class="swikly-status margin-top-4">
+              <span class="margin-right-8">
+                {{(isCautionDeposed() ? 'guest-view-booking-details.partners.swikly-alredy-deposit' : 'guest-view-booking-details.partners.swikly-pending') | translate}}
+              </span>
+              <img src="{{isCautionDeposed() ? '/assets/icon/valid.svg': '/assets/icon/not-valid.svg'}}" alt="status">
+            </div>
+            <a class="margin-top-8 swikly-btn" *ngIf="!isCautionDeposed() && isCautionAllowToShow()" href="{{booking?.swiklyInfo?.swiklyAcceptUrl}}" target="_blank">{{'guest-view-booking-details.partners.deposit-caution' | translate}}</a>
+            <span *ngIf="isCautionDeposed()" class="margin-top-8 roboto X-small txt-color-scorpion">{{booking.swiklyInfo?.swiklyDepositAmount?.amount | currency : booking.swiklyInfo?.swiklyDepositAmount?.currency}}</span>
+          </div>
+
+          <!--GUIDE IMPORTANT-->
+          <div *ngFor="let guide of importantGuides"
+               >
+            <div class="partner-bloc clickable margin-right-16"
+                 (click)="showGuide(guide)" *ngIf="needToShowGuide(guide)">
+                <img class="guide-icon" src="{{getGuideCover(guide)}}" alt="guide">
+                <div  class="partner-name margin-top-8 txt-align-center">{{guide.translations[0].title}}</div>
+            </div>
+          </div>
+
+        </div>
+        <img src="/assets/icon/icon-arrow-left.svg" alt="next" class="clickable rotate-180 margin-left-16" *ngIf="getImportantInfoCount() > 2" (click) = "partnerScroll(partnerContainer, 'right')">
+      </div>
+
+      <p class="roboto Small txt-color-dimgray   margin-bottom-48" *ngIf="activePartner=== 'igloohome'">{{'guest-view-booking-details.igloohome-description' | translate}}</p>
+      <p class="roboto Small txt-color-dimgray   margin-bottom-48" *ngIf="activePartner=== 'thekeys'">{{'guest-view-booking-details.thekeys-description' | translate}}</p>
+      <p class="roboto Small txt-color-dimgray   margin-bottom-48" *ngIf="activePartner=== 'swikly'">{{'guest-view-booking-details.swikly-description' | translate}}</p>
+
+
+      <section id="GUEST INVENTORY" *ngIf="property?.showGuestInventory && booking?.id" class="margin-bottom-24">
+        <app-button text="{{'guest-view-booking-details.inventory' | translate}}" (debounceClick)="showInventory()" [type]="'primary'"></app-button>
+      </section>
+
+      <!--HOST-INFOS-->
+      <h5 *ngIf="localShowMeAsHost && !property?.host?.btobInfo" class="margin-bottom-24" >{{'guest-view-booking-details.your-host' | translate}}</h5>
+      <h5 *ngIf="localShowMeAsHost && property?.host?.btobInfo" class="margin-bottom-24" >{{'guest-view-booking-details.btob-your-host' | translate}}</h5>
+
+      <div *ngIf="localShowMeAsHost" class="card padding-24 person-container {{localCoHostInCharge ? 'margin-bottom-32' : ''}}">
+        <div class="picture-container">
+            <img *ngIf="property?.host?.pictureUrl" src="{{property?.host.pictureUrl}}" alt="picture">
+            <span *ngIf="!property?.host?.pictureUrl" class="roboto Large picture-placeholder">
+              {{getFirstLetter(property?.host)}}
+            </span>
+            <div class="language-container margin-top-8">
+                <ng-template [ngIf]="property?.host?.languages && property.host.languages.length <= 2">
+                    <img *ngFor="let languageCode of property?.host?.languages" class="margin-right-8 margin-top-8" src="{{ getLanguage(languageCode) }}" alt="flags">
+                </ng-template>
+                <ng-template [ngIf]="property?.host?.languages && property.host.languages.length > 2">
+                  <app-tooltip [position]="'right'">
+                    <div class="flex-row flex-align-center" placeholder>
+                      <img style="width: 17px; height: 17px;" src="/assets/icon/icon_world.svg" alt="world">
+                      <span class="roboto Medium bold txt-color-grvogue margin-left-4">({{property.host?.languages?.length}})</span>
+                    </div>
+                    <div class="flex-row flex-align-center flex-justify-center" content>
+                      <img *ngFor="let languageCode of property.host?.languages" class="margin-left-12 margin-right-12 " src="{{ getLanguage(languageCode) }}" alt="flags">
+                    </div>
+                  </app-tooltip>
+                </ng-template>
+            </div>
+        </div>
+        <div class="infos-container margin-left-24">
+          <span class="roboto Large txt-color-grvogue">{{property?.host?.firstName | titlecase}} {{property?.host?.lastName | titlecase}}</span>
+          <p class="margin-top-16 roboto X-small txt-color-dimgray" *ngIf="property?.host?.email"
+             (click)="emailPerson(property?.host)">
+            <img class="margin-right-8" src="/assets/icon/icon_message.svg" alt="mail">
+            {{property?.host?.email}}
+          </p>
+          <a class="margin-top-4 roboto X-small txt-color-dimgray" *ngIf="property?.host?.whatsAppLink"
+             href="{{property?.host?.whatsAppLink}}" target="_blank">
+            <img class="margin-right-8" style="height: 16px;" src="/assets/icon/icon-whatsapp.svg" alt="whatsapp">
+            <span style="text-decoration: underline; font-weight: bold; color: #03224C">WhatsApp Chat</span>
+          </a>
+          <p class="margin-top-4 roboto X-small txt-color-dimgray" *ngIf="property?.host?.phone"
+             (click)="call(property?.host)">
+            <img class="margin-right-8" src="/assets/icon/icon_tel.svg" alt="phone">
+            {{property?.host?.phone}}
+          </p>
+
+
+
+        </div>
+      </div>
+       <!--end host-->
+
+      <!--CO-HOST IN CHARGE-INFOS-->
+      <h5 *ngIf="localCoHostInCharge && localCoHostInCharge.email != null && !property?.host?.btobInfo" class="margin-bottom-24" >
+        {{(localShowMeAsHost ? 'guest-view-booking-details.your-co-host' : 'guest-view-booking-details.your-host') | translate}}
+      </h5>
+
+      <h5 *ngIf="localCoHostInCharge && localCoHostInCharge.email != null && property?.host?.btobInfo" class="margin-bottom-24" >
+        {{(localShowMeAsHost ? 'guest-view-booking-details.btob-your-co-host' : 'guest-view-booking-details.btob-your-host') | translate}}
+      </h5>
+
+
+
+      <div *ngIf="localCoHostInCharge && localCoHostInCharge?.email != null" class="card padding-24 person-container">
+        <div class="picture-container">
+          <img *ngIf="localCoHostInCharge?.pictureUrl" src="{{localCoHostInCharge.pictureUrl}}" alt="picture">
+          <span *ngIf="!localCoHostInCharge?.pictureUrl" class="roboto Large picture-placeholder">
+              {{getFirstLetter(localCoHostInCharge)}}
+            </span>
+          <div class="language-container margin-top-8">
+            <ng-template [ngIf]="localCoHostInCharge?.languages && localCoHostInCharge.languages.length <= 2">
+              <img *ngFor="let languageCode of localCoHostInCharge?.languages" class="margin-right-8 margin-top-8" src="{{ getLanguage(languageCode) }}" alt="flags">
+            </ng-template>
+            <ng-template [ngIf]="localCoHostInCharge?.languages && localCoHostInCharge.languages.length > 2">
+              <app-tooltip [position]="'right'">
+                <div class="flex-row flex-align-center" placeholder>
+                  <img style="width: 17px; height: 17px;" src="/assets/icon/icon_world.svg" alt="world">
+                  <span class="roboto Medium bold txt-color-grvogue margin-left-4">({{localCoHostInCharge?.languages?.length}})</span>
+                </div>
+                <div class="flex-row flex-align-center flex-justify-center" content>
+                  <img *ngFor="let languageCode of localCoHostInCharge?.languages" class="margin-left-12 margin-right-12 " src="{{ getLanguage(languageCode) }}" alt="flags">
+                </div>
+              </app-tooltip>
+            </ng-template>
+          </div>
+        </div>
+        <div class="infos-container margin-left-24">
+          <span class="roboto Large txt-color-grvogue">{{localCoHostInCharge?.firstName }} {{localCoHostInCharge?.lastName }}</span>
+          <p class="margin-top-16 roboto X-small txt-color-dimgray" *ngIf="localCoHostInCharge?.email"
+             (click)="emailPerson(localCoHostInCharge)">
+            <img class="margin-right-8" src="/assets/icon/icon_message.svg" alt="mail">
+            {{localCoHostInCharge?.email}}
+          </p>
+
+          <a class="margin-top-4 roboto X-small txt-color-dimgray" *ngIf="localCoHostInCharge?.whatsAppLink"
+             href="{{localCoHostInCharge?.whatsAppLink}}" target="_blank">
+            <img class="margin-right-8" style="height: 16px;" src="/assets/icon/icon-whatsapp.svg" alt="whatsapp">
+            <span style="text-decoration: underline; font-weight: bold; color: #03224C">WhatsApp Chat</span>
+          </a>
+
+          <p class="margin-top-4 roboto X-small txt-color-dimgray" *ngIf="localCoHostInCharge?.phoneNumber"
+             (click)="callTeammate(localCoHostInCharge)">
+            <img class="margin-right-8" src="/assets/icon/icon_tel.svg" alt="phone">
+            {{localCoHostInCharge?.phoneNumber}} <span *ngIf="localCoHostInCharge?.phoneUrgencyOnly">&nbsp; {{'guest-view-booking-details.urgency-only' | translate}}</span>
+          </p>
+
+
+
+        </div>
+      </div>
+      <!--end co host Incharge-->
+
+      <!--TEAM-MATES-INFOS-->
+      <div class="flex-row flex-align-center margin-top-48" *ngIf="booking?.teammateInCharge || (property.teammates && property.teammates?.length === 1)">
+        <h5 class="txt-color-black" >
+          {{(property.teammates?.length >1  ? 'guest-view-booking-details.teammates' : 'guest-view-booking-details.teammate') | translate}}
+        </h5>
+        <app-tooltip [position]="'right'">
+          <img class="margin-left-8 clickable" placeholder src="/assets/icon/icon_information.svg" alt="infos">
+          <div class="roboto X-small txt-color-dimgray teammate-explain" content>
+            {{'guest-view-booking-details.teammates-explain' | translate}}
+          </div>
+        </app-tooltip>
+      </div>
+
+      <!--display only teamMateInCharge if he exist-->
+      <div class="card padding-24 person-container margin-top-24" *ngIf="booking && booking?.teammateInCharge">
+        <div class="picture-container">
+          <img *ngIf="booking.teammateInCharge.pictureUrl" src="{{booking.teammateInCharge.pictureUrl}}" alt="picture">
+          <img *ngIf="!booking.teammateInCharge.pictureUrl" src="/assets/icon/teammate.svg" alt="picture">
+          <div class="language-container margin-top-8">
+            <ng-template [ngIf]="booking.teammateInCharge.languages && booking.teammateInCharge.languages.length <= 2">
+              <img *ngFor="let languageCode of booking.teammateInCharge.languages" class="margin-right-8 margin-top-8" src="{{ getLanguage(languageCode) }}" alt="flags">
+            </ng-template>
+            <ng-template [ngIf]="booking.teammateInCharge.languages && booking.teammateInCharge.languages.length > 2">
+              <app-tooltip [position]="'right'">
+                <div class="flex-row flex-align-center" placeholder>
+                  <img style="width: 17px; height: 17px;" src="/assets/icon/icon_world.svg" alt="world">
+                  <span class="roboto Medium bold txt-color-grvogue margin-left-4">({{booking.teammateInCharge.languages.length}})</span>
+                </div>
+                <div class="flex-row flex-align-center flex-justify-center" content>
+                  <img *ngFor="let languageCode of booking.teammateInCharge.languages" class="margin-left-12 margin-right-12 " src="{{ getLanguage(languageCode) }}" alt="flags">
+                </div>
+              </app-tooltip>
+
+            </ng-template>
+          </div>
+        </div>
+        <div class="infos-container margin-left-24">
+          <span class="roboto Large txt-color-grvogue">{{booking.teammateInCharge.firstname | titlecase}} {{booking.teammateInCharge.lastname | titlecase}}</span>
+          <p class="margin-top-16 roboto X-small txt-color-dimgray" *ngIf="booking.teammateInCharge.email"
+             (click)="emailPerson(booking.teammateInCharge)">
+            <img class="margin-right-8" src="/assets/icon/icon_message.svg" alt="mail">
+            {{booking.teammateInCharge?.email}}
+          </p>
+          <p class="margin-top-12 roboto X-small txt-color-dimgray" *ngIf="booking.teammateInCharge?.phoneNumber"
+             (click)="callTeamInCharge(booking.teammateInCharge)">
+            <img class="margin-right-8" src="/assets/icon/icon_tel.svg" alt="phone">
+            {{booking.teammateInCharge.phoneNumber}}
+          </p>
+
+        </div>
+      </div>
+
+      <!--display all teammates if no team mate in charge-->
+      <ng-template [ngIf]="!booking?.teammateInCharge && property.teammates && property.teammates?.length === 1">
+        <div class="card padding-24 person-container margin-top-24" *ngFor="let mate of property.teammates">
+          <div class="picture-container">
+            <img *ngIf="mate.pictureUrl" src="{{mate.pictureUrl}}" alt="picture">
+            <img *ngIf="!mate.pictureUrl" src="/assets/icon/teammate.svg" alt="picture">
+            <div class="language-container margin-top-8">
+              <ng-template [ngIf]="mate.languages && mate.languages.length <= 2">
+                <img *ngFor="let languageCode of mate.languages" class="margin-right-8 margin-top-8" src="{{ getLanguage(languageCode) }}" alt="flags">
+              </ng-template>
+              <ng-template [ngIf]="mate.languages && mate.languages.length > 2">
+                <app-tooltip [position]="'right'">
+                  <div class="flex-row flex-align-center" placeholder>
+                    <img style="width: 17px; height: 17px;" src="/assets/icon/icon_world.svg" alt="world">
+                    <span class="roboto Medium bold txt-color-grvogue margin-left-4">({{mate.languages.length}})</span>
+                  </div>
+                  <div class="flex-row flex-align-center flex-justify-center" content>
+                    <img *ngFor="let languageCode of mate.languages" class="margin-left-12 margin-right-12 " src="{{ getLanguage(languageCode) }}" alt="flags">
+                  </div>
+                </app-tooltip>
+
+              </ng-template>
+            </div>
+          </div>
+          <div class="infos-container margin-left-24">
+            <span class="roboto Large txt-color-grvogue">{{mate.firstName | titlecase}} {{mate.lastName | titlecase}}</span>
+            <p class="margin-top-16 roboto X-small txt-color-dimgray" *ngIf="mate.showMyDetails && mate.email"
+               (click)="emailPerson(mate)">
+              <img class="margin-right-8" src="/assets/icon/icon_message.svg" alt="mail">
+              {{mate?.email}}
+            </p>
+            <p class="margin-top-12 roboto X-small txt-color-dimgray" *ngIf="mate.showMyDetails && mate?.phone"
+               (click)="call(mate)">
+              <img class="margin-right-8" src="/assets/icon/icon_tel.svg" alt="phone">
+              {{mate.phone}}
+            </p>
+
+          </div>
+        </div>
+      </ng-template>
+
+      <!--end teammates-->
+
+  </div>
+
+</div>
+</div>
+
+<div class="details-dialog-container" *ngIf="currentGuide && showGuideDetails">
+
+  <div class="details-container" >
+    <img src="assets/icon/close-round.svg" alt="icon" class="closee clickable" (click)="closeGuide()">
+
+    <app-guide-details [property]="property" [guide]="currentGuide"></app-guide-details>
+  </div>
+
+</div>

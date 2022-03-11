@@ -1,0 +1,8 @@
+{
+  "system": {
+    "apiEndPoint": "$guest_backend_url",
+    "commitId": "$CI_COMMIT_SHORT_SHA",
+    "pipelineId": "$CI_PIPELINE_ID",
+    "buildDatetime": "$BUILD_DATE"
+  }
+}

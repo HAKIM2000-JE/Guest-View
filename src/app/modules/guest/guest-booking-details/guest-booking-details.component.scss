@@ -1,0 +1,27 @@
+.desktop-detail-booking {
+  background: linear-gradient(180deg, rgba(129,129,129,0.5917717428768383) -37%, rgba(255,255,255,0) 8%);
+  padding-top: 94px;
+}
+
+::ng-deep app-guest-booking-details .gm-ui-hover-effect {
+  display: none !important;
+}
+::ng-deep app-guest-booking-details .gm-style .gm-style-iw-c{
+  box-shadow: none;
+  max-width: 216px !important;
+  max-height: max-content !important;
+  border-radius: 0;
+
+}
+
+::ng-deep app-guest-booking-details .gm-style .gm-style-iw-t::after{
+  content:none;
+}
+::ng-deep app-guest-booking-details .markerLabel,
+::ng-deep app-mobile-guest-booking-details .markerLabel{
+  font-size: 14px;
+  font-weight: 600;
+  color: #141414;
+  font-family: "Hind Madurai", sans-serif;
+}
+

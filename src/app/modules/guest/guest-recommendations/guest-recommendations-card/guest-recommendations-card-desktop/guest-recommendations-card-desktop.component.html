@@ -1,0 +1,173 @@
+<div class="card" *ngIf="recommendation">
+
+  <div class="close">
+    <div class="icon" (click)="close()">
+      <div class="icon-wrapper">
+        <img src="../../../../../../assets/icon/recommendation/icon-close.svg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="top-image-container">
+    <img class="mainPhotoLandingPage" *ngIf="recommendation.mainPhoto" [src]="recommendation.mainPhoto" alt="mainPhoto">
+    <img class="mainPhotoLandingPage" *ngIf="!recommendation.mainPhoto" src="/assets/images/recommendation/no-image.png" alt="mainPhoto">
+    <div class="recommendation-name">
+      <span>{{recommendation?.title}}</span>
+    </div>
+    <button *ngIf="_hasPrevious" appDebounceClick 
+      (debounceClick)="previous()" 
+      class="fab-button previous" mat-mini-fab color="primary" aria-label="Previous">
+      <mat-icon>arrow_back_ios_new</mat-icon>
+    </button>
+    <button *ngIf="_hasNext" appDebounceClick 
+      (debounceClick)="next()" 
+      (debounceClick)="onClickNextOnPhotoRecommendation(recommendation ,'Profile0')"
+      class="fab-button next" mat-mini-fab color="primary" aria-label="Next">
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </div>
+  <div class="card-wrapper">
+
+    <div class="card-body grey-scroll">
+      <div class="flex flex-row flex-align-center flex-space-between">
+        <!--Name Bloc-->
+        <div class="flex flex-row flex-align-center">
+          <img class="profile-container" *ngIf="recommendation?.comment?.pictureUrl" src="{{recommendation?.comment?.pictureUrl}}" alt="picture">
+          <span *ngIf="!recommendation?.comment?.pictureUrl" class="roboto Large picture-placeholder">
+              {{getFirstLetter(recommendation?.comment)}}
+          </span>
+          <div class="margin-left-16 flex flex-column">
+            <span class="mcqueen Small txt-color-black margin-bottom-4">{{recommendation?.comment?.name | titlecase}}</span>
+            <span class="mcqueen Small txt-color-grvogue">{{'guest-recommendation.card.' + recommendation.comment.type | translate}}</span>
+          </div>
+        </div>
+
+        <!--Category Bloc-->
+        <div class="flex flex-column flex-justify-end">
+          <div class="flex flex-row align-items-center flex-justify-end">
+            <img src="{{recommendation.category.mapIcon}}" alt="picto" class="pin-icon">
+            <span class="mcqueen Medium txt-color-black margin-left-8 width-min-content">{{('guest-recommendation.' + recommendation.category.key) | translate | titlecase}}</span>
+          </div>
+          <span class="roboto XX-small txt-color-scorpion margin-top-8" *ngIf="recommendation.durationSinceCreation?.typeTime">
+            {{'guest-recommendation.added-since' |translate}} {{recommendation.durationSinceCreation.time}} {{'guest-recommendation.card.' + recommendation.durationSinceCreation.typeTime | translate}}
+          </span>
+        </div>
+      </div>
+
+      <div class="flex flex-col margin-top-16" *ngIf="recommendation?.influencerDetails != null">
+        <div *ngIf="recommendation?.influencerDetails?.bio" class="mcqueen Small txt-color-grvogue">Bio: </div>
+        <div *ngIf="recommendation?.influencerDetails?.socialMediaUrl" class="mcqueen Small txt-color-grvogue">SocialMedia Url: <a [href]="recommendation.influencerDetails.socialMediaUrl">{{recommendation.influencerDetails.socialMediaUrl}}</a> </div>
+      </div>
+
+      <div *ngIf="recommendation.category?.key === 'events'"  class="margin-top-24 flex-row flex-justify-center flex-align-center mcqueen Small txt-color-scorpion">
+        <span class="bold">{{'recommendation.from' | translate}}</span>
+        <span class="margin-left-8">{{recommendation.startDate | moment : language:'DD/MM/YY - hh:mm'}}</span>
+        <span class="margin-left-8 bold">{{'recommendation.to' | translate}}</span>
+        <span class="margin-left-8">{{recommendation.endDate | moment : language:'DD/MM/YY - hh:mm'}}</span>
+      </div>
+      <!--Ratings -->
+      <div class="flex flex-row flex-space-between margin-top-32">
+        <!-- Price Bloc-->
+        <div class="flex flex-row align-items-center">
+            <div class="flex flex-row align-items-center icon-coin" *ngFor="let rate of recommendation.priceRanking.icons">
+              <img class="rate-icon" [ngStyle]="{'width':recommendation.priceRanking.rating === 1 ? '50px' : '24px', 'height':recommendation.priceRanking?.rating === 1 ? '50px' : '24px'}"
+                   src="/{{rate.url}}" alt="">
+            </div>
+            <span class="roboto bold Small txt-color-grvogue" *ngIf="recommendation.priceRanking.rating !== 1">
+              {{'guest-recommendation.price-rate' | translate}}
+              {{'guest-recommendation.' + recommendation.priceRanking.label | translate}}
+            </span>
+        </div>
+
+        <!-- Rate Bloc-->
+        <div class="flex flex-row align-items-center flex-justify-end">
+          <div class="flex align-items-center">
+            <img *ngFor="let rate of recommendation.ranking.icons"
+                 [ngStyle]="{'opacity': rate.value <= recommendation.ranking.rating ? '1' : '0.4'}" class="rate-icon"
+                 src="/{{rate.url}}" alt="">
+          </div>
+          <span class="roboto Small txt-color-grvogue bold margin-left-8" >{{recommendation.ranking.rating.toFixed(1)}}</span>
+        </div>
+      </div>
+
+      <!--Avis-->
+      <div class="flex flex-row flex-space-between margin-top-32">
+        <H5 class="mcqueen" id="avisSection" *ngIf="!isLoadingReviews">{{'guest-recommendation.avis' | translate}}</H5>
+        <span class="roboto Small bold underline txt-color-grvogue flex flex-justify-end clickable"
+              *ngIf="!isLoadingReviews && recommendation.reviews && recommendation.reviews.length > 1"
+              (click)="showReviews(recommendation.reviews)">
+          {{'guest-recommendation.card.see-reviews'| translate}} ({{recommendation.reviews.length}})
+        </span>
+      </div>
+
+      <div *ngIf="isLoadingReviews" class="width-100 flex flex-row flex-justify-center">
+
+      </div>
+      <div class="roboto Medium txt-color-scorpion width-100 margin-top-16" *ngIf="!isLoadingReviews">
+        {{recommendation?.comment?.comment }}
+      </div>
+      <span class="roboto Small bold underline txt-color-grvogue flex flex-justify-end clickable"
+            *ngIf="recommendation.comment?.commentShort && !isLoadingReviews"
+            (click)="showMoreLessComment()">
+          {{(readMore ? 'guest-recommendation.card.btn-readLess' :'guest-recommendation.card.btn-readMore') | translate }}
+      </span>
+
+
+      <div class="flex flex-row flex-space-between align-items-center margin-top-32" *ngIf="recommendation?.fullAddress">
+        <div class="flex flex-row align-items-center adress-container">
+          <img src="/assets/icon/full-adress-pin.svg" alt="pin">
+          <span class="roboto Small txt-color-scorpion margin-left-12">{{recommendation?.fullAddress}}</span>
+        </div>
+        <span class="roboto bold X-small txt-color-grvogue">
+          {{('guest-recommendation.card.at-distance1'| translate) +recommendation?.distance + ('guest-recommendation.card.at-distance2'| translate)}}
+        </span>
+      </div>
+      <div class="flex flex-row align-items-center margin-top-12" *ngIf="recommendation?.phoneNumber">
+        <img src="/assets/icon/full-phone.svg" alt="phone">
+        <span class="roboto Small txt-color-scorpion margin-left-12">{{recommendation?.phoneNumber}}</span>
+      </div>
+
+
+      <div class="flex flex-row flex-space-between align-items-center margin-top-24"
+           *ngIf="recommendation?.webSite || recommendation?.facebook || recommendation.instagram">
+        <app-button [text]="'guest-recommendation.card.website' | translate" *ngIf="recommendation.webSite"
+                    [type]="ButtonType.SECONDARY_X_SMALL"
+                    (debounceClick)="openWebsite(recommendation.webSite)"
+                    (debounceClick)="onClickVisteWebSite(recommendation , 'profile0')"
+                    
+        ></app-button>
+        <app-button [text]="'Facebook'" *ngIf="recommendation.facebook"
+                    [type]="ButtonType.SECONDARY_X_SMALL"
+                    [leftIcon]="Icons.FACEBOOK"
+                    (debounceClick)="openWebsite(recommendation.facebook)"
+        ></app-button>
+        <app-button [text]="'Instagram'" *ngIf="recommendation.instagram"
+                    [type]="ButtonType.SECONDARY_X_SMALL"
+                    [leftIcon]="Icons.INSTAGRAM"
+                    (debounceClick)="openWebsite(recommendation.instagram)"
+        ></app-button>
+      </div>
+
+
+      <!--TAGS-->
+      <h5 class="mcqueen margin-top-32" *ngIf="tags && tags.length > 0">
+        {{'guest-recommendation.card.tags' | translate}}
+      </h5>
+
+      <div class="tags-wrapper margin-top-16" *ngIf="tags && tags.length > 0">
+        <div class="tag" *ngFor="let tag of tags">
+          <span>#{{tag.name}}</span>
+        </div>
+      </div>
+
+
+      <div  class="margin-top-32 margin-bottom-32">
+        <app-button [text]="'guest-recommendation.card.go-to-place' | translate"
+                    [type]="ButtonType.SECONDARY"
+                    (debounceClick)="openDirection(property, recommendation)"
+                    (debounceClick)="onClickSyRendre(recommendation , 'Profile0')"
+        ></app-button>
+      </div>
+
+    </div>
+  </div>
+</div>

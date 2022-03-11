@@ -1,0 +1,98 @@
+<div class="main-container-recommendation">
+    <div class="rec-wrapper">
+        <div class="header">
+            <h5 class="rec-title">Recommendations</h5>
+            <h2 class="rec-label">Create new recommendation</h2>
+            <div class="rectangle-bg"></div>
+        </div>
+        <div class="content">
+
+            <form class="guest-form" [formGroup]="recommendations">
+                <label class="section-label">General Info</label>
+                <div class="rectangle-md"></div>
+
+                <mat-form-field [floatLabel]="'always'" appearance="fill">
+                    <mat-label>Title</mat-label>
+                    <input matInput>
+                </mat-form-field>
+
+                <mat-form-field [floatLabel]="'always'" appearance="fill">
+                    <mat-label>Full address</mat-label>
+                    <input matInput formControlName="address" formControlName="address" (ngModelChange)="loadInput()" id="fullAddress" class="booking-input" type="text" required="required"/>
+                    <mat-error *ngIf="recommendations.get('address').errors?.required">Confirm address</mat-error>
+                </mat-form-field>
+
+                <mat-form-field [floatLabel]="'always'" appearance="fill">
+                    <mat-label>Phone number</mat-label>
+                    <input formControlName="phone" matInput>
+                </mat-form-field>
+
+                <mat-form-field [floatLabel]="'always'" appearance="fill">
+                    <mat-label>Website URL</mat-label>
+                    <input formControlName="website" matInput>
+                </mat-form-field>
+
+                <label class="section-label">Select a category</label>
+                <div class="rectangle-md"></div>
+                <div class="categories">
+                    <div class="category" *ngFor="let category of categories">
+                        <div class="category-box">
+                            <img src="{{category.icon}}" alt="">
+                            <span>{{category.name}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="section-label">Rate</label>
+                <div class="rectangle-md"></div>
+
+                <div class="box-sm">
+                    <div class="rate-input">
+                        <mat-slider formControlName="rate" min="1" max="5" step="1" value="1"></mat-slider>
+                    </div>
+                    <div class="rate-label">
+                        <img src="../../../../../assets/icon/icon-rate.svg" alt="">
+                        <span>{{recommendations.controls.rate.value}}</span>
+                    </div>
+                </div>
+
+                <label class="section-label">Price</label>
+                <div class="rectangle-md"></div>
+
+                <div class="box-sm">
+                    <div class="price" *ngFor="let price of prices">
+                        <span>{{price.text}} {{price.symbol}}</span>
+                    </div>
+                </div>
+
+                <label class="section-label">Tags</label>
+                <div class="rectangle-md"></div>
+
+                <mat-form-field [floatLabel]="'always'" appearance="fill">
+                    <mat-label>Add Tags</mat-label>
+                    <input [(ngModel)]="tag" (keyup.enter)="addTag()" [ngModelOptions]="{standalone: true}" matInput>
+                </mat-form-field>
+
+                <label class="tags-label">Suggested tags</label>
+                <div class="suggested-tags">
+                    <span (click)="addTag(sgtag,i)" *ngFor="let sgtag of tags.suggested; let i = index">{{sgtag}}</span>
+                </div>
+
+                <label class="tags-label">Tags added</label>
+                <div class="added-tags">
+                    <span (click)="removeFromlist('added',i)" *ngFor="let adTag of tags.added; let i = index">{{adTag}}</span>
+                </div>
+
+                <label class="section-label">Your comment</label>
+                <div class="rectangle-md"></div>
+
+                <mat-form-field [floatLabel]="'always'" appearance="fill">
+                    <textarea formControlName="recommend_desc" matInput placeholder="Why do you recommend this place?"></textarea>
+                </mat-form-field>
+
+            </form>
+
+        </div>
+        <div class="footer"></div>
+    </div>
+</div>

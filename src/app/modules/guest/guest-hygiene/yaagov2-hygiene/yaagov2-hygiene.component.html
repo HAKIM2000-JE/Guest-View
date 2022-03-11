@@ -1,0 +1,125 @@
+<section class="section-color" *ngIf="!property?.noshowHygieneOnBooklet">
+  <div class="hygiene-container">
+
+    <h3 class="big-title">{{'guest-hygiene-page.title-covid' | translate}}</h3>
+    <div class="Small sub-title">{{'guest-hygiene-page.sub-title-covid' | translate }}</div>
+
+    <div id="Nettoyage" class="div-hygiene-section-left" *ngIf="isCategoryVisible(0)">
+      <div class="div-image-hygiene-left">
+        <img class="img-hygiene-left" src="assets/images/yaagov2-hygiene/gestes.jpg">
+        <h4 *ngIf="isDesktopMode()" class="title">{{'hygiene2.indispensable' | translate}}</h4>
+        <h5 *ngIf="!isDesktopMode()" class="title">{{'hygiene2.indispensable' | translate}}</h5>
+
+      </div>
+
+      <div class="div-hygiene-items" >
+          <div *ngFor="let categoryItem of getCategoryIndex(0)">
+            <div class="title" *ngIf="getCategoryInProperty(categoryItem.itemCode)">
+              {{categoryItem.title}}
+              <img *ngIf="getCategoryInProperty(categoryItem.itemCode)" class="icon-valid" src="assets/images/yaagov2-hygiene/valid.svg">
+              <!--<img *ngIf="!getCategoryInProperty(categoryItem.itemCode)" class="icon-valid" src="assets/images/yaagov2-hygiene/not-valid.svg">-->
+            </div>
+            <div *ngIf="getCategoryInProperty(categoryItem.itemCode)" class="description">{{categoryItem.description}}</div>
+          </div>
+      </div>
+
+    </div>
+
+    <div class="horizontal-line" *ngIf="isCategoryVisible(0)"></div>
+
+
+    <div id="Produits" class="div-hygiene-section-right" *ngIf="isCategoryVisible(2)">
+
+      <div *ngIf="!isDesktopMode()" class="div-image-hygiene-left">
+        <img class="img-hygiene-left" src="assets/images/yaagov2-hygiene/linge.jpg">
+        <h5 class="title">{{'hygiene2.linge' | translate}}</h5>
+      </div>
+
+      <div class="div-hygiene-items" >
+        <div *ngFor="let categoryItem of getCategoryIndex(2)">
+          <div class="title align-right" *ngIf="getCategoryInProperty(categoryItem.itemCode)">
+            <img *ngIf="getCategoryInProperty(categoryItem.itemCode)" class="icon-valid" src="assets/images/yaagov2-hygiene/valid.svg">
+            <!--<img *ngIf="!getCategoryInProperty(categoryItem.itemCode)" class="icon-valid" src="assets/images/yaagov2-hygiene/not-valid.svg">-->
+            {{categoryItem.title}}
+          </div>
+          <div *ngIf="getCategoryInProperty(categoryItem.itemCode)" class="description align-right">{{categoryItem.description}}</div>
+        </div>
+      </div>
+
+
+      <div *ngIf="isDesktopMode()" class="div-image-hygiene-right">
+        <img class="img-hygiene-right" src="assets/images/yaagov2-hygiene/linge.jpg">
+        <h4 class="title">{{'hygiene2.linge' | translate}} </h4>
+      </div>
+
+
+    </div>
+
+    <div class="horizontal-line" *ngIf="isCategoryVisible(2)"></div>
+
+
+    <div id="Linge" class="div-hygiene-section-left" *ngIf="isCategoryVisible(1)">
+
+      <div class="div-image-hygiene-left">
+        <img class="img-hygiene-left" src="assets/images/yaagov2-hygiene/savons.jpg">
+        <h4 *ngIf="isDesktopMode()" class="title">{{'hygiene2.nettoyage' | translate}}</h4>
+        <h5 *ngIf="!isDesktopMode()" class="title">{{'hygiene2.nettoyage' | translate}}</h5>
+      </div>
+
+      <div class="div-hygiene-items" >
+        <div *ngFor="let categoryItem of getCategoryIndex(1)">
+          <div class="title" *ngIf="getCategoryInProperty(categoryItem.itemCode)">
+            {{categoryItem.title}}
+            <img *ngIf="getCategoryInProperty(categoryItem.itemCode)" class="icon-valid" src="assets/images/yaagov2-hygiene/valid.svg">
+            <img *ngIf="!getCategoryInProperty(categoryItem.itemCode)" class="icon-valid" src="assets/images/yaagov2-hygiene/not-valid.svg">
+          </div>
+          <div *ngIf="getCategoryInProperty(categoryItem.itemCode)" class="description">{{categoryItem.description}}</div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="horizontal-line" *ngIf="isCategoryVisible(1)"></div>
+
+
+
+    <div id="Produits2" class="div-hygiene-section-right" *ngIf="isCategoryVisible(3)">
+
+      <div *ngIf="!isDesktopMode()" class="div-image-hygiene-left">
+        <img class="img-hygiene-left" src="assets/images/yaagov2-hygiene/produits.jpg">
+        <h5 class="title">{{'hygiene2.produits' | translate}}</h5>
+      </div>
+
+      <div class="div-hygiene-items" >
+        <div *ngFor="let categoryItem of getCategoryIndex(3)">
+          <div class="title align-right" *ngIf="getCategoryInProperty(categoryItem.itemCode)">
+            <img *ngIf="getCategoryInProperty(categoryItem.itemCode)" class="icon-valid" src="assets/images/yaagov2-hygiene/valid.svg">
+            <img *ngIf="!getCategoryInProperty(categoryItem.itemCode)" class="icon-valid" src="assets/images/yaagov2-hygiene/not-valid.svg">
+            {{categoryItem.title}}
+          </div>
+          <div *ngIf="getCategoryInProperty(categoryItem.itemCode)" class="description align-right">{{categoryItem.description}}</div>
+        </div>
+      </div>
+
+      <div *ngIf="isDesktopMode()" class="div-image-hygiene-right">
+        <img class="img-hygiene-right" src="assets/images/yaagov2-hygiene/produits.jpg">
+        <h4  class="title">{{'hygiene2.produits' | translate}}</h4>
+      </div>
+
+    </div>
+    <!--<div class="horizontal-line"></div>-->
+
+  </div>
+
+  <div class="hygiene-container">
+    <div class="bottom-btn">
+      <a class="secondary-button" target="_blank" style="margin-top: 0"
+         href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">{{'guest-hygiene-page.more-info-btn' | translate}}</a>
+      <div class="org-img">
+        <img src="assets/images/forcemajeur/logo_world_health_organization.svg"/>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 48px"></div>
+</section>

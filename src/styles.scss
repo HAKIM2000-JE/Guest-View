@@ -1,0 +1,353 @@
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+@font-face {
+  font-family:Noto-Sans;
+  src:url('assets/fonts/NotoSans-Regular.ttf');
+}
+
+@font-face {
+  font-family:Noto-Sans-Bold;
+  src:url('assets/fonts/NotoSans-Bold.ttf');
+}
+
+
+@import "../src/assets/styles/gusl-shared";
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$guru4All-guest-primary: mat-palette($mat-indigo);
+$guru4All-guest-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$guru4All-guest-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$guru4All-guest-theme: mat-light-theme($guru4All-guest-primary, $guru4All-guest-accent, $guru4All-guest-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($guru4All-guest-theme);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-size: 100%;
+  //font-family: 'Hind Madurai', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+/*
+html, body {
+  height: 100vh;
+  // background-color: $gurubnb-secondary-color-1;
+  // background-color: $gurubnb-ternary-color-4;
+}*/
+html, body {
+  min-height: 100%;
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+
+
+@media only screen and (min-width : 0px) and (max-width: 479px) {
+  .desktop {
+    display: none;
+  }
+  .tablet {
+    display: none;
+  }
+  .mobile {
+    display: flex;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+  .desktop {
+    display: none;
+  }
+  .tablet {
+    display: flex;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: none;
+  }
+  .tablet {
+    display: flex;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .desktop {
+    display: flex;
+  }
+  .tablet {
+    display: none;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+.guest-view-mobile-section-container {
+  // width: 100vh;
+  //background-color: #f4f4f4;
+  padding-left: 16px;
+  .title {
+    padding-left: 8px;
+    padding-top: 47px;
+    font-size: 24px;
+    color: #1d2c5a;
+    font-weight: 600;
+  }
+  .line {
+    margin-left: 8px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    height: 2px;
+    width: 29px;
+    background-color: #6183e5;
+  }
+}
+
+.guest-view-mobile-card {
+  background-color: white;
+  border-radius: 16px;
+  min-height: 300px;
+  width: calc(100vw - 32px);
+  padding: 24px;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+}
+
+// html, body { height: 100%; }
+//body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body{ margin: 0; font-family: "Hind Madurai", sans-serif};
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple{
+  background-color: $gurubnb-primary-color-1;
+}
+
+.mat-form-field-label{
+  font-family: $guru-font-hind;
+  font-size: 10px;
+  font-weight: 500;
+  color: #1d2c5a;
+}
+.mat-input-element{
+  color: $gurubnb-typo-color-1 !important;
+  font-family: $guru-font-hind !important;
+  font-size: 16px !important;
+}
+.mat-form-field-flex{
+  background: transparent !important;
+  padding: 0px;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex{
+  padding: 0px  !important;
+}
+.mat-form-field.mat-focused .mat-form-field-label{
+  color: $gurubnb-primary-color-1;
+}
+/* button big style */
+.big-btn{
+  padding: 16px;
+  width: 100%;
+  height: 48px;
+  border-radius: 60px;
+  background-color: #fe3945;
+  border: none;
+  color: #fff;
+  margin: 20px 0;
+  font-family: $guru-font-hind;;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  cursor: pointer;
+  display: block;
+}
+
+.alink-no-decoration {
+  text-decoration: none;
+  color: $gurubnb-primary-color-3;
+  font-family: $guru-font-didact;
+  cursor: pointer;
+}
+.mat-dialog-container{
+  position: relative;
+}
+.guest-view-desktop-section-container{
+  //width: 1200px;
+  // margin-left: 119px;
+  // margin-right: 123px;
+
+  .title {
+
+    font-size: 30px;
+    color: #1d2c5a;
+    font-weight: 600;
+    text-align: center;
+
+  }
+  .line {
+    height: 3px;
+    width: 29px;
+    background-color: #6183e5;
+    margin: 20px auto;
+  }
+
+}
+.gris-back{
+  background: $color-catskill;
+}
+.img-container-carousel{
+  width: 180px;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-right: 15px;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+//angular material slider bg-color
+
+.mat-slider-thumb{
+  background-color: #49b1d6!important;
+}
+.mat-accent .mat-slider-track-fill, .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label{
+  background-color: #49b1d6!important;
+}
+
+///back link
+.back-link{
+  font-family: $guru-font-hind;
+  font-size: 16px;
+  font-weight: 600;
+  color: #03224c;
+  text-decoration: none;
+  .icon-btn{
+    margin-right: 12px;
+    vertical-align: middle;
+    top: -2px;
+    position: relative;
+  }
+}
+
+
+// custom modal full scren
+#detail-image{
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.custom-dialog-container-photo  .mat-dialog-container{
+  padding: 0px;
+}
+
+.images-list {
+  .owl-item{
+    margin-right: 16px;
+  }
+}
+#list-guides-container {
+  .content{
+    ol,ul{
+      padding-left: 30px;
+    }
+  }
+}
+
+
+
+
+@font-face {
+  font-family:Shellana-Regular;
+  src:url('assets/fonts/Shellana-Regular.ttf');
+}
+@font-face {
+  font-family:McQueenDisplay-Regular;
+  src:url('assets/fonts/McQueenDisplay-Regular.otf');
+}
+@font-face {
+  font-family:Roboto;
+  src:url('assets/fonts/Roboto-Regular.ttf');
+  font-style: normal;
+}
+@font-face {
+  font-family:Roboto;
+  src:url('assets/fonts/Roboto-Italic.ttf');
+  font-style: italic;
+}
+@font-face {
+  font-family:Roboto-Bold;
+  src:url('assets/fonts/Roboto-Bold.ttf');
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family:Roboto-Light;
+  src:url('assets/fonts/Roboto-Light.ttf');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family:Nunito-Light;
+  src:url('assets/fonts/Nunito-Light.ttf');
+}
+
+.custom-dialog-container .mat-dialog-container{
+  margin-top: auto;
+  margin-bottom: auto;
+  max-height: 96vh !important;
+  overflow-x:hidden !important;
+}
+
+
+.yaago-myclass {
+  max-height: unset !important;
+}
+.yaago-myclass-mobile {
+  max-height: 75vh !important;
+}
+.chat-link-container{
+  max-width: 100%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}

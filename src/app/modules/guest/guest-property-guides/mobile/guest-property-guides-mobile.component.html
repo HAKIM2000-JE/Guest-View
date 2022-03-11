@@ -1,0 +1,58 @@
+<div *ngIf="guides && guides?.length > 0" class="guest-view-mobile-section-container">
+
+
+  <div class="guest-view-mobile-card">
+
+    <h4 *ngIf="!property?.host?.btobInfo">{{'guest-guid-page.title' | translate}}</h4>
+    <h4 *ngIf="property?.host?.btobInfo">{{'guest-guid-page.btob-title' | translate}}</h4>
+
+    <div class="width-100 flex flex-column">
+      <span class="roboto txt-color-scorpion Small margin-top-8"
+            *ngIf="!property?.host?.btobInfo">{{'guest-guid-page.title-explanation' | translate}}</span>
+      <div class="width-100 flex flex-column margin-top-32 ">
+
+        <div *ngFor="let cat of categoryGuides; let i = index"
+             class="width-100 card-small padding-16 flex flex-column  margin-bottom-16">
+          <div class="width-100 flex flex-row flex-align-center flex-space-between clickable"
+               (click)="openMobileGuideList(cat, i)">
+            <div class="flex flex-row flex-align-center">
+              <img class="category-cover margin-right-24" src="{{getPictureFromCategory(cat.category)}}" alt="">
+              <h6 *ngIf="!cat.custom" class="txt-color-grvogue" style="font-weight: 400">{{(('guides-list.' + cat.category) | translate) + ' (' + cat.guides?.length + ')'}}</h6>
+              <h6 *ngIf="cat.custom" class="txt-color-grvogue" style="font-weight: 400">{{cat.category + ' (' + cat.guides?.length + ')'}}</h6>
+            </div>
+            <img src="assets/icon/arrow-down.svg"
+                 class="{{i === mobileCurrentOpenCategory ? 'rotate-90' : 'rotate-270'}}" alt="">
+          </div>
+
+          <div class="non-drag flex flex-column padding-top-16" *ngIf="mobileCurrentOpenCategory === i">
+
+            <div>
+              <div *ngFor="let guide of currentGuidesList; let j = index">
+                <div *ngIf="needToShowGuide(guide)" class=" width-100 flex flex-row flex-align-center padding-8 clickable" (click)="showMobileGuideDetails(guide)">
+                  <img class="mobile-guide-cover mar" src="{{getGuideCover(guide)}}" alt="Cover">
+
+                  <span *ngIf="guide.translations && guide.translations.length > 0"
+                        class="mcqueen Small margin-left-16 txt-color-grvogue">
+                      {{guide.translations[0].title}}
+                </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="details-dialog-container" *ngIf="currentGuide && showGuideDetails">
+
+  <div class="details-container">
+    <div class="flex flex-row flex-align-center clickable margin-top-24 padding-left-32" (click)="closeGuide()">
+      <img src="assets/icon/arrow-down.svg" alt="Icon" class="margin-right-8">
+      <span class="roboto bold Small txt-color-grvogue">{{'guest-guid-page.return' | translate}}</span>
+    </div>
+
+    <app-guide-details [property]="property" [guide]="currentGuide"></app-guide-details>
+  </div>
+
+</div>

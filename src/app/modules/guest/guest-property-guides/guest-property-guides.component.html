@@ -1,0 +1,4 @@
+<app-guest-property-guides-mobile *ngIf="!isDesktopMode()" [booking]="booking" [property]="property"></app-guest-property-guides-mobile>
+<div #mytemplate>
+<app-guest-property-guides-desktop *ngIf="isDesktopMode() && property" [booking]="booking" [property]="property"></app-guest-property-guides-desktop>
+</div>

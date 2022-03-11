@@ -1,0 +1,9 @@
+<div id="detail-image">
+  <img class="closeIcon" (click)="closeModal()" src="assets/icon/icon-exit.svg" />
+  <img class="photodetail" src="{{photo.url.replace('aki_policy=medium', 'aki_policy=large')}}" alt="photo-detail" />
+  <div class="nav-barre">
+
+  <span class="nav-btn prev" (click)="prev()"><img src="../../../../assets/icon/back.svg" /></span>
+    <span class="nav-btn next" (click)="next()"><img src="../../../../assets/icon/next.svg" /> </span>
+  </div>
+</div>

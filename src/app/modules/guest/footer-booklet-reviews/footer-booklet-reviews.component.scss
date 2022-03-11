@@ -1,0 +1,41 @@
+@import "../../../../assets/styles/yaago2-style";
+
+.div-button {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.textarea-for-review {
+  width: 75%;
+}
+@media only screen and (max-width: 1023px) {
+  .div-button {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .textarea-for-review {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+.range-box {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.value {
+  font-family: $font-Roboto;
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  text-align: left;
+  color: $color-greenVogue;
+  margin-left: 16px;
+}
+

@@ -1,0 +1,25 @@
+<div *ngIf="!property?.host?.btobInfo" id="platformServices" class="gris-back container">
+<div class="guest-view-desktop-services separator" >
+  <div class="title-content">
+   <div class="section-title">
+       <h3 >{{'guest-platefromservices-page.title' | translate}}
+         <img src="../../../../../assets/icon/serviceLine.svg" alt="">
+       </h3>
+   </div>
+    <p class="platform-intro">{{'guest-platefromservices-page.description' | translate}}</p>
+  </div>
+  <div class="guest-view-block-card" >
+    <div class="card-block" *ngFor="let p of platformServices; let i = index">
+      <div class="partner-div">
+        <img [id]="'platformLogo' + i" class="picture-logo" [src]="p.logoUrl" alt="partner-img"/>
+      </div>
+      <p [id]="'platformDescription' + i" class="partner-info">{{p.translations[0].description}}</p>
+      <div class="partner-link">
+        <a [id]="'platformLink' + i" class="alink-no-decoration " target="_blank" [href]="p.translations[0].webSiteUrl">{{'guest-platefromservices-page.more-btn'  | translate}}
+          <!--<img class="arrow"  src="../../../assets/images/booking/Vector.svg">-->
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

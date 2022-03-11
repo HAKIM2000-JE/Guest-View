@@ -1,0 +1,19 @@
+<div *ngIf="(message$ | async) as message" class="first-container">
+  <div class="snackbar-container" [@fadeInOut]
+       [ngClass]="{'info' : message.type === 'info',
+         'warning': message.type === 'warning',
+         'error': message.type === 'error'}">
+    <div *ngIf="message.message" [innerHTML]="message.message |translate" class="snackbar-text"></div>
+    <div *ngIf="message.callToActionMessage" class="snackbar-text call-to-action">{{message.callToActionMessage}}</div>
+    <div *ngIf="message.type === 'error'" class="dismiss-img" (click)="dismiss()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14.047" height="14.025" viewBox="0 0 14.047 14.025">
+        <defs>
+          <style>
+            .cls-1{fill:#FFFFFF;fill-rule:evenodd}
+          </style>
+        </defs>
+        <path id="button-cross-erase" d="M22.729 21.271L17.461 16l5.239-5.193a.992.992 0 0 0 0-1.414 1.018 1.018 0 0 0-1.428 0l-5.232 5.188-5.309-5.31A1.011 1.011 0 1 0 9.3 10.7l5.3 5.3-5.327 5.292a.994.994 0 0 0 0 1.414 1.017 1.017 0 0 0 1.429 0l5.324-5.28L21.3 22.7a1.01 1.01 0 1 0 1.427-1.431z" class="cls-1" transform="translate(-8.978 -8.974)"/>
+      </svg>
+    </div>
+  </div>
+</div>

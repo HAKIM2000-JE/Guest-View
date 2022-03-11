@@ -1,0 +1,329 @@
+<app-guest-menu-desktop  [property]="property" [target]="[]" *ngIf="isDesktopMode()"></app-guest-menu-desktop>
+<app-guest-menu-mobile *ngIf="!isDesktopMode()"></app-guest-menu-mobile>
+
+
+<div class="div-full">
+  <div id="setup-container"
+       [ngClass]="{'desktop-mode' : isDesktopMode(), 'mobile-mode': !isDesktopMode()}">
+    <div class="container-content">
+      <a *ngIf="booking" [routerLink]="['/guest', booking.id]" class="back-link"><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'guest-global-text.back-btn' | translate}}</a>
+
+      <div class="form-container">
+
+        <div class="welcome-title">
+            <h3 *ngIf="!property?.host?.btobInfo && isDesktopMode()" class="firstname-line">{{'guest-setup-page.guest-setup-page-title' | translate}}</h3>
+            <h3 *ngIf="property?.host?.btobInfo && isDesktopMode()" class="firstname-line">{{'guest-setup-page.btob-guest-setup-page-title' | translate}}</h3>
+
+            <h4 *ngIf="!property?.host?.btobInfo && !isDesktopMode()" class="firstname-line">{{'guest-setup-page.guest-setup-page-title' | translate}}</h4>
+            <h4 *ngIf="property?.host?.btobInfo && !isDesktopMode()" class="firstname-line">{{'guest-setup-page.btob-guest-setup-page-title' | translate}}</h4>
+
+        </div>
+
+
+    <div  class="form" *ngIf="property">
+      <h4 *ngIf="!property?.host?.btobInfo && isDesktopMode()" >{{'guest-setup-page.about-arrival' | translate}}</h4>
+      <h5 *ngIf="!property?.host?.btobInfo && !isDesktopMode()" >{{'guest-setup-page.about-arrival' | translate}}</h5>
+
+      <div *ngIf="!property?.host?.btobInfo" class="container1" >
+        <div class="container-column">
+          <div class="check-container">
+                  <!-- <input class="time-selected"  [(ngModel)]="checkin"  [ngxTimepicker]="checkInTimePicker"   [format]="24" [placeholder]="'?'">
+                  <ngx-material-timepicker  #checkInTimePicker [ngxMaterialTimepickerTheme]="guruTheme"></ngx-material-timepicker>
+                -->
+              <mat-form-field class="check" style="margin-right:16px">
+                <mat-label>{{'guest-setup-page.check-in' | translate}} </mat-label>
+                  <input type="time" class="time-selected" name="defaultCheckInTime" matInput [(ngModel)]="checkin"/>
+              </mat-form-field>
+              <!-- <div class="square-title label">{{'guest-setup-page.check-out' | translate}}</div> -->
+              <!-- <input class="time-selected" size="6" [(ngModel)]="checkout"  [ngxTimepicker]="checkOutTimePicker"   [format]="24" [placeholder]="'?'">
+              <ngx-material-timepicker #checkOutTimePicker [ngxMaterialTimepickerTheme]="guruTheme"></ngx-material-timepicker> -->
+
+              <mat-form-field class="check" style="margin-right:16px">
+                <mat-label>{{'guest-setup-page.check-out' | translate}} </mat-label>
+                <input type="time" class="time-selected" name="defaultCheckInTime" matInput [(ngModel)]="checkout"/>
+              </mat-form-field>
+
+          </div>
+          <div class="roboto X-small txt-color-scorpion" style="max-width: 150px;">
+            <div  *ngIf="property?.defaultCheckInTime">{{'guest-setup-page.explain-check-in' | translate}} <span >({{property.defaultCheckInTime}})</span></div>
+            <div style="margin-top: 16px" *ngIf="property?.defaultCheckOutTime">{{'guest-setup-page.explain-check-out' | translate}} <span >({{property.defaultCheckOutTime}})</span></div>
+          </div>
+        </div>
+
+        <div class="text-confirm " style="margin-bottom: 16px; ">
+          <p class="margin-bottom-8">* <strong>{{'guest-setup-page.confirm-title' | translate}}</strong><br></p><p>{{'guest-setup-page.confirm-text' | translate}}</p>
+        </div>
+
+        <div *ngIf="property?.canEarlyCheck && !isCotoon()" class="text-confirm-other" style="margin-bottom: 16px;">
+          <p class="margin-bottom-8">* <strong> {{'guest-setup-page.confirm-title-early' | translate}}</strong><br></p>
+          <p>{{('guest-setup-page.confirm-text-early1' | translate) + property?.defaultCheckInTime + ', ' +
+          ('guest-setup-page.confirm-text-early2' | translate)  + ' ' + property?.defaultCheckOutTime + '. ' +
+          ('guest-setup-page.confirm-text-early3' | translate) }}</p>
+        </div>
+        <div *ngIf="isCotoon()" class="text-confirm-other" style="margin-bottom: 16px;">
+          <p class="margin-bottom-8">* <strong> {{'guest-setup-page.confirm-title-early' | translate}}</strong><br></p>
+          <p>{{('guest-setup-page.confirm-text-early1' | translate) + property?.defaultCheckInTime + ', ' +
+          ('guest-setup-page.confirm-text-early2' | translate)  + ' ' + property?.defaultCheckOutTime + '. ' +
+          ('guest-setup-page.confirm-text-early3' | translate) }}</p>
+        </div>
+
+      </div>
+
+      <div *ngIf="isCotoon()" class="text-early" style="margin-bottom: 16px;">
+        <p>{{'guest-setup-page.confirm-title-early-confirm' | translate}}</p>
+        <p><strong>Early CheckIn :</strong><br *ngIf="!isDesktopMode()"> 15h = 10€ TTC, 14h = 25€ TTC </p>
+        <br *ngIf="!isDesktopMode()">
+        <p><strong>Late CheckOut :</strong><br *ngIf="!isDesktopMode()"> 11h = 10€ TTC, 12h = 25€ TTC </p>
+      </div>
+
+
+      <h4 *ngIf="!property?.host?.btobInfo && isDesktopMode()" class="title-group">{{'guest-setup-page.how-is-coming' | translate}}</h4>
+      <h5 *ngIf="!property?.host?.btobInfo && !isDesktopMode()" class="title-group">{{'guest-setup-page.how-is-coming' | translate}}</h5>
+
+     <div *ngIf="!property?.host?.btobInfo" class="flex mrg-bt-40">
+      <div class="squares-container">
+        <p class="label label2">{{'guest-setup-page.adults' | translate}}</p>
+        <!-- <div class="square coming border-sep  gris-background">
+          <div class="minus" (click)="removeType('adult')">-</div>
+          <div class="result">{{adult}}</div>
+          <div class="plus" (click)="AddType('adult')">+</div>
+        </div> -->
+        <div class="bulle-container" style="margin-right: 24px;">
+          <div (click)="removeAdult()" class="clickable" [ngClass]="checkDisableBtnDecre(adult)">
+            <img class="icon-btn-add-below" src="assets/icon/check/below.svg" alt="below-disabled"/>
+          </div>
+          <div class="valueNumber">
+              <span>{{adult}}</span>
+          </div>
+          <div (click)="addAdult()" class="clickable">
+            <img class="icon-btn-add-below" src="assets/icon/check/plus.svg" alt="add-time"/>
+          </div>
+      </div>
+      </div>
+      <div class="squares-container" style="margin-right: 24px;">
+        <p class="label label2">{{'guest-setup-page.children' | translate}}</p>
+        <!-- <div class="square coming border-sep  gris-background">
+          <div class="minus" (click)="removeType('children')">-</div>
+          <div class="result">{{children}}</div>
+          <div class="plus" (click)="AddType('children')">+</div>
+        </div> -->
+        <div class="bulle-container">
+          <div (click)="removeChild()" class="clickable" [ngClass]="checkDisableBtnDecre(children)">
+            <img class="icon-btn-add-below" src="assets/icon/check/below.svg" alt="below-disabled"/>
+          </div>
+          <div class="valueNumber">
+              <span>{{children}}</span>
+          </div>
+          <div (click)="addChild()" class="clickable">
+            <img class="icon-btn-add-below" src="assets/icon/check/plus.svg" alt="add-time"/>
+          </div>
+        </div>
+      </div>
+      <div class="squares-container" style="margin-right: 24px;">
+        <p class="label label2">{{'guest-setup-page.infants' | translate}}</p>
+        <!-- <div class="square coming border-sep  gris-background mrg-r-0">
+          <div class="minus" (click)="removeType('infants')">-</div>
+          <div class="result">{{infants}}</div>
+          <div class="plus" (click)="AddType('infants')">+</div>
+        </div> -->
+        <div class="bulle-container">
+          <div (click)="removeBaby()" class="clickable" [ngClass]="checkDisableBtnDecre(infants)">
+            <img class="icon-btn-add-below" src="assets/icon/check/below.svg" alt="below-disabled"/>
+          </div>
+          <div class="valueNumber">
+              <span>{{infants}}</span>
+          </div>
+          <div (click)="addBaby()" class="clickable">
+            <img class="icon-btn-add-below" src="assets/icon/check/plus.svg" alt="add-time"/>
+          </div>
+        </div>
+      </div>
+
+       <div class="squares-container" *ngIf="property?.allowPets">
+         <p class="label label2">{{'guest-setup-page.pets' | translate}}</p>
+         <!-- <div class="square coming border-sep  gris-background mrg-r-0">
+           <div class="minus" (click)="removeType('infants')">-</div>
+           <div class="result">{{infants}}</div>
+           <div class="plus" (click)="AddType('infants')">+</div>
+         </div> -->
+         <div class="bulle-container">
+           <div (click)="removePets()" class="clickable" [ngClass]="checkDisableBtnDecre(pets)">
+             <img class="icon-btn-add-below" src="assets/icon/check/below.svg" alt="below-disabled"/>
+           </div>
+           <div class="valueNumber">
+             <span>{{pets}}</span>
+           </div>
+           <div (click)="addPets()" class="clickable">
+             <img class="icon-btn-add-below" src="assets/icon/check/plus.svg" alt="add-time"/>
+           </div>
+         </div>
+       </div>
+
+    </div>
+
+
+
+      <div *ngIf="!property?.host?.btobInfo && !property?.noshowBedsDetail">
+        <h4 *ngIf="((property.doubleBeds + property.sofaBeds + property.singleBeds + property.babyBeds) >0) && isDesktopMode()" class="title-group">{{'guest-setup-page.beds-title' | translate}}</h4>
+        <h5 *ngIf="((property.doubleBeds + property.sofaBeds + property.singleBeds + property.babyBeds) >0) && !isDesktopMode()" class="title-group">{{'guest-setup-page.beds-title' | translate}}</h5>
+      </div>
+
+      <div *ngIf="!property?.host?.btobInfo || property?.noshowBedsDetail " class="flex mrg-bt-40 beds-container-edit">
+        <div *ngIf="property.doubleBeds > 0" class="squares-container mrg-bt-20 flex flex-column" style="margin-right: 24px;">
+          <p class="label label2">{{'guest-setup-page.double-beds' | translate}}</p>
+          <span class="roboto XX-small txt-color-dimgray">max : {{property.doubleBeds}}</span>
+          <!-- <div class="square coming border-sep  gris-background">
+            <div class="minus" (click)="removeType('double_beds')">-</div>
+            <div class="result">{{double_beds}}</div>
+            <div class="plus" (click)="AddType('double_beds')">+</div>
+          </div> -->
+          <div class="bulle-container">
+            <div (click)="remove('double')" class="clickable" [ngClass]="checkDisableBtnDecre(double_beds)">
+              <img class="icon-btn-add-below" src="assets/icon/check/below.svg" alt="below-disabled"/>
+            </div>
+            <div class="valueNumber">
+                <span>{{double_beds}}</span>
+            </div>
+            <div (click)="add('double')" class="clickable" [ngClass]="checkDisableBtnIncre(double_beds,'double')">
+              <img class="icon-btn-add-below" src="assets/icon/check/plus.svg" alt="add-time"/>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="property.singleBeds > 0" class="squares-container mrg-bt-20 flex flex-column" style="margin-right: 24px;">
+          <p class="label label2">{{'guest-setup-page.single-beds' | translate}}</p>
+          <span class="roboto XX-small txt-color-dimgray">max : {{property.singleBeds}}</span>
+          <!-- <div class="square coming border-sep  gris-background">
+            <div class="minus" (click)="removeType('single_beds')">-</div>
+            <div class="result">{{single_beds}}</div>
+            <div class="plus" (click)="AddType('single_beds')">+</div>
+          </div> -->
+          <div class="bulle-container">
+            <div (click)="remove('single')" class="clickable" [ngClass]="checkDisableBtnDecre(single_beds)">
+              <img class="icon-btn-add-below" src="assets/icon/check/below.svg" alt="below-disabled"/>
+            </div>
+            <div class="valueNumber">
+                <span>{{single_beds}}</span>
+            </div>
+            <div (click)="add('single')" class="clickable" [ngClass]="checkDisableBtnIncre(single_beds,'single')">
+              <img class="icon-btn-add-below" src="assets/icon/check/plus.svg" alt="add-time"/>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="property.sofaBeds > 0" class="squares-container flex flex-column" style="margin-right: 24px;">
+          <p class="label label2">{{'guest-setup-page.sofa-beds' | translate}}</p>
+          <span class="roboto XX-small txt-color-dimgray">max : {{property.sofaBeds}}</span>
+          <!-- <div class="square coming border-sep  gris-background">
+            <div class="minus" (click)="removeType('sofa_beds')">-</div>
+            <div class="result">{{sofa_beds}}</div>
+            <div class="plus" (click)="AddType('sofa_beds')">+</div>
+          </div> -->
+          <div class="bulle-container">
+            <div (click)="remove('sofa')" class="clickable" [ngClass]="checkDisableBtnDecre(sofa_beds)">
+              <img class="icon-btn-add-below" src="assets/icon/check/below.svg" alt="below-disabled"/>
+            </div>
+            <div class="valueNumber">
+                <span>{{sofa_beds}}</span>
+            </div>
+            <div (click)="add('sofa')" class="clickable" [ngClass]="checkDisableBtnIncre(sofa_beds,'sofa')">
+              <img class="icon-btn-add-below" src="assets/icon/check/plus.svg" alt="add-time"/>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="property.babyBeds > 0" class="squares-container flex flex-column">
+          <p class="label label2">{{'guest-setup-page.baby-beds' | translate}}</p>
+          <span class="roboto XX-small txt-color-dimgray">max : {{property.babyBeds}}</span>
+          <!-- <div class="square coming border-sep  gris-background">
+            <div class="minus" (click)="removeType('baby_beds')">-</div>
+            <div class="result">{{baby_beds}}</div>
+            <div class="plus" (click)="AddType('baby_beds')">+</div>
+          </div> -->
+          <div class="bulle-container">
+            <div (click)="remove('crib')" class="clickable" [ngClass]="checkDisableBtnDecre(baby_beds)">
+              <img class="icon-btn-add-below" src="assets/icon/check/below.svg" alt="below-disabled"/>
+            </div>
+            <div class="valueNumber">
+                <span>{{baby_beds}}</span>
+            </div>
+            <div (click)="add('crib')" class="clickable" [ngClass]="checkDisableBtnIncre(baby_beds,'crib')">
+              <img class="icon-btn-add-below" src="assets/icon/check/plus.svg" alt="add-time"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-info" *ngIf="booking">
+
+        <!-- SECTION INFORMATION PERSONNELLES -->
+        <section id="info_personnelle">
+          <h4 *ngIf="isDesktopMode()" class="title-group">{{'guest-setup-page.personal-info' | translate}}</h4>
+          <h5 *ngIf="!isDesktopMode()" class="title-group">{{'guest-setup-page.personal-info' | translate}}</h5>
+
+          <div class="grid-3 perso-infos">
+          <mat-form-field appearance="fill">
+              <mat-label>{{'guest-setup-page.first-name' | translate}}</mat-label>
+              <input autocomplete="none" matInput   [(ngModel)]="booking.guests[0].firstName" maxlength="30" >
+            </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>{{'guest-setup-page.last-name' | translate}}</mat-label>
+            <input autocomplete="none" matInput  [(ngModel)]="booking.guests[0].lastName"  maxlength="30" >
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>{{'guest-setup-page.email' | translate}}</mat-label>
+            <input autocomplete="none" matInput  [(ngModel)]="booking.guests[0].email"  maxlength="100" >
+
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>{{'guest-setup-page.second-email' | translate}}</mat-label>
+            <input autocomplete="none" matInput  [(ngModel)]="booking?.guests[0].secondaryEmail" maxlength="100" >
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>{{'guest-setup-page.phone-number' | translate}}</mat-label>
+            <input autocomplete="none" matInput [(ngModel)]="booking?.guests[0].phone" maxlength="30"  >
+          </mat-form-field>
+          <mat-form-field class="mrg-bt-40" appearance="fill">
+            <mat-label>{{'guest-setup-page.second-phone-number' | translate}}</mat-label>
+            <input autocomplete="none" matInput [(ngModel)]="booking.guests[0].secondaryPhone" maxlength="30"  >
+          </mat-form-field>
+          </div>
+        </section>
+
+
+        <!-- SECTION NOTE PERSONNELLES -->
+        <section id="note_personnelle">
+          <h4 *ngIf="isDesktopMode()" class="title-group">{{'guest-setup-page.leave-note' | translate}}</h4>
+          <h5 *ngIf="!isDesktopMode()" class="title-group">{{'guest-setup-page.leave-note' | translate}}</h5>
+
+          <div class="grid-note">
+          <mat-form-field class="note" appearance="fill" >
+            <mat-label>{{'guest-setup-page.note' | translate}} </mat-label>
+            <textarea class="textarea-note" [(ngModel)]="booking.guestNote"
+                      cdkAutosizeMinRows="10"
+                      cdkAutosizeMaxRows="20"
+                      matInput matTextareaAutosize maxlength="300"  >{{note}}</textarea>
+          </mat-form-field>
+          <div *ngIf="!property?.host?.btobInfo"
+               [ngClass]="{'margin-left-8 margin-top-16' : isDesktopMode()}"
+               class="text-confirm ">
+                * {{'guest-setup-page.request-text' | translate}}
+          </div>
+          </div>
+        </section>
+
+        <!--<div class="primary-button" disabled="disableButton"
+             [ngStyle]="{'width: fit-content' : isDesktopMode()}"
+             (click)="saveBookingInfo()" >{{'guest-setup-page.confirm-btn' | translate}}</div>-->
+
+        <app-button [type]="'primary'" [text]="'guest-setup-page.confirm-btn' | translate" (debounceClick)="saveBookingInfo()"></app-button>
+
+        <!--<button class="confirm-btn" (click)="saveBookingInfo()" >{{'guest-setup-page.confirm-btn' | translate}}</button>-->
+        <div *ngIf="!isDesktopMode()" class="empty-space"></div>
+      </div>
+  </div>
+    </div>
+    </div>
+  </div>
+
+</div>

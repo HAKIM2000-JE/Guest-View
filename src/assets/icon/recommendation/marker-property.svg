@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="77" height="87" viewBox="0 0 77 87">
+    <defs>
+        <style>
+            .cls-1{fill:#001440}
+        </style>
+    </defs>
+    <g id="Property-icon" transform="translate(-5169.24 -791.24)">
+        <circle id="Ellipse_4" cx="38.5" cy="38.5" r="38.5" class="cls-1" data-name="Ellipse 4" transform="translate(5169.24 791.24)"/>
+        <rect id="Rectangle_11" width="6" height="16" class="cls-1" data-name="Rectangle 11" rx="3" transform="translate(5205.24 862.24)"/>
+        <g id="house" transform="translate(5192.24 812.24)">
+            <path id="trace" fill="#fff" d="M-2047 2162.474v-23.648l15.372-11.826 15.372 11.826v23.648z" transform="translate(2047 -2127)"/>
+            <path id="trace-2" d="M7.669 0a7.669 7.669 0 0 1 7.669 7.669v9.586H0V7.669A7.669 7.669 0 0 1 7.669 0z" class="cls-1" data-name="trace" transform="translate(7.669 18.3)"/>
+        </g>
+    </g>
+</svg>

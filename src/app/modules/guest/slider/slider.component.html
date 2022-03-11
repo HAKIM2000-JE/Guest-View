@@ -1,0 +1,21 @@
+<div class="images" *ngIf="photos">
+  <span class="arrow-left"
+        [ngClass]="{'disabled':slideCalc === 0 }"
+        (click)="slide('back')">
+    <img src="../../../../assets/icon/slider/arrow-left.svg" alt="">
+  </span>
+  <span class="arrow-right"
+        [ngClass]="{'disabled':slideCalc === -math.abs((photos.length-3) * 68) || photos.length < 4  }"
+        (click)="slide('next')">
+   <img src="../../../../assets/icon/slider/arrow-right.svg" alt="">
+  </span>
+
+  <div class="images-wrapper" [ngStyle]="{'left': slideCalc+'px'}">
+    <div class="box" *ngFor="let img of photos">
+      <div class="box-wrapper" (click)="select(img)" [ngClass]="{'active':img === image}">
+        <img [src]="img" alt="">
+      </div>
+    </div>
+  </div>
+
+</div>

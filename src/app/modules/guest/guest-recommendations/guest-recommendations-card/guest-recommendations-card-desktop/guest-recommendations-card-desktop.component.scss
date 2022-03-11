@@ -1,0 +1,186 @@
+@import "../../../../../../assets/styles/gusl-shared";
+@import "../../../../../../assets/styles/yaago2-style";
+@import "../../../../../../assets/styles/y-global-style";
+
+
+
+
+.card{
+  width: 380px;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  height: 100%;
+  background-color: #fff;
+  left: 0;
+  z-index: 9999;
+  box-shadow: 0px 4px 36px rgba(0, 0, 0, 0.25);
+  border-radius: 0 30px 0 0;
+
+  .close{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+    .icon{
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+
+      .icon-wrapper{
+        width: 40px;
+        height: 40px;
+        position: relative;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+
+        img{
+          width: 14.3px;
+          height: 14.3px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+    }
+  }
+
+  .card-wrapper{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+
+    .card-body{
+      width: 100%;
+      height: calc(100vh - 311px);
+      overflow: auto;
+      padding: 24px 28px;
+    }
+  }
+
+}
+
+.icon-coin:not(:first-child){
+  margin-left: -16px;
+}
+
+.top-image-container {
+  overflow: hidden;
+  position: relative;
+  height: 311px;
+
+  .mainPhotoLandingPage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .recommendation-name {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 12.5%, rgba(0, 0, 0, 0) 45.1%);
+
+    span{
+
+      position: absolute;
+      left: 32px;
+      bottom: 32px;
+      color: white;
+      font-size: 32px;
+      font-family: $font-McQueen;
+    }
+  }
+
+  .fab-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $color-greenVogue;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    .mat-icon {
+      @include md-icon-size(18px);
+    }
+  }
+
+  .previous {
+    left: 24px;
+  }
+
+  .next {
+    right: 24px;
+  }
+}
+
+.profile-container{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.picture-placeholder{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: $color-catskill;
+  color: $color-greenVogue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pin-icon{
+  width: 20px;
+  height: 23px;
+}
+
+.rate-icon{
+  width: 16px;
+  height: 15.25px;
+  margin-right: 2px;
+}
+
+.adress-container{
+
+  span{
+    max-width: 220px;
+  }
+}
+
+.tags-wrapper{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 250px;
+  overflow-y: auto;
+
+  .tag{
+    width: auto;
+    padding: 0 10px 10px 0;
+    display: flex;
+
+    span{
+      padding: 5px 16px;
+      border-radius: 5px;
+      background-color: $color-catskill;
+      font-family: $font-McQueen;
+      font-size: 16px;
+      font-weight: 400;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 130%;
+      letter-spacing: normal;
+      color: $color-black;
+      text-align: center;
+    }
+  }
+}

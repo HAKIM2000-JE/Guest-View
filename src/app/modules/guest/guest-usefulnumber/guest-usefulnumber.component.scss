@@ -1,0 +1,132 @@
+:host {
+  background-color: #f4f4f4;
+}
+
+.useful{
+  display: contents;
+}
+
+
+.icon{
+  width: 32px;
+  height: 32px;
+  border-radius: 52px;
+}
+
+.photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.number{
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px 0 rgb(0 0 0 / 4%);
+  background-color: white;
+  margin-right: 16px;
+}
+
+.details-useful-number{
+  display: flex;
+  padding-top: 28px;
+  margin-left: 24px;
+  padding-bottom: 28px;
+  margin-right: 24px;
+
+  border-bottom: solid 1px rgba(196, 196, 196, 0.32);
+
+}
+
+.last-child{
+  border-bottom: 0;
+}
+.space{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.details-useful{
+  margin-left: 12px;
+  width: 150px;
+}
+
+.name{
+  width: 100%;
+  height: 19px;
+  font-family: 'Hind Madurai', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #7d818c;
+}
+
+.usefulnumber{
+  width: 100%;
+  height: 19px;
+  font-family: 'Hind Madurai', serif;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #1d2c5a;
+}
+
+.phone{
+  height: 34px;
+  width: 34px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.icon-phone{
+  cursor: pointer;
+}
+
+.address{
+  width: 122px;
+  height: 34px;
+  font-family: 'Hind Madurai', serif;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #1d2c5a;
+  margin-top: 12px;
+}
+
+.more-detail{
+  display: flex;
+  margin-left: 24px;
+  padding-bottom: 28px;
+  margin-right: 24px;
+  cursor: pointer;
+}
+
+.more{
+  width: 65px;
+  height: 22px;
+  font-family: 'Hind Madurai', serif;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #6183e5;
+  margin-top: 3px;
+}
+
+.arrow{
+  margin-left: 12px;
+}

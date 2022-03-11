@@ -1,0 +1,17 @@
+.photo-block {
+  width: 26%;
+  height: 106px;
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 13Px;
+  margin: 10px;
+  &:hover{
+    box-shadow: 1px 1px 7px 1px #0006;
+    border: 2px solid #fff;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

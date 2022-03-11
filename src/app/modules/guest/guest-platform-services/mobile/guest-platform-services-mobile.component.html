@@ -1,0 +1,23 @@
+<div *ngIf="!property?.host?.btobInfo" class="guest-view-mobile-section-container" >
+  <p class="title">
+    <span class="mcqueen">{{'guest-platefromservices-page.title' | translate}}</span>
+    <img src="../../../../../assets/icon/serviceLine.svg" alt="">
+  </p>
+  <div class="guest-view-mobile-card" >
+<!--    <p class="platform-intro">{{'guest-platefromservices-page.description' | translate}}</p>-->
+    <div *ngFor="let p of platformServices.reverse(); let i = index">
+      <div class="service-container">
+        <div>
+          <div class="partner-div">
+            <img [id]="'platformLogo' + i" class="picture-logo" [src]="p.logoUrl" alt="partner-img"/>
+          </div>
+          <p [id]="'platformDescription' + i" class="platform-intro partner-info">{{p.translations[0].description}}</p>
+        </div>
+        <a [id]="'platformLink' + i" class="alink-no-decoration partner-link" target="_blank" [href]="p.translations[0].webSiteUrl">{{'guest-platefromservices-page.more-btn' | translate }}
+        <img class="icon-btn" src="../../../../../assets/images/booking/Vector.svg" /> </a>
+
+      <!--      <div *ngIf="i < platformServices.length-1" class="separator"></div>-->
+      </div>
+    </div>
+  </div>
+</div>

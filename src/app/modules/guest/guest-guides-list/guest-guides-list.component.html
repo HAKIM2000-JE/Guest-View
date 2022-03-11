@@ -1,0 +1,21 @@
+
+<div id="list-guides-container">
+  <div class="back-btn" [routerLink]="['/guest',bookingId]"><img src="assets/icon/back-icon-btn.svg"/> </div>
+  <span class="gest-title-style">{{'guest-guid-page.title' | translate}}</span>
+
+  <div class="content" >
+      <div *ngFor="let guide of guides "   class="header-menu" >
+        <div  class="title" appToogleBtn>
+          <div class="img-guide-block-list">
+          <img class="icon recommendation-img" [src]="getImageByCategory(guide[0])" [alt]="guide?.category">
+          </div>
+          <span>{{'guides-list.'+guide[0] | translate}}</span><img class="icon-dwn" src="assets/icon/down-collaps.svg"/>
+        </div>
+        <div class="dropdown-items" >
+          <div *ngFor="let guideIntern of guide[1] , let i = index" class="item" >
+           <div (click)="goToDetailGuide(i , guide[1])"  > <span class="title">{{guideIntern.translations[0].title}}</span>  <img class="icon-dwn" src="assets/icon/arrow-right.svg"/> </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

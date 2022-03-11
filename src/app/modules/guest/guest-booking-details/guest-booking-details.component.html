@@ -1,0 +1,7 @@
+<div class="">
+  <app-mobile-guest-booking-details *ngIf="!isDesktopMode() " [booking]="booking" [property]="property" [corporate]="corporate"></app-mobile-guest-booking-details>
+</div>
+
+<div #mytemplate [ngClass]="{'desktop-detail-booking' : isDesktopMode()}" >
+  <app-desktop-guest-booking-details *ngIf="isDesktopMode()" [booking]="booking" [property]="property" [corporate]="corporate"></app-desktop-guest-booking-details>
+</div>

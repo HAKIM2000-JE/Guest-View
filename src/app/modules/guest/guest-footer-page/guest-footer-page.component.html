@@ -1,0 +1,47 @@
+<div *ngIf="corporate" [ngClass]="{'desktop':isDesktopMode()}" class="footer-container">
+  <div class="footer-wrapper">
+    <div class="flex-footer1">
+      <img class="top-logo" src="../../../../assets/images/guru_logo.png"/>
+      <!--        <img class="top-logo" src="../../../assets/images/Logo-Blanc%202.png"/>-->
+      <!--    <img class="top-logo" [src]="corporate?.logoUrl"/>-->
+      <!--      <p class="detail-name">{{corporate?.name}}</p>-->
+    </div>
+    <div class="flex-center">
+      <div class="address-container">
+        <p class="title">{{'guest-footer.address' | translate}}</p>
+        <p class="detail">{{corporate?.fullAddress}}</p>
+      </div>
+      <div class="flex-footer">
+        <div>
+          <p class="title">{{'guest-footer.email' | translate}}</p>
+          <p class="detail">{{corporate?.email}}</p>
+        </div>
+<!--        <div>-->
+<!--          <p class="title">{{'guest-footer.phone' | translate}}</p>-->
+<!--          <p class="detail">{{corporate?.phone}}</p>-->
+<!--        </div>-->
+      </div>
+    </div>
+    <div class="social-media-link">
+      <p class="title">{{'guest-footer.subscribe-to-us-in-social' | translate}}</p>
+              <div style="font-size: 0;">
+                <a *ngIf="corporate?.facebookUrl" id="facebookLink" class="alink-no-decoration partner-link"
+                   target="_blank" [href]="corporate?.facebookUrl">
+                  <img src="assets/images/footer/facebook-icon.svg">
+                </a>
+                <a *ngIf="corporate?.instagramUrl" id="instaLink" class="alink-no-decoration partner-link"
+                   target="_blank" [href]="corporate?.instagramUrl">
+                  <img src="assets/images/footer/instagram-icon.svg">
+                </a>
+                <a *ngIf="corporate?.twitterUrl" id="twitterLink" class="alink-no-decoration partner-link"
+                   target="_blank" [href]="corporate?.twitterUrl">
+                  <img src="assets/images/footer/twitter-icon.svg">
+                </a>
+                <a *ngIf="corporate?.linkedInUrl" id="linkedinLink" class="alink-no-decoration partner-link"
+                   target="_blank" [href]="corporate?.linkedInUrl">
+                  <img src="assets/images/footer/LinkedIn-icon.svg">
+                </a>
+              </div>
+    </div>
+  </div>
+</div>

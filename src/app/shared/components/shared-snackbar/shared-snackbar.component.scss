@@ -1,0 +1,141 @@
+@import '../../../../assets/styles/gusl-shared';
+@import '../../../../assets/styles/yaago2-style';
+
+:host {
+  height: auto;
+}
+.first-container {
+  position: absolute;
+  height: 56px;
+  bottom: 0;
+  width: 100%;
+}
+.snackbar-container {
+  height: 56px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 75%;
+  margin: auto;
+  z-index: 222222222223;
+  padding: 1em;
+  background: white;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  opacity: 0.9;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .snackbar-container {
+    width: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+}
+
+.snackbar-text {
+  font-family: $font-Roboto;
+  text-align: center;
+  width: 100%;
+}
+
+.call-to-action {
+  font-size: 1.2em;
+}
+
+.info {
+  background: rgba($color-snackbarValid, 0.9) ;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .snackbar-text {
+    color: white;
+  }
+}
+
+.warning {
+  background: rgba($color-forgetMeNot, 0.9) ;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .snackbar-text {
+    color: $color-greenVogue;
+  }
+}
+
+.error {
+  background: $color-snackbarWrong ;
+
+  .snackbar-text {
+    color: white;
+  }
+
+  .dismiss-img {
+    margin-left: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/*
+.snackbar-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 50000000;
+  padding: 1em;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+.snackbar-text {
+  font-family: 'Didact Gothic', sans-serif;
+  text-align: center;
+}
+
+.call-to-action {
+  font-size: 1.2em;
+}
+
+.info {
+  background: rgba($gurubnb-secondary-color-2, 0.9) ;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .snackbar-text {
+    color: $gurubnb-typo-color-1;
+  }
+}
+
+.warning {
+  background: rgba($gurubnb-primary-color-2, 0.9) ;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .snackbar-text {
+    color: $gurubnb-typo-color-3;
+  }
+}
+
+.error {
+  background: rgba($gurubnb-ternary-color-1, 0.8) ;
+
+  .snackbar-text {
+    color: $gurubnb-typo-color-3;
+  }
+
+  .dismiss-img {
+    margin-left: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+}
+*/

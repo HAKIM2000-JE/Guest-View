@@ -1,0 +1,36 @@
+@import "../../../../../assets/styles/y-global-style";
+
+.mini-card-container{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 116px;
+  display: flex;
+  justify-content: center;
+
+  .mini-card{
+    width: 329px;
+    height: 108px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
+  .main-photo{
+    width: 76px;
+    height: 76px;
+    background: #F0F2FA;
+    border-radius: 10px;
+  }
+  .category-icon{
+    width: 20px;
+    height: 23px;
+  }
+  .infos-container{
+    width: 205px;
+  }
+}
+
+.not-found-icon {
+  margin-top: 5px;
+  width: 25px;
+}

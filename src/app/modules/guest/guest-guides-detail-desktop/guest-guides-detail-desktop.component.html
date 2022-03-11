@@ -1,0 +1,145 @@
+<app-guest-menu-mobile *ngIf="!isDesktopMode()" [noreview]="true"></app-guest-menu-mobile>
+<app-guest-menu-desktop *ngIf="isDesktopMode()" [noreview]="true" [property]="property" [target]="[]"></app-guest-menu-desktop>
+
+<div class="main-container">
+
+  <div id="propertyGuide" class="guest-view-desktop-section-container" #propertyGuide>
+
+    <a routerLink="{{'/guest/' + bookingId +'/guides'}}" class="back-link clickable">
+      <img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'guest-global-text.back-btn' | translate}}
+    </a>
+
+
+
+    <div class="desc-container" style="padding-bottom: 24px;">
+      <!-- SECTION TITLE -->
+      <h3>{{defaultGuide?.translations[0]?.title}}</h3>
+
+      <!-- SECTION VIDEO -->
+      <div *ngIf="defaultGuide?.videoUrls?.length > 0" class="picture-container" style="height: 400px !important; margin-bottom: 24px; ">
+        <div class="picture-list-container overflow-auto grey-scroll" style="width: 100% !important;">
+          <div *ngFor="let videoUrl of defaultGuide?.videoUrls ; let i = index " class="video-list margin-right-8" style="height: 400px !important;">
+            <div *ngIf="videoUrl" style="width: 100% !important;">
+              <video controls style="height: 400px !important;">
+                <source src="{{videoUrl}}" >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-container" *ngIf="defaultGuide?.translations[0]?.video">
+        <iframe width="100%" height="auto" [src]="defaultGuide?.translations[0]?.video  | safe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+
+      <div class="container-text-and-img">
+          <!-- SECTION DESCRIPTION -->
+          <div class="item margin-top-8 margin-bottom-16">
+            <div id="description-txt" class="descr-guide" style="line-height: 1.5;text-align: justify;" [innerHTML]="defaultGuide?.translations[0]?.description"></div>
+            <app-audio-play *ngIf="!property.noAudioDisplay" [textToSpeak]="getCleanTextToRead()"></app-audio-play>
+          </div>
+
+          <!-- SECTION IMAGE -->
+          <div class="item">
+            <app-images-carousel *ngIf="defaultGuide?.pictureUrls"
+                                 [photos]="photos"
+                                 [pictureUrls]="defaultGuide.pictureUrls"></app-images-carousel>
+            <div style="display: flex; flex-flow: row; justify-content: flex-end; padding-top: 16px; width: 100%">
+              <app-button *ngIf="defaultGuide?.pictureUrls?.length > 0"
+                          [text]="'guest-top-page.see-photos' | translate"
+                          [type]="ButtonType.SHADOW"
+                          [leftIcon]="Icons.PhotoCamera"
+                          (debounceClick)="showImgDialog(photos[0])"></app-button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SECTION ATTACHMENT -->
+      <div id="attachement-new" style="margin-top: 24px;" *ngIf="defaultGuide?.translations[0]?.pdf?.length > 0">
+        <span class="sub-title">Downloadable files</span>
+        <div class="list-attachements">
+          <ul>
+            <li *ngFor="let pdf of defaultGuide?.translations[0]?.pdf" class="item">
+              <a [href]="pdf"><img class="icon" src="assets/icon/file-download.svg"/>
+                <span>{{getNameOfPdf(pdf)}}</span> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!--
+    <div class="min-detail-guide">
+
+        <div class="images-videos" style="margin-top: 32px;">
+          <div class="list-media" *ngIf="defaultGuide?.pictureUrls?.length > 0">
+            <div class="img-list ">
+              <app-images-carousel *ngIf="defaultGuide?.pictureUrls"
+                                   [photos]="photos"
+                                   [pictureUrls]="defaultGuide.pictureUrls"></app-images-carousel>
+              <div style="display: flex; flex-flow: row; justify-content: flex-end; padding-top: 16px; width: 100%">
+                <app-button *ngIf="property?.photos?.length > 0"
+                          [text]="'guest-top-page.see-photos' | translate"
+                          [type]="ButtonType.SHADOW"
+                          [leftIcon]="Icons.PhotoCamera"
+                          (debounceClick)="showImgDialog(photos[0])"></app-button>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div style="width: 100% !important;" class="video-section" *ngIf="defaultGuide?.translations[0]?.video">
+            <iframe style="width: 100% !important;" [src]="defaultGuide?.translations[0]?.video  | safe " frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div *ngIf="defaultGuide?.videoUrls?.length > 0" class="picture-container" style="width: 100% !important;margin-top: 24px;">
+            <div class="picture-list-container" style="width: 100% !important;">
+              <div *ngFor="let videoUrl of defaultGuide?.videoUrls ; let i = index " class="video-list" style="width: 100% !important;">
+                <div *ngIf="videoUrl" style="width: 100% !important;">
+                  <video controls style="width: 100% !important;">
+                    <source src="{{videoUrl}}" >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="attachement" style="margin-top: 24px;" *ngIf="defaultGuide?.translations[0]?.pdf?.length > 0">
+            <span class="sub-title">Downloadable files</span>
+            <div class="list-attachements">
+              <ul>
+                <li *ngFor="let pdf of defaultGuide?.translations[0]?.pdf" class="item">
+                  <a [href]="pdf"><img class="icon" src="assets/icon/file-download.svg"/>
+                    <span>{{getNameOfPdf(pdf)}}</span> </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="desc-container" style="margin-bottom: 24px;">
+          <h3>{{defaultGuide?.translations[0]?.title}}</h3>
+          <p style="line-height: 1.5;text-align: justify;" [innerHTML]="defaultGuide?.translations[0]?.description"></p>
+
+
+
+        </div>
+
+      <div >
+        <app-audio-play  [textToSpeak]="defaultGuide?.translations[0]?.description"></app-audio-play>
+      </div>
+
+
+
+    </div>-->
+  </div>
+  <div *ngIf="!isDesktopMode()" class="empty-space"></div>
+</div>

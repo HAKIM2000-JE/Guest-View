@@ -1,0 +1,139 @@
+<div class="page-container">
+    <div class="check-container margin-top-16">
+  
+        <div class="landing-page-container margin-top-16">
+            <div class="logo">
+                <img *ngIf="corporate?.logoUrl != null" style="height: 60px; padding-right: 24px;" [src]="corporate?.logoUrl"/>
+                <img *ngIf="!property?.customLayout"  src="assets/images/yaago.svg"/>
+              </div>
+      
+          <div class="title title-position">
+           
+            <p class="margin-bottom-16">{{property?.title}}</p>
+            <p> Checkin online </p>
+            <!-- <p> {{'online-check.welcome' | translate}} {{booking?.guests[0].firstName}}</p> -->
+          </div>
+
+          <div *ngIf="booking != null" class="journey-summary">
+            <div class="row justify-content-sb align-items-center">
+              <div class="welcome-container">
+                <p class="margin-bottom-16">{{'guest-top-page.welcome' | translate}}</p>
+                <p>{{booking?.guests[0]?.firstName | titlecase}} <span *ngIf="property?.host?.btobInfo">{{booking?.guests[0]?.lastName | titlecase}}</span></p>
+                <p *ngIf="property?.host?.btobInfo" class="company-name">{{booking?.guests[0]?.companyName | titlecase}}</p>
+              </div>
+              <div *ngIf="!property?.host?.btobInfo" class="nights-container">
+                <p class="Small">{{'guest-top-page.nights-desktop' | translate}}</p>
+                <p class="number">{{booking?.nights}}</p>
+              </div>
+            </div>
+            <div *ngIf="booking?.startDate !== booking?.endDate" class="date-cards">
+              <div class="date-card margin-right-16">
+                <img src="assets/images/illustrations/men-fly.svg" alt="start">
+                <div class="date-container">
+                  <p class="title">{{'guest-top-page.start' | translate}}</p>
+                  <p class="date">{{booking?.startDate | moment: currentLang | titlecase}}</p>
+                </div>
+              </div>
+              <div class="date-card">
+                <img src="assets/images/illustrations/men-luaggage.svg" alt="departure">
+                <div class="date-container">
+                  <p class="title">{{'guest-top-page.end' | translate}}</p>
+                  <p class="date">{{booking?.endDate | moment: currentLang | titlecase}}</p>
+                </div>
+              </div>
+            </div>
+          
+            <!-- SAME DATE : RESERVATION -->
+            <div *ngIf="booking?.startDate === booking?.endDate" class="date-cards">
+              <div class="date-card ">
+                <img src="assets/images/illustrations/men-fly.svg" alt="start">
+                <div class="date-container">
+                  <p class="title">{{'guest-top-page.your-resa' | translate}}</p>
+                  <p class="date">{{booking?.startDate | moment: currentLang  | titlecase}}</p>
+                </div>
+              </div>
+          
+            </div>
+          
+      
+      
+        </div>
+  
+     
+        <div  class="header header-padding">
+            <a class="back-link"  ><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'online-check.previous' |
+                translate}}</a>
+        </div>
+  
+      <div class="card-informations">
+        <div class="containers-block">
+          <div class="information-position">
+            <div class="informations">
+              <p>{{'online-check.info' | translate}}</p>
+  
+              <div class="display-informations">
+                <h5>{{'online-check.firstname' | translate}}</h5>
+  
+              </div>
+              <div class="display-informations">
+                <h5>{{'online-check.lastname' | translate}}</h5>
+  
+              </div>
+              <div class="display-informations">
+                <h5>{{'online-check.email' | translate}}</h5>
+  
+              </div>
+              <div class="display-informations">
+                <h5>{{'online-check.country' | translate}}</h5>
+  
+              </div>
+              <div class="display-informations">
+                <h5>{{'online-check.booking_id' | translate}}</h5>
+            
+              </div>
+              <div class="display-informations">
+                <h5>{{'online-check.birthdate' | translate}}</h5>
+  
+              </div>
+              <div class="display-informations">
+                <h5>{{'online-check.gender' | translate}}</h5>
+  
+              </div>
+            </div>
+
+
+        
+  
+          </div>
+          <div class="identity">{{'online-check.id' | translate}}</div>
+          <div class="images">
+            images here
+
+          </div>
+          <div class="contrat contrat-position">
+            <p>{{'online-check.contract' | translate}}</p>
+  
+            <ngx-doc-viewer
+              [url]="'https://drive.google.com/file/d/0B5ImRpiNhCfGZDVhMGEyYmUtZTdmMy00YWEyLWEyMTQtN2E2YzM3MDg3MTZh/preview'"
+              viewer="google" style="width: 100%; height: 68vh"></ngx-doc-viewer>
+          </div> 
+  
+        </div>
+        <div class="edit-button">
+          <app-button [text]="'Editer'" [type]="'primary'"></app-button>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template [ngIf]="property.customLayout">
+  
+      <app-vbca-footer *ngIf="corporate?.corporateTag === 'VBCA_ROUEN'" [property]="property"></app-vbca-footer>
+      <app-cotoon-footer *ngIf="corporate?.corporateTag === 'COTOON'"></app-cotoon-footer>
+      <app-rentatranquille-footer *ngIf="corporate?.corporateTag === 'RENTATRANQUILLE'"></app-rentatranquille-footer>
+      <app-guest-adom-footer *ngIf="corporate?.corporateTag === 'GUESTADOM'"></app-guest-adom-footer>
+      <app-keylodge-footer *ngIf="corporate?.corporateTag === 'KEYLODGE'"></app-keylodge-footer>
+      <!-- <app-yaago2-powered-by-footer [corporate]="corporate"></app-yaago2-powered-by-footer> -->
+  
+    </ng-template>
+  
+  </div>

@@ -1,0 +1,43 @@
+<app-guest-menu-desktop  [property]="property" [noreview]="true" [target]="[]" *ngIf="isDesktopForMenu()"></app-guest-menu-desktop>
+<app-guest-menu-mobile *ngIf="!isDesktopForMenu()" [noreview]="true"></app-guest-menu-mobile>
+
+<div class="div-full">
+  <div id="setup-container"
+       [ngClass]="{'desktop-mode' : isDesktopMode(), 'mobile-mode': !isDesktopMode()}">
+
+    <div class="container-content">
+      <a *ngIf="booking" [routerLink]="['/guest', booking.id]" class="back-link"><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'guest-global-text.back-btn' | translate}}</a>
+
+      <div class="form-container">
+
+        <h3 *ngIf="isDesktopMode()">{{'review-page.title' | translate}}</h3>
+        <h4 *ngIf="!isDesktopMode()">{{'review-page.title' | translate}}</h4>
+
+
+        <div class="content-container">
+          <p class="property-title">{{'review-page.teammate-question' | translate}}</p>
+          <ul class="ratingItem">
+            <li *ngFor="let rating of bookingRating.ratingItems">
+              <span class="section-title">{{'review-page.'+rating.type | translate}}</span>
+              <div class="range-box">
+                <app-star-rating class="stars" [(rating)]="rating.rating"></app-star-rating>
+                <div class="value">{{rating.rating}}</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="noteBlock">
+          <mat-form-field appearance="fill">
+            <h4 class="section-title">{{'review-page.prompt' | translate}}</h4>
+            <textarea style="min-height: 150px"
+              placeholder="{{'review-page.prompt-placeholder' | translate}}"
+              matInput matTextareaAutosize  [(ngModel)]="bookingRating.ratingComment" ></textarea>
+          </mat-form-field>
+        </div>
+        <div class="buttons">
+          <div class="primary-button margin-right-8" lang="{{urlLang}}" (click)="teamateReview()" >{{'review-page.save-review-btn' | translate}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

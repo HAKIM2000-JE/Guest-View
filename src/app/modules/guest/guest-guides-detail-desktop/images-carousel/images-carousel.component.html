@@ -1,0 +1,5 @@
+<owl-carousel-o [options]="customOptions">
+  <ng-template *ngFor="let image of pictureUrls" carouselSlide >
+      <img class="img-header-page"  [src]="image" (click)="showImgDialog(image)"/>
+  </ng-template>
+</owl-carousel-o>

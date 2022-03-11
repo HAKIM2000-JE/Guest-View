@@ -1,0 +1,4 @@
+<div *ngIf="showMap">
+  <app-guest-recommendations-map-desktop *ngIf="isDesktopMode()"></app-guest-recommendations-map-desktop>
+  <app-guest-recommendations-map-mobile *ngIf="!isDesktopMode()"></app-guest-recommendations-map-mobile>
+</div>

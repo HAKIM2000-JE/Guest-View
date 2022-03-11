@@ -1,0 +1,86 @@
+<app-guest-menu-desktop  [property]="property" [target]="[]" *ngIf="isDesktopMode()"></app-guest-menu-desktop>
+<app-guest-menu-mobile *ngIf="!isDesktopMode()"></app-guest-menu-mobile>
+
+<div class="div-full">
+  <div id="setup-container"
+       [ngClass]="{'desktop-mode' : isDesktopMode(), 'mobile-mode': !isDesktopMode()}">
+
+    <a [routerLink]="['/guest', bookingId]" class="back-link margin-bottom-24"><img class="icon-btn" src="assets/icon/back-icon-arrow.svg" /> {{'guest-global-text.back-btn' | translate}}</a>
+
+  <div class="container-w-960 card-large first" >
+
+
+
+    <div id="message-container" class="message-container grey-scroll">
+
+      <div *ngFor="let msg of messages; let i = index">
+
+        <div *ngIf="msg.side === 'IN'" style="margin-bottom: 24px;">
+          <div style="display: flex; flex-flow: row">
+            <div style="min-width: 25%" *ngIf="msg.side === 'IN'">&nbsp;</div>
+            <div class="chat-message-out" *ngIf="msg.side === 'IN'">
+              <div class="chat-content" [innerHTML]="replaceLinks(msg.content)"></div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-flow: row">
+            <div style="min-width: 25%" >&nbsp;</div>
+            <div class="title-message-in-container chat-content-title " *ngIf="msg.side === 'IN'">
+              <div class="div-img" *ngIf="msg.type==='INTERNAL'"><img class="icon-message" src="assets/icon/messaging/chat.png">{{utilService.formatDateTime(msg.sendingDate)}} - DIRECT</div>
+              <div class="div-img" *ngIf="msg.type==='SMS'"><img class="icon-message" src="assets/icon/messaging/sms.png">{{utilService.formatDateTime(msg.sendingDate)}} - SMS</div>
+              <div class="div-img" *ngIf="msg.type==='WHATSAPP'"><img class="icon-message" src="assets/icon/messaging/icon-whatsapp.svg">{{utilService.formatDateTime(msg.sendingDate)}} - WHATSAPP</div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="msg.side === 'OUT'" style="margin-bottom: 24px;">
+
+          <div style="display: flex; flex-flow: row; align-items: center">
+              <div *ngIf="property?.showMeAsHost && property?.coHostInCharge == null" class="card padding-right-24 person-container ">
+                <div class="picture-container">
+                  <img *ngIf="property?.host?.pictureUrl" src="{{property?.host.pictureUrl}}" alt="picture">
+                  <span *ngIf="!property?.host?.pictureUrl" class="roboto Large picture-placeholder">
+                {{utilsService.getFirstLetter(property?.host)}}
+                </span>
+                </div>
+            </div>
+            <div *ngIf="property?.coHostInCharge != null" class="card padding-right-24 person-container ">
+              <img *ngIf="property?.coHostInCharge?.pictureUrl" src="{{property?.coHostInCharge.pictureUrl}}" alt="picture">
+              <span *ngIf="!property?.coHostInCharge?.pictureUrl" class="roboto Large picture-placeholder">
+                {{utilsService.getFirstLetter(property?.coHostInCharge)}}
+              </span>
+            </div>
+
+            <div class="chat-message-in" *ngIf="msg.side === 'OUT'">
+              <div class="chat-content" [innerHTML]="replaceLinks(msg.content)"></div>
+            </div>
+
+          </div>
+
+          <div class="title-message-out-container chat-content-title " *ngIf="msg.side === 'OUT'">
+              <div class="div-img" *ngIf="msg.type==='INTERNAL'"><img class="icon-message" src="assets/icon/messaging/chat.png">{{utilService.formatDateTime(msg.sendingDate)}} - DIRECT</div>
+              <div class="div-img" *ngIf="msg.type==='SMS'"><img class="icon-message" src="assets/icon/messaging/sms.png">{{utilService.formatDateTime(msg.sendingDate)}} - SMS</div>
+              <div class="div-img" *ngIf="msg.type==='WHATSAPP'"><img class="icon-message" src="assets/icon/messaging/icon-whatsapp.svg">{{utilService.formatDateTime(msg.sendingDate)}} - WHATSAPP</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="container-to-send">
+
+        <div style="width: 100%">
+          <textarea class="textarea-note" [(ngModel)]="textToSend"
+                    cdkAutosizeMinRows="10"
+                    cdkAutosizeMaxRows="10"
+                    matInput matTextareaAutosize maxlength="300"  ></textarea>
+        </div>
+        <div *ngIf="isDesktopMode()" class="primary-button margin-left-16 margin-top-0" style="margin-top: 0! important; width: fit-content" (click)="sendMessage()">{{'chat.send' | translate}}</div>
+        <div *ngIf="!isDesktopMode()" class="primary-button " style="width: fit-content" (click)="sendMessage()">{{'chat.send' | translate}}</div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,1344 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+footer#footer.footer-block-its-corporative {
+  background: #323645;
+}
+
+// footer#footer.footer-block-its-corporative {
+//     background: #FAD048;
+//     color: #393e47 !important;
+// }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+footer#footer #upper_footer {
+  padding: 35px 0 35px 0;
+}
+.its--container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+.its--container::before,
+.its--container::after {
+  content: " ";
+  display: table;
+}
+
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.its--row {
+  margin-left: -12.5px;
+  margin-right: -12.5px;
+}
+.its--row::before,
+.its--row::after {
+  content: " ";
+  display: table;
+}
+
+.its--col-xs-1,
+.its--col-sm-1,
+.its--col-md-1,
+.its--col-lg-1,
+.its--col-xs-2,
+.its--col-sm-2,
+.its--blog .comments-area form label,
+.its--col-md-2,
+.its--col-lg-2,
+.its--col-xs-3,
+.its--col-sm-3,
+.its--col-md-3,
+.its--col-lg-3,
+.its--col-xs-4,
+.its--col-sm-4,
+.its--col-md-4,
+.its--col-lg-4,
+.its--col-xs-5,
+.its--col-sm-5,
+.its--col-md-5,
+.its--col-lg-5,
+.its--col-xs-6,
+.its--col-sm-6,
+.its--col-md-6,
+.its--col-lg-6,
+.its--col-xs-7,
+.its--col-sm-7,
+.its--col-md-7,
+.its--col-lg-7,
+.its--col-xs-8,
+.its--col-sm-8,
+.its--col-md-8,
+.its--col-lg-8,
+.its--col-xs-9,
+.its--col-sm-9,
+.its--col-md-9,
+.its--col-lg-9,
+.its--col-xs-10,
+.its--col-sm-10,
+.its--blog .comments-area form input#author,
+.its--blog .comments-area form input#email,
+.its--blog .comments-area form input#url,
+.its--blog .comments-area form textarea#comment,
+.its--col-md-10,
+.its--col-lg-10,
+.its--col-xs-11,
+.its--col-sm-11,
+.its--col-md-11,
+.its--col-lg-11,
+.its--col-xs-12,
+.its--col-sm-12,
+.its--col-md-12,
+.its--col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+}
+footer#footer.footer-block-its-corporative #upper_footer .widget p.title {
+  margin-top: 6px;
+}
+footer#footer.footer-block-its-corporative #upper_footer .widget p.title {
+  color: #ffffff;
+}
+#acommodationContainerTitle .accommodationName,
+#all #centro h2.form-title,
+#all #contenido.sidebar_formReserva .nombre a,
+#all #filtros .referencia input,
+#all #formReservaPropiedad .bloque_formulario label,
+#all #galeria_full span.tagSubCabecera,
+#all #miniform_online .localidad select,
+#all #miniform_online .pais_resultados select,
+#all #miniform_online a#btn_busqueda,
+#all #xtra #FRMOrdenSidebar,
+#all .clean-all a,
+#all .etiqResumenDatos,
+#all .its--online-fix #caracteristicas-dormitorio .bed-title,
+#all .its--online-fix #caracteristicas-dormitorio .room-title,
+#all .its--online-fix #caracteristicas-dormitorio .title-rooms,
+#all .its--online-fix .sidebar_masDatos .readless a,
+#all .its--online-fix .sidebar_masDatos .readmore a,
+#all .result-selector li span,
+#all .result_r .resultados-multiphoto .contendor_boton_results > a,
+#all .show-features-toggle a,
+#all .sidebar_formReserva #bloque_fechasReserva .etiqResumenDatos,
+#all .sidebar_masDatos .bloque_precios_desde span.porDS,
+#all .sidebar_masDatos .class_title,
+#all .sidebar_masDatos .texto_favourites,
+#all .subtitle-ficha,
+#all
+  footer#footer.footer-block-its-corporative
+  #upper_footer
+  .widget
+  ul
+  > li
+  > a,
+#cabecera_ficha #encabezadoF .titulo_h1 .nombre a,
+#calc .buttong,
+#centro #resultados_totales .cabecera_result a,
+#centro .sidebar_favoritosB .cabecera_result a,
+#contacto_1 textarea[name="FComentarios"],
+#contenedor #contenido #bloque_foto_cont .separador .class_title,
+#encabezadoLeft .titulo_h1 #contenido_titulo .nombre a,
+#form_minRespo input,
+#form_minRespo select,
+#miniformulario_slider
+  .form_inner
+  > .its--container
+  .all_form
+  #tabla_form
+  .formGroup
+  .form_item
+  input,
+#miniformulario_slider
+  .form_inner
+  > .its--container
+  .all_form
+  #tabla_form
+  .formGroup
+  .form_item
+  select,
+.Zonas .wrapper-widget-zona a .title,
+.busqueda_referencia_le form div #FRMNombre,
+.busqueda_referencia_venta form div #FRMNombre,
+.class_title.fondooscuro,
+.custom-marker2 .name,
+.discount-amount,
+.discount-desacription,
+.field input[type="tel"],
+.field input[type="text"],
+.field textarea,
+.flexible-search-form select,
+.form-control,
+.h2_favoritos,
+.its--blog .comments-area form input#author,
+.its--blog .comments-area form input#email,
+.its--blog .comments-area form input#url,
+.its--blog .comments-area form textarea#comment,
+.its--blog
+  .its--blog_content
+  .widget-area
+  aside.widget.widget_search
+  .search-field,
+.its--online-fix
+  #bloque_foto_cont
+  #acommodationContainerTitle
+  .accommodationName,
+.its--online-fix #scroll li a,
+.its--row.contacto-wrapper .widget.contacto #formContacto label input,
+.its--row.contacto-wrapper .widget.contacto #formContacto label select,
+.its--row.contacto-wrapper .widget.contacto #formContacto label textarea,
+.sale-info .sale-title .text,
+.sidebar_favoritos TEXTAREA#comentarios_favoritos,
+.sidebar_favoritos_form input,
+.sidebar_formReserva #contenidoNotasAdicionales h2,
+.sidebar_formReserva .formGroup input,
+.sidebar_formReserva .formGroup select,
+.sidebar_formReserva .formGroup textarea,
+.sidebar_formReserva .separador h2,
+.sidebar_formReserva input#calc,
+.similar_accommodations .contendor_boton_results a,
+.widget.form_propietarios .widget_inner form fieldset legend,
+.widget.login_propietarios #login_div input,
+.widget.login_propietarios #pass input,
+.widget.ofertas
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-data
+  > li.oferta-info,
+.widget.ofertas
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-title
+  > .oferta-name,
+.widget.ofertas-le
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-data
+  > li.oferta-info,
+.widget.ofertas-le
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-title
+  > .oferta-name,
+.widget.ofertas-venta
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-data
+  > li.oferta-info,
+.widget.ofertas-venta
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-title
+  > .oferta-name,
+.widget.testimonial .av-testimonial-box .av-testimonial-opinion,
+body,
+footer#footer #upper_footer .widget p.title,
+footer#footer
+  #upper_footer
+  .widget#address_widget
+  .whatsapp-button
+  .whatsapp-button__text--number,
+footer#footer
+  #upper_footer
+  .widget#address_widget
+  .whatsapp-button
+  .whatsapp-button__text--text,
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .widget.datos_empresa
+  .widget_inner
+  p
+  a,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Roboto", sans-serif !important;
+}
+#acommodationContainerTitle .accommodationName,
+#all #centro h2.form-title,
+#all #contenido.sidebar_formReserva .nombre a,
+#all #filtros .referencia input,
+#all #formReservaPropiedad .bloque_formulario label,
+#all #galeria_full span.tagSubCabecera,
+#all #miniform_online .localidad select,
+#all #miniform_online .pais_resultados select,
+#all #miniform_online a#btn_busqueda,
+#all #xtra #FRMOrdenSidebar,
+#all .clean-all a,
+#all .etiqResumenDatos,
+#all .its--online-fix #caracteristicas-dormitorio .bed-title,
+#all .its--online-fix #caracteristicas-dormitorio .room-title,
+#all .its--online-fix #caracteristicas-dormitorio .title-rooms,
+#all .its--online-fix .sidebar_masDatos .readless a,
+#all .its--online-fix .sidebar_masDatos .readmore a,
+#all .result-selector li span,
+#all .result_r .resultados-multiphoto .contendor_boton_results > a,
+#all .show-features-toggle a,
+#all .sidebar_formReserva #bloque_fechasReserva .etiqResumenDatos,
+#all .sidebar_masDatos .bloque_precios_desde span.porDS,
+#all .sidebar_masDatos .class_title,
+#all .sidebar_masDatos .texto_favourites,
+#all .subtitle-ficha,
+#all .titulo_subcabecera,
+#all
+  footer#footer.footer-block-its-corporative
+  #upper_footer
+  .widget
+  ul
+  > li
+  > a,
+#cabecera_ficha #encabezadoF .titulo_h1 .nombre a,
+#calc .buttong,
+#centro #resultados_totales .cabecera_result a,
+#centro .sidebar_favoritosB .cabecera_result a,
+#contacto_1 textarea[name="FComentarios"],
+#contenedor #contenido #bloque_foto_cont .separador .class_title,
+#encabezadoLeft .titulo_h1 #contenido_titulo .nombre a,
+#form_minRespo input,
+#form_minRespo select,
+#inicio
+  main#main
+  .mapa-alojamientos-wrapper
+  #map_canvas
+  #multiHouseContainer
+  .map-cabecera
+  span,
+#miniformulario_slider
+  .form_inner
+  > .its--container
+  .all_form
+  #tabla_form
+  .formGroup
+  .form_item
+  input,
+#miniformulario_slider
+  .form_inner
+  > .its--container
+  .all_form
+  #tabla_form
+  .formGroup
+  .form_item
+  select,
+.Zonas .wrapper-widget-zona a .title,
+.busqueda_referencia_le form div #FRMNombre,
+.busqueda_referencia_venta form div #FRMNombre,
+.class_title.fondooscuro,
+.custom-marker2 .name,
+.discount-amount,
+.discount-desacription,
+.field input[type="tel"],
+.field input[type="text"],
+.field textarea,
+.flexible-search-form select,
+.form-control,
+.h2_favoritos,
+.its--blog .comments-area form input#author,
+.its--blog .comments-area form input#email,
+.its--blog .comments-area form input#url,
+.its--blog .comments-area form textarea#comment,
+.its--blog .its--blog_content .content-area .entry-header .entry-title a,
+.its--blog
+  .its--blog_content
+  .widget-area
+  aside.widget.widget_search
+  .search-field,
+.its--online-fix
+  #bloque_foto_cont
+  #acommodationContainerTitle
+  .accommodationName,
+.its--online-fix #scroll li a,
+.its--row.contacto-wrapper .widget.contacto #formContacto label input,
+.its--row.contacto-wrapper .widget.contacto #formContacto label select,
+.its--row.contacto-wrapper .widget.contacto #formContacto label textarea,
+.sale-info .sale-title .text,
+.sidebar_favoritos TEXTAREA#comentarios_favoritos,
+.sidebar_favoritos_form input,
+.sidebar_formReserva #contenidoNotasAdicionales h2,
+.sidebar_formReserva .formGroup input,
+.sidebar_formReserva .formGroup select,
+.sidebar_formReserva .formGroup textarea,
+.sidebar_formReserva .separador h2,
+.sidebar_formReserva input#calc,
+.similar_accommodations .contendor_boton_results a,
+.widget.form_propietarios .widget_inner form fieldset legend,
+.widget.login_propietarios #login_div input,
+.widget.login_propietarios #pass input,
+.widget.ofertas
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-data
+  > li.oferta-info,
+.widget.ofertas
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-title
+  > .oferta-name,
+.widget.ofertas-le
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-data
+  > li.oferta-info,
+.widget.ofertas-le
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-title
+  > .oferta-name,
+.widget.ofertas-venta
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-data
+  > li.oferta-info,
+.widget.ofertas-venta
+  .widget_inner
+  .ofertas-container
+  .slider-viewport
+  .slider-row
+  .slide-box
+  a
+  > .oferta-title
+  > .oferta-name,
+.widget.testimonial .av-testimonial-box .av-testimonial-opinion,
+body,
+footer#footer #upper_footer .widget p.title,
+footer#footer
+  #upper_footer
+  .widget#address_widget
+  .whatsapp-button
+  .whatsapp-button__text--number,
+footer#footer
+  #upper_footer
+  .widget#address_widget
+  .whatsapp-button
+  .whatsapp-button__text--text,
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .widget.datos_empresa
+  .widget_inner
+  p
+  a,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Roboto", sans-serif !important;
+}
+footer#footer #upper_footer .widget p.title {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 5px;
+  font-size: 17px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  border-bottom: 0px;
+  background: none;
+  text-transform: uppercase;
+}
+footer#footer #upper_footer .widget p.title {
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 5px;
+  font-family: "Roboto", serif;
+  font-size: 17px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  border-bottom: 0px;
+  background: none;
+  text-transform: uppercase;
+}
+footer#footer #upper_footer .widget p {
+  margin: 0;
+}
+.fwk-color-cont {
+  color: #ffffff;
+}
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  #address_widget
+  .direccion_empresa,
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  #address_widget
+  .av-horario {
+  color: #ffffff;
+}
+footer#footer #upper_footer #address_widget .direccion_empresa,
+footer#footer #upper_footer #address_widget .av-horario,
+footer#footer #upper_footer #address_widget .av-otro {
+  color: #878787;
+}
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  #address_widget
+  .widget_inner {
+  color: #ffffff;
+}
+
+footer#footer.footer-block-its-corporative #upper_footer .widget hr {
+  border-top-color: transparent;
+}
+footer#footer #upper_footer .widget hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 10px 0 10px 0;
+  text-align: left;
+  width: 75%;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+}
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+footer#footer #upper_footer .widget p.av-tel,
+footer#footer #upper_footer .widget p.av-email,
+footer#footer #upper_footer .widget p.av-horario {
+  position: relative;
+  margin-left: 30px;
+}
+footer#footer.footer-block-its-corporative #upper_footer .widget p i {
+  color: #fad048;
+}
+footer#footer.footer-block-its-corporative #upper_footer .widget p a,
+footer#footer.footer-block-its-corporative #upper_footer .widget p i {
+  color: #ffffff;
+}
+footer#footer #upper_footer .widget p i {
+  color: #fad048;
+  font-size: 17px;
+  position: absolute;
+  left: -30px;
+}
+.icon-telefono::before {
+  content: "\e836";
+}
+
+footer#footer.footer-block-its-corporative #upper_footer .widget p > a {
+  transition: all 0.5s ease;
+}
+
+a {
+  color: #fad048;
+  text-decoration: none;
+}
+a {
+  background: transparent;
+}
+
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  #address_widget
+  .empresa_name {
+  color: #ffffff;
+  margin-top: 50px;
+}
+footer#footer #upper_footer #address_widget .empresa_name {
+  margin-top: 50px;
+  color: #878787;
+}
+
+footer#footer #upper_footer .widget ul {
+  padding-left: 0;
+}
+footer#footer #upper_footer .widget ul li {
+  list-style: none;
+  color: white;
+}
+
+footer#footer.footer-block-its-corporative #upper_footer .widget ul > li > a {
+  transition: all 0.5s ease;
+}
+footer#footer.footer-block-its-corporative #upper_footer .widget ul > li > a {
+  color: #ffffff;
+}
+footer#footer #upper_footer .widget ul li a {
+  color: white;
+}
+
+footer#footer #upper_footer .ayuda ul {
+  margin-bottom: 19px;
+}
+
+footer#footer #upper_footer .newsletter .widget_inner {
+  margin-top: 18px;
+}
+
+footer#footer #upper_footer .newsletter .widget_inner #formNewsletterFooter {
+  max-width: 300px;
+}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  #CapaEmail {
+  margin-bottom: 0;
+  width: 100%;
+}
+#its--global-container label {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  font-weight: bold;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  #CapaEmail
+  span {
+  display: none;
+}
+
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  #CapaEmail
+  #email2 {
+  background-color: #fff;
+  border: none;
+  color: #393e47;
+  padding-left: 10px;
+  font-family: "Open Sans", serif;
+  font-size: 13px;
+}
+.form-control,
+.widget.login_propietarios #login_div input,
+.widget.login_propietarios #pass input,
+.widget.busqueda_referencia form div #FRMNombre,
+.busqueda_referencia_venta form div #FRMNombre,
+.busqueda_referencia_le form div #FRMNombre,
+.its--blog
+  .its--blog_content
+  .widget-area
+  aside.widget.widget_search
+  .search-field,
+.its--blog .comments-area form input#author,
+.its--blog .comments-area form input#email,
+.its--blog .comments-area form input#url,
+.its--blog .comments-area form textarea#comment {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  line-height: 1.42857;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 0px;
+  border-bottom: 1px solid #ccc;
+  font-weight: normal;
+  -webkit-transition: border-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  #botonContacto {
+  margin-top: 6px;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  #botonContacto
+  label {
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .widget.newsletter
+  .widget_inner
+  #formNewsletterFooter
+  #botonContacto
+  label
+  #boton_contacto
+  #boton_enviar {
+  background-color: #fad048;
+}
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  #botonContacto
+  label
+  #boton_contacto
+  #boton_enviar {
+  background-color: rgba(121, 98, 42, 0.3);
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  #botonContacto
+  label
+  #boton_contacto
+  #boton_enviar {
+  background-color: #fad048;
+  border: 0px;
+  border-radius: 0px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  height: auto;
+  text-transform: uppercase;
+  width: 100%;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+.btn-primary,
+#miniformulario_slider .popover .cerrar_ninyos,
+.widget.login_propietarios input#boton_enviar,
+.widget.busqueda_referencia form div span #buscar,
+.busqueda_referencia_venta form div span #buscar,
+.busqueda_referencia_le form div span #buscar,
+.its--blog .comments-area form input#submit {
+  color: #fff;
+  background-color: #fad048;
+  border-color: #f9ca2f;
+}
+.btn,
+#miniformulario_slider .popover .cerrar_ninyos,
+.widget.login_propietarios input#boton_enviar,
+.widget.busqueda_referencia form div span #buscar,
+.busqueda_referencia_venta form div span #buscar,
+.busqueda_referencia_le form div span #buscar,
+.its--blog .comments-area form input#submit {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.btn-primary,
+#miniformulario_slider .popover .cerrar_ninyos {
+  color: #fff;
+  background-color: #fad048;
+  border-color: #f9ca2f;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .its--col-md-12.acepto {
+  margin-top: 15px;
+  padding: 0 12.5px;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .its--col-md-12.acepto
+  > input {
+  left: 2px;
+  opacity: 0;
+  position: absolute;
+}
+
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .acepto
+  > label::before {
+  border: 1px solid #ffffff;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .its--col-md-12.acepto
+  > label::before {
+  border: 1px solid #fff;
+  content: "";
+  height: 16px;
+  left: 0;
+  position: absolute;
+  width: 16px;
+}
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .acepto
+  > label
+  > a {
+  color: #ffffff;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .its--col-md-12.acepto
+  > label
+  > a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+.clearfix::after {
+  clear: both;
+}
+
+footer#footer.footer-block-its-corporative #upper_footer .copy_mobile {
+  display: none;
+}
+.its--container::after {
+  clear: both;
+}
+
+.its--row::after {
+  clear: both;
+}
+
+footer#footer.footer-block-its-corporative #lower_footer {
+  background-color: #16181f;
+}
+// footer#footer.footer-block-its-corporative #lower_footer {
+//     background-color: rgba(115, 89, 3, 0.3);
+// }
+footer#footer #lower_footer {
+  background-color: #474b50;
+  color: #ffffff;
+  padding: 8px 0;
+}
+footer#footer #lower_footer #social_widget ul {
+  font-size: inherit;
+  padding: 9px 0px;
+  height: 48px;
+  margin: 5px 0px;
+}
+#social_media ul,
+#social_widget ul {
+  height: 100%;
+  padding: 0;
+  font-size: 0;
+}
+footer#footer #lower_footer #social_widget ul li {
+  font-size: 22px;
+  margin: 0px 3px;
+}
+#social_media ul li,
+#social_widget ul li {
+  height: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+footer#footer.footer-block-its-corporative
+  #lower_footer
+  #social_widget
+  ul
+  li
+  a {
+  border-radius: 50%;
+}
+footer#footer #lower_footer #social_widget ul li a {
+  color: #fff;
+  padding: 0px;
+  text-align: center;
+  width: 32px;
+  height: 32px;
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+}
+#social_media ul li > a,
+#social_widget ul li > a {
+  display: block;
+  height: 100%;
+  color: #000000;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: transparent;
+}
+img {
+  max-width: 100% !important;
+}
+img {
+  vertical-align: middle;
+}
+img {
+  border: 0;
+}
+footer#footer #lower_footer #designed_by img:hover {
+  opacity: 0.5;
+}
+footer#footer #lower_footer #designed_by {
+  margin: 14px 0px;
+}
+footer#footer.footer-block-its-corporative #lower_footer #designed_by img {
+  height: 50px;
+  margin-top: -12px;
+  position: absolute;
+  left: 0;
+}
+footer#footer #lower_footer #tipo_pago {
+  text-align: right;
+}
+footer#footer #lower_footer #tipo_pago ul {
+  margin: 14px 0px;
+}
+.list-inline,
+.landings .widget_inner ul,
+.its--blog #submenu_blog #primary-menu {
+  margin-left: -5px;
+}
+#tipo_pago ul li {
+  padding-right: 0 !important;
+}
+.list-inline > li,
+.landings .widget_inner ul > li,
+.its--blog #submenu_blog #primary-menu > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+footer#footer #lower_footer #tipo_pago ul img.bank-transfer_black,
+footer#footer #lower_footer #tipo_pago ul img.bank-transfer_white,
+footer#footer #lower_footer #tipo_pago ul img.bank-transfer {
+  width: 50px;
+}
+footer#footer #lower_footer #tipo_pago ul img {
+  height: 32px;
+  padding: 0 5px;
+}
+footer#footer #lower_footer #tipo_pago ul img.mastercard_dark,
+footer#footer #lower_footer #tipo_pago ul img.mastercard_light,
+footer#footer #lower_footer #tipo_pago ul img.mastercard,
+footer#footer #lower_footer #tipo_pago ul img.mastercard_black,
+footer#footer #lower_footer #tipo_pago ul img.mastercard_white {
+  width: 50px;
+}
+
+footer#footer #lower_footer #tipo_pago ul img.visa_black,
+footer#footer #lower_footer #tipo_pago ul img.visa_white,
+footer#footer #lower_footer #tipo_pago ul img.visa {
+  width: 70px;
+}
+
+footer#footer .pd {
+  background-color: #fff;
+}
+footer#footer .pd p {
+  margin-top: 0;
+  padding: 20px;
+  color: #393e47;
+  font-family: "Roboto-Bold";
+}
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .acepto
+  > label {
+  color: #ffffff;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .its--col-md-12.acepto
+  > label {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 16px;
+  margin-bottom: 0;
+  padding-left: 10px;
+  text-transform: none;
+  user-select: none;
+}
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .widget
+  ul
+  > li
+  > a:hover {
+  color: #929fb0;
+}
+
+// footer#footer.footer-block-its-corporative {
+//     background: #FAD048;
+//     color: #393e47 !important;
+// }
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .widget_inner
+  > p
+  > a:hover {
+  color: #929fb0;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .its--col-md-12.acepto
+  > input:checked
+  + label::before {
+  -webkit-font-smoothing: antialiased;
+  align-items: center;
+  background: #fad048;
+  border: 1px solid #fad048;
+  color: #ffffff;
+  content: "\e818";
+  display: flex;
+  font-family: "fontlibrary";
+  font-size: 12px;
+  justify-content: center;
+  speak: none;
+}
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .acepto
+  > label::before {
+  border: 1px solid #ffffff;
+}
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .acepto
+  > label::before {
+  border: 1px solid #ffffff;
+}
+footer#footer
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .its--col-md-12.acepto
+  > label::before {
+  border: 1px solid #fff;
+  content: "";
+  height: 16px;
+  left: 0;
+  position: absolute;
+  width: 16px;
+}
+footer#footer.footer-block-its-corporative
+  #upper_footer
+  .newsletter
+  .widget_inner
+  #formNewsletterFooter
+  .acepto
+  > input:checked
+  + label::before {
+  background: rgba(121, 98, 42, 0.3);
+  border: 1px solid rgba(121, 98, 42, 0.3);
+}
+
+@media (min-width: 768px) {
+  .its--container {
+    width: 745px;
+  }
+  .its--col-sm-4 {
+    width: 33.33333%;
+  }
+  .its--col-sm-1,
+  .its--col-sm-2,
+  .its--blog .comments-area form label,
+  .its--col-sm-3,
+  .its--col-sm-4,
+  .its--col-sm-5,
+  .its--col-sm-6,
+  .its--col-sm-7,
+  .its--col-sm-8,
+  .its--col-sm-9,
+  .its--col-sm-10,
+  .its--blog .comments-area form input#author,
+  .its--blog .comments-area form input#email,
+  .its--blog .comments-area form input#url,
+  .its--blog .comments-area form textarea#comment,
+  .its--col-sm-11,
+  .its--col-sm-12 {
+    float: left;
+  }
+  footer#footer #upper_footer .widget p.title {
+    margin-top: 60px;
+  }
+  .its--col-sm-2,
+  .its--blog .comments-area form label {
+    width: 16.66667%;
+  }
+  .its--col-sm-1,
+  .its--col-sm-2,
+  .its--blog .comments-area form label,
+  .its--col-sm-3,
+  .its--col-sm-4,
+  .its--col-sm-5,
+  .its--col-sm-6,
+  .its--col-sm-7,
+  .its--col-sm-8,
+  .its--col-sm-9,
+  .its--col-sm-10,
+  .its--blog .comments-area form input#author,
+  .its--blog .comments-area form input#email,
+  .its--blog .comments-area form input#url,
+  .its--blog .comments-area form textarea#comment,
+  .its--col-sm-11,
+  .its--col-sm-12 {
+    float: left;
+  }
+  .its--col-sm-1,
+  .its--col-sm-2,
+  .its--col-sm-3,
+  .its--col-sm-4,
+  .its--col-sm-5,
+  .its--col-sm-6,
+  .its--col-sm-7,
+  .its--col-sm-8,
+  .its--col-sm-9,
+  .its--col-sm-10,
+  .its--col-sm-11,
+  .its--col-sm-12 {
+    float: left;
+  }
+  .its--col-sm-5 {
+    width: 41.66667%;
+  }
+  .its--col-sm-1,
+  .its--col-sm-2,
+  .its--blog .comments-area form label,
+  .its--col-sm-3,
+  .its--col-sm-4,
+  .its--col-sm-5,
+  .its--col-sm-6,
+  .its--col-sm-7,
+  .its--col-sm-8,
+  .its--col-sm-9,
+  .its--col-sm-10,
+  .its--blog .comments-area form input#author,
+  .its--blog .comments-area form input#email,
+  .its--blog .comments-area form input#url,
+  .its--blog .comments-area form textarea#comment,
+  .its--col-sm-11,
+  .its--col-sm-12 {
+    float: left;
+  }
+  footer#footer #lower_footer #designed_by {
+    text-align: center;
+  }
+  .its--col-sm-2,
+  .its--blog .comments-area form label {
+    width: 16.66667%;
+  }
+}
+@media (min-width: 992px) {
+  .its--container {
+    width: 965px;
+  }
+  .its--col-md-12 {
+    width: 100%;
+  }
+  .its--col-md-1,
+  .its--col-md-2,
+  .its--col-md-3,
+  .its--col-md-4,
+  .its--col-md-5,
+  .its--col-md-6,
+  .its--col-md-7,
+  .its--col-md-8,
+  .its--col-md-9,
+  .its--col-md-10,
+  .its--col-md-11,
+  .its--col-md-12 {
+    float: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .its--container {
+    width: 1165px;
+  }
+}
+@media (max-width: 767px) {
+  footer #lower_footer #tipo_pago ul {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  footer#footer.footer-block-its-corporative #lower_footer #tipo_pago {
+    text-align: right;
+    margin-top: 55px;
+    margin-left: -10px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  footer#footer.footer-block-its-corporative #lower_footer #social_widget ul {
+    display: flex;
+    justify-content: center;
+  }
+  footer#footer.footer-block-its-corporative #lower_footer #designed_by img {
+    left: 28vw;
+  }
+  footer#footer.footer-block-its-corporative #lower_footer #tipo_pago ul {
+    display: flex;
+    justify-content: center;
+  }
+  footer#footer.footer-block-its-corporative #lower_footer #tipo_pago ul {
+    display: flex;
+    justify-content: center;
+  }
+}

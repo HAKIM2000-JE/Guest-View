@@ -1,0 +1,204 @@
+@import "../../../../assets/styles/gusl-shared";
+
+.main-container{
+    background: #f4f4f4;
+  }
+  #image-container{
+    position: relative;
+
+  }
+  .top-image-container{
+    border-radius: 0px 0px 103px 103px;
+    overflow: hidden;
+    position: relative;
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 80vh;
+    }
+
+
+  }
+  .overly{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 19%;
+    right: 0px;
+    background: linear-gradient(150.45deg, rgba(53, 47, 47, 0) 16.6%, rgba(53, 47, 47, 0.79) 63.43%);
+    border-radius: 100%;
+    z-index: 1;
+    transform: scale(1.7);
+  }
+  #content-header {
+    position: absolute;
+    z-index: 2;
+    bottom: -80px;
+    color: #fff;
+    padding: 0px 20px;
+    left: 0px;
+    right: 0px;
+
+  }
+  .title-style{
+    font-family: $guru-font-hind;
+    font-size: 32px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #fff;
+    position: relative;
+    margin-bottom: 36px;
+    display: block;
+    line-height: 35px;
+  }
+  .title-style:after{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: #6183e5;
+    position: absolute;
+    left: 0px;
+    bottom: -18px;
+
+  }
+  .property-title{
+    font-family: $guru-font-hind;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: -0.3px;
+  }
+  .rounded-container {
+    background: #fff;
+    padding: 20px;
+    height: 206px;
+    max-width: 335px;
+    border-radius: 24px;
+    margin-top: 30px;
+    box-shadow: 1px 16px 35px -9px #0000001a;
+    margin-right: auto;
+    margin-left: auto;
+    .partner-header img {
+      background: #fff;
+      padding: 2px 8px;
+    }
+    .icon-container {
+      padding: 0px 20px;
+      background: #fff;
+      display: inline-block;
+      z-index: 1;
+      position: relative;
+    }
+    .partner-header {
+      text-align: center;
+      position: relative;
+    }
+    .partner-header:after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: $gurubnb-purple-color2;
+      display: block;
+      position: absolute;
+      top: 49%;
+      transform: translateY(-50%);
+      z-index: 0;
+      opacity: 0.2;
+    }
+    .info-list{
+      font-family: $guru-font-hind;
+      font-size: 16px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.3px;
+      color:$gurubnb-primary-color-3 ;
+      margin: 20px 0px;
+      ul{
+        list-style: none;
+        li{
+          img.icon{
+            margin-right: 4px;
+            top: 2px;
+            position: relative;
+          }
+          &:first-child{
+            position: relative;
+            margin-right: 24px;
+            width: 36%;
+            &:after{
+              content: "";
+              display: block;
+              width: 1px;
+              height: 20px;
+              background: $gurubnb-purple-color2;
+              position: absolute;
+              right: 0px;
+              top: 0px;
+              opacity: 0.2;
+            }
+          }
+          &:last-child{
+            float: right;
+          }
+          display: inline-block;
+        }
+        span.separator {
+          border: 0.6px solid $gurubnb-purple-color2;
+          display: inline-block;
+          width: 12px;
+          top: -3px;
+          position: relative;
+          margin: 0px 8px;
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+  .map-container {
+    height: 300px;
+    background-color: slategray;
+
+    .gm-style .gmnoprint {
+      display: none !important;
+    }
+  }
+  .big-btn{
+    width: 100%;
+    height: 54px;
+    border-radius: 8px;
+    background-color: #6183e5;
+    border: none;
+    color: #fff;
+    line-height: 54px;
+    font-family: $guru-font-hind;;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-transform: capitalize;
+  }
+
+.overly-map{
+  position: absolute;
+  left: 0px;
+  top: -30px;
+  bottom: 0px;
+  right: 0px;
+  //background: linear-gradient(150.45deg, rgba(53, 47, 47, 0) 16.6%, rgba(53, 47, 47, 0.79) 63.43%);
+  background-color: rgba(96,96,96,0.2);
+  // border-radius: 100%;
+  z-index: 1;
+  //transform: scale(1.7);
+}
+.top-logo {
+  height: 50px;
+}
+

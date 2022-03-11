@@ -1,0 +1,9 @@
+<button mat-flat-button appDebounceClick [ngClass]="type"
+        [routerLink]="routerLink"
+        [queryParams]="queryParams"
+        [disabled]="disabled"
+        (debounceClick)="onClick()">
+  <mat-icon *ngIf="leftIcon" class="margin-right-8" svgIcon="{{leftIcon}}"></mat-icon>
+  {{text}}
+  <mat-icon *ngIf="rightIcon" class="margin-right-8" svgIcon="{{rightIcon}}"></mat-icon>
+</button>

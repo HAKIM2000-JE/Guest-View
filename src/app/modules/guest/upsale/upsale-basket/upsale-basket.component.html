@@ -1,0 +1,37 @@
+<app-guest-menu-desktop  [property]="property" [target]="[]" *ngIf="isDesktopMode()"></app-guest-menu-desktop>
+<app-guest-menu-mobile *ngIf="!isDesktopMode()"></app-guest-menu-mobile>
+
+<section id="upsale-Selector" class="section-upsale">
+  <div id="setup-container" class="setup-container" [ngClass]="{'desktop-mode' : isDesktopMode(), 'mobile-mode': !isDesktopMode()}">
+
+
+    <div class="us-basket-container">
+      <div>
+
+        <div style="flex-flow: row; display: flex; align-items: center">
+          <div style="position: relative; ">
+            <img style="height: 35px;" src="assets/icon/upsale/shopping-cart.png">
+            <div *ngIf="currentGuestOrder?.orderProducts?.length > 0" class="us-basket-badge">{{currentGuestOrder?.orderProducts?.length}}</div>
+          </div>
+          <app-button style="margin-left: 16px" [type]="'secondary-small'" [text]="'Continuer mes achats'" (debounceClick)="openSelector()"></app-button>
+          <app-button style="margin-left: 16px" [type]="'secondary-small'" [text]="'Vider mon panier'" (debounceClick)="resetBasket()"></app-button>
+        </div>
+
+        <!--<span  *ngIf="currentGuestOrder?.orderProducts?.length > 0">{{currentGuestOrder?.orderProducts?.length}} produit(s) dans le panier</span>-->
+      </div>
+      <div>
+        <app-button style="margin-right: 16px" [type]="'secondary-small'" [text]="'Confirmer le panier'" (debounceClick)="confirmBasket()"></app-button>
+        <strong>Total :</strong> {{currentGuestOrder?.orderTotalAmount.amount | currency : currentGuestOrder?.orderTotalAmount.currency}}
+      </div>
+    </div>
+
+    <div class="us-basket-list">
+      <div *ngFor="let product of currentGuestOrder.orderProducts" class="us-basket-item">
+        <div>{{product.productTitle}}</div>
+        <div>{{product.productCondition}}</div>
+        <div>{{product.productTotalPrice.amount | currency: product.productTotalPrice.currency}}</div>
+      </div>
+    </div>
+
+  </div>
+</section>

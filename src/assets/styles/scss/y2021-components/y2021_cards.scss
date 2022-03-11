@@ -1,0 +1,55 @@
+// DESKTOP MODE
+.y2021-guest-section {
+  width: 1024px;
+  margin: auto;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.y2021-card {
+
+}
+
+.y2021-h3 {
+  font-family: $font-McQueen;
+  font-size: 32px;
+}
+.y2021-h4 {
+  font-family: $font-McQueen;
+  font-size: 28px;
+}
+.y2021-h5 {
+  font-family: $font-McQueen;
+  font-size: 20px;
+}
+.y2021-h3-subtitle {
+  font-family: $font-Roboto;
+  font-style: italic;
+  padding-top: 8px;
+  font-size: 14px;
+}
+.y2021-flexrow {
+  display: flex;
+  flex-flow: row;
+}
+
+
+// MOBILE MODE
+@media only screen and (max-width: 1023px) {
+  .y2021-guest-section {
+    width: unset;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+  .y2021-card {
+
+  }
+  .y2021-h3 {
+    font-family: $font-McQueen;
+    font-size: 24px;
+  }
+  .y2021-flexrow {
+    display: flex;
+    flex-flow: column;
+  }
+
+}

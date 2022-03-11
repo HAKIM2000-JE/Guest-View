@@ -1,0 +1,125 @@
+@import "../../../../../assets/styles/y-global-style";
+
+.section-color {
+  background: white;
+}
+
+.service-container {
+
+  width: 1024px;
+  margin: auto;
+  min-height: 500px;
+  padding-top: 48px;
+
+  .sub-title {
+    font-family: $font-Roboto;
+    padding-top: 8px;
+    font-style: italic;
+    padding-bottom: 48px;
+  }
+
+
+}
+
+
+.card-block {
+  margin-right: 50px;
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  height: auto;
+  // margin: 0 44px 0 0;
+  border-radius: 10px;
+  border: solid 0.5px #141414;
+  background-color: #ffffff;
+  position: relative;
+
+  .partner-div {
+    img {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+  }
+
+  .partner-info {
+    font-family: $font-Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.96;
+    letter-spacing: normal;
+    text-align: left;
+    color: $color-greenVogue;
+    margin-bottom: 66px;
+    flex-grow: 1;
+  }
+
+  .partner-link {
+    border: solid 1px $color-greenVogue;
+    margin: 0;
+    padding: 17px 0;
+    border-radius: 80px;
+    text-align: center;
+    bottom: 30px;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      font-size: 16px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-align: left;
+      color: $color-greenVogue;
+    }
+  }
+
+  &:nth-child(1) {
+
+    @media all and (max-width: 1200px) {
+      margin-right: 0;
+    }
+  }
+}
+
+
+.guest-view-block-card {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding-bottom: 48px;
+}
+
+.card-block img.picture-logo {
+  height: 48px;
+  display: block;
+  margin-bottom: 20px;
+  position: relative;
+  object-fit: contain;
+}
+
+
+@media (max-width: 1023px) {
+  .service-container {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .guest-view-block-card {
+    flex-flow: column;
+    align-items: center ;
+    padding-bottom: 16px;
+  }
+  .card-block {
+    margin-bottom: 16px;
+    margin-right: 0px;
+  }
+
+}

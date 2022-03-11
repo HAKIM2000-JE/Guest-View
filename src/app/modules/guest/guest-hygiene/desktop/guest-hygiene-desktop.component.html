@@ -1,0 +1,66 @@
+<div id="hygiene" class="gris-back">
+
+  <div class="hygiene-top">
+    <div class="cont">
+    <ngx-masonry *ngIf="property" [options]="myOptions" class="group" id="masonry_container" (layoutComplete)="reload()">
+      <div class="centered">
+
+        <div ngxMasonryItem class="description masonry-item masonry-card covid">
+          <div class="red-title">
+            <img src="assets/covid-img.svg"/>
+            <h3 class="covid-title">COVID-19 {{'guest-hygiene-page.measures' | translate}}</h3>
+          </div>
+          <p class="covid-desc masonry-text">
+            {{'guest-hygiene-page.top-text' | translate}} <strong>COVID-19.</strong>
+          </p>
+        </div>
+        <div ngxMasonryItem class="masonry-item stamp2 section-title">
+          <p class="title">{{'guest-hygiene-page.title' | translate}}
+          <img src="../../../../../assets/icon/hygieneLine.svg" alt="">
+          </p>
+        </div>
+
+        <ng-container *ngFor="let forces of listForceMajeurTodisplay; let iconNumber = index">
+          <ng-container *ngIf="forces.name == 'essential'">
+            <div ngxMasonryItem class="list-top-item masonry-item masonry-card"
+                 *ngFor="let force of forces?.categoryItems; let i = index">
+              <h4 class="sub-title black-title">
+                {{force.title}}
+              </h4>
+              <p class="sub-desc masonry-text">{{force.description}}</p>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="forces.name != 'essential'">
+            <div ngxMasonryItem class="collaps masonry-card masonry-item" *ngIf="forces?.categoryItems.length > 0">
+              <div class="header">
+                <div class="title black-title">
+                  <img class="icon masonry-icon" src='{{ "assets/images/forcemajeur/" + iconNumber + ".svg" }}'/>
+                  <span>{{forces?.name}}</span>
+                </div>
+              </div>
+              <div class="collaps-content">
+                <div class="list-bottom-item" *ngFor="let force of forces?.categoryItems">
+                  <h4 class="black-title">{{force.title}}</h4>
+                  <p class="masonry-text">{{force.description}}</p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+
+    </ngx-masonry>
+    </div>
+  </div>
+
+
+  <div class="guest-view-desktop-section-container separator bottom-section">
+    <div class="bottom-btn">
+      <a class="big-btn" target="_blank"
+         href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">{{'guest-hygiene-page.more-info-btn' | translate}}</a>
+      <div class="org-img">
+        <img src="assets/images/forcemajeur/logo_world_health_organization.svg"/>
+      </div>
+    </div>
+  </div>
+</div>

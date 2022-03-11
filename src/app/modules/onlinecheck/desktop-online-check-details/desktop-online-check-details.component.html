@@ -1,0 +1,228 @@
+
+<div class="page-container"> 
+  <div class="check-container margin-top-16">
+    <div class="logo">
+      <img *ngIf="corporate?.logoUrl != null" style="height: 60px; padding-right: 24px;" [src]="corporate?.logoUrl"/>
+      <img *ngIf="!property?.customLayout"  src="assets/images/yaago.svg"/>
+    </div>
+
+    <div class="title">
+      <p> Checkin online </p>
+      <p> {{'online-check.welcome' | translate}} {{booking?.guests[0].firstName}}</p>
+    </div>
+
+      <div *ngIf="booking" class="journey-summary">
+        <div class="welcome-container">
+          <p class="margin-bottom-16">{{property.title}}</p>
+          <p>{{property.fullAddress | titlecase}}<span *ngIf="property?.host?.btobInfo">{{booking?.guests[0]?.lastName |
+              titlecase}}</span></p>
+          <p *ngIf="property?.host?.btobInfo" class="company-name">{{booking?.guests[0]?.companyName | titlecase}}</p>
+        </div>
+        <div *ngIf="!property?.host?.btobInfo" class="nights-container">
+          <p class="Small">{{'guest-top-page.nights-desktop' | translate}}</p>
+          <p class="number">{{booking?.nights}}</p>
+        </div>
+        <div *ngIf="booking?.startDate !== booking?.endDate" class="date-cards">
+          <div class="date-card margin-right-16">
+            <img src="assets/images/illustrations/men-fly.svg" alt="start">
+            <div class="date-container">
+              <p class="title">{{'guest-top-page.start' | translate}}</p>
+              <p class="date">{{booking?.startDate | moment: currentLang | titlecase}}</p>
+            </div>
+          </div>
+          <div class="date-card">
+            <img src="assets/images/illustrations/men-luaggage.svg" alt="departure">
+            <div class="date-container">
+              <p class="title">{{'guest-top-page.end' | translate}}</p>
+              <p class="date">{{booking?.endDate | moment: currentLang | titlecase}}</p>
+              <!-- moment: currentLang | -->
+            </div>
+          </div>
+        </div>
+
+        <!-- SAME DATE : RESERVATION -->
+        <div *ngIf="booking?.startDate === booking?.endDate" class="date-cards">
+          <div class="date-card margin-right-16">
+            <img src="assets/images/illustrations/men-fly.svg" alt="start">
+            <div class="date-container">
+              <p class="title">{{'guest-top-page.your-resa' | translate}}</p>
+              <p class="date">{{booking?.startDate | titlecase}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <mat-horizontal-stepper #stepper class="stepper-padding " *ngIf="booking?.guests != null">
+        <!-- [stepControl]="firstFormGroup" -->
+        <mat-step >
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel class="step-label">{{'online-check.info' | translate}}</ng-template>
+
+            <div class="col-2 ">
+
+              <mat-form-field class="margin-right-12">
+                <mat-label>{{'online-check.firstname' | translate}} </mat-label>
+                <input matInput placeholder="Field" formControlName="prenom" [(ngModel)]="booking.guests[0].firstName" />
+                <!-- {{booking.guests[0].firstName}} -->
+              </mat-form-field>
+
+              <mat-form-field class="margin-right-12">
+                <mat-label>{{'online-check.lastname' | translate}} </mat-label>
+                <input matInput placeholder="Field" formControlName="nom" [(ngModel)]="booking.guests[0].lastName" />
+              </mat-form-field>
+
+
+            </div>
+            <div class="col-2 ">
+
+              <mat-form-field class="check" style="margin-right:16px">
+                <mat-label>{{'online-check.check-in' | translate}} </mat-label>
+                <input type="time" class="time-selected" name="defaultCheckInTime" formControlName="timeIn" matInput />
+              </mat-form-field>
+
+              <mat-form-field class="check margin-left-8" style="margin-right:16px">
+                <mat-label>{{'online-check.check-out' | translate}} </mat-label>
+                <input type="time" class="time-selected" name="defaultCheckInTime" matInput formControlName="timeOut" />
+              </mat-form-field>
+            </div>
+            <div class="col-2 ">
+              <mat-form-field class="margin-right-12">
+                <mat-label>{{'online-check.email' | translate}} </mat-label>
+                <input formControlName="email" matInput placeholder="Field" [(ngModel)]="booking.guests[0].email" />
+              </mat-form-field>
+
+              <mat-form-field class="margin-left-8">
+                <mat-label>{{'online-check.country' | translate}}  </mat-label>
+                <input formControlName="pays" matInput placeholder="Field" [(ngModel)]="booking.guests[0].location" />
+              </mat-form-field>
+            </div>
+            <div class="col-2 ">
+
+     
+
+              <mat-form-field class="margin-right-12">
+                <mat-label>{{'online-check.gender' | translate}}</mat-label>
+                <select matNativeControl="genre"  formControlName="genre" required>
+                   <!-- <option value="" >{{'online-check.gender' | translate}}</option>  -->
+                   <option value="male">{{'online-check.male' | translate}}</option>
+                  <option value="female">{{'online-check.female' | translate}}</option>
+               
+      
+                </select>
+              </mat-form-field>
+
+       
+              <mat-form-field class="check" style="margin-right:16px">
+                <mat-label>{{'online-check.birthdate' | translate}} </mat-label>
+                <input type="date" class="time-selected" name="dateNaissance" formControlName="dateNaissance" matInput />
+              </mat-form-field>
+            </div>
+            <div>
+
+            </div>
+            <app-button class="next-button" [text]="'online-check.next' | translate" [type]="'primary'" (debounceClick)="goForward(stepper)">
+            </app-button>
+          </form>
+
+       
+
+        </mat-step>
+      
+        <mat-step [stepControl]="" >
+          <form >
+            <ng-template matStepLabel>{{'online-check.id' | translate}}</ng-template>
+
+            <input matInput >
+            <div class="all-width margin-top-12">
+              <h4 class="check-title2 mt-4">{{'online-check.upload' | translate}}</h4>
+              <div class="width-60 margin-top-16 margin-bottom-16">
+                <app-shared-upload [btnLabel]="'guest-inventory.upload'" [uploadType]="'multiple'"
+                  [allowedTypes]="allowedImages" (docUploaded)="onPictureOutUploaded($event)"></app-shared-upload>
+              </div>
+              <div class="row m-0">
+                <perfect-scrollbar class="scroll-container" [ngClass]="{'scroll-container-height': proofOfIdentity.length>3}"
+                  [config]="config">
+                  <div class="container-imgs row mx-0">
+                    <div *ngFor="let photo of proofOfIdentity; let i = index">
+                      <div class="container-img" *ngIf="photo">
+                        <div (click)="showDialog(i, 'in')" class="container-delete-icon clickable">
+                          <img class="icon-delete" src="assets/icon/inventory/delete.svg" alt="icon-delete" />
+                        </div>
+                        <img class="Photo picture-width" [src]="photo" />
+                      </div>
+                      <div class="container-img" *ngIf="!photo">
+                        <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                      </div>
+                    </div>
+                    <div class="container-img" *ngIf="showSpinner">
+                      <mat-spinner mode="indeterminate" [diameter]="24"></mat-spinner>
+                    </div>
+                  </div>
+                </perfect-scrollbar>
+              </div>
+              <div *ngIf="message" class="mt-1 size-msg-err">{{message}}</div>
+
+            </div>
+
+          </form>
+
+          <div class="buttons">
+            <app-button [text]="'online-check.previous' | translate" [type]="'secondary'" (debounceClick)="goPrevious(stepper)" 
+            ></app-button>
+            <app-button *ngIf="proofOfIdentity.length==0" [text]="'online-check.next' | translate" [type]="'primary'" (debounceClick)="goForward(stepper)" disabled></app-button>
+            <app-button *ngIf="proofOfIdentity.length>0" [text]="'online-check.next' | translate" [type]="'primary'" (debounceClick)="goForward(stepper)"></app-button>
+          </div>
+         
+     
+        </mat-step>
+
+        <div class="test">
+          <mat-step [stepControl]="" label="Contrat">
+            <form [formGroup]="">
+              <ng-template matStepLabel>{{'online-check.contract' | translate}}</ng-template>
+              <div class="contrat contrat-position">
+
+
+                <div class="col-2 ">
+                  <ngx-doc-viewer
+                    [url]="'https://drive.google.com/file/d/0B5ImRpiNhCfGZDVhMGEyYmUtZTdmMy00YWEyLWEyMTQtN2E2YzM3MDg3MTZh/preview'"
+                    viewer="google" style="width: 100%; height: 68vh"></ngx-doc-viewer>
+
+                </div>
+              </div>
+              <div id="signature-pad" class="signature-pad">
+                <div class="signature-pad--body">
+                  <canvas style="width: 100% "></canvas>
+                </div>
+
+              </div>
+            </form>
+            <div class="buttons">
+              <app-button [text]="'online-check.previous' | translate" type="secondary" (debounceClick)="goPrevious(stepper)"></app-button>
+              <app-button [text]="'online-check.validate' | translate" type="primary" (debounceClick)="validateOnLineCheck()"></app-button>
+            </div>
+
+
+          </mat-step>
+        </div>
+
+
+      </mat-horizontal-stepper>
+
+  </div>
+</div>
+
+
+    <ng-template [ngIf]="property?.customLayout">
+
+      <app-vbca-footer *ngIf="corporate?.corporateTag === 'VBCA_ROUEN'" [property]="property"></app-vbca-footer>
+      <app-cotoon-footer *ngIf="corporate?.corporateTag === 'COTOON'" ></app-cotoon-footer>
+      <app-rentatranquille-footer *ngIf="corporate?.corporateTag === 'RENTATRANQUILLE'" ></app-rentatranquille-footer>
+      <app-guest-adom-footer *ngIf="corporate?.corporateTag === 'GUESTADOM'" ></app-guest-adom-footer>
+      <app-keylodge-footer  *ngIf="corporate?.corporateTag === 'KEYLODGE'"></app-keylodge-footer>
+     <!-- <app-yaago2-powered-by-footer [corporate]="corporate"></app-yaago2-powered-by-footer> -->
+
+    </ng-template>
+
+<!-- <script src="js/signature_pad.js"></script> -->

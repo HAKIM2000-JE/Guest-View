@@ -1,0 +1,54 @@
+@import "../../../../assets/styles/y-global-style";
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+  white-space: nowrap;
+  min-height: 56px;
+  overflow: auto;
+
+  li {
+    display: inline-block;
+    margin-right: 32px;
+
+    button {
+      font-family: $font-McQueen;
+      color: $color-greenVogue;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 24px;
+      background: none;
+      border: none;
+      min-width: auto;
+      padding: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  li.selected {
+
+    button {
+      position: relative;
+    }
+
+    button:after {
+      content:'';
+      position:absolute;
+      bottom: -12px;
+      left:0;
+      right:0;
+      background:$color-greenVogue;
+      height: 4px;
+      border-radius: 2px;
+    }
+  }
+}

@@ -1,0 +1,237 @@
+@import "../../../../../assets/styles/y-global-style";
+.video-section{
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  align-items: center;
+
+}
+.videos-container{
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  flex-flow: row nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 678px;
+  padding-bottom: 10px;
+}
+.video-item{
+  width: 330px;
+  height: 188px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background: #C4C4C4;
+  overflow: hidden;
+  video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+}
+
+.doc-section{
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  align-items: center;
+
+}
+.doc-container{
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  flex-flow: row nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 678px;
+  padding-bottom: 10px;
+}
+.doc-item{
+  width: 154px;
+  height: 118px;
+  margin-right: 14px;
+  overflow: hidden;
+  position: relative;
+
+  .image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+  }
+  iframe{
+    height: 100%;
+    width: 100%;
+    border: 1px transparent;
+    border-radius: 5px;
+  }
+
+  .element-mask {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.arrow{
+  width: 8px;
+  height: 16px;
+}
+
+// -----mobile
+.video-mobile-section{
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.videos-mobile-container{
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  flex-flow: row nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
+}
+.video-mobile-item{
+  width: 312px;
+  height: 170px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background: #C4C4C4;
+  overflow: hidden;
+
+  video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+}
+.doc-mobile-item{
+  width: 138px;
+  height: 163px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  position: relative;
+
+  .image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+  }
+  iframe{
+    height: 100%;
+    width: 100%;
+    border: 1px transparent;
+    border-radius: 5px;
+  }
+
+  .element-mask {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .plus-counter-container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 32px;
+  }
+  .plus-counter-container.no-bg{
+    background: transparent;
+  }
+}
+.slider-container{
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: relative;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  .slider-picture {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  .closee{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .slider-content{
+    width: 100%;
+    height: 464px;
+    position: relative;
+    background: #e2e2e2;
+    border-radius: 10px;
+
+
+    .fab-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $color-greenVogue;
+      background-color: rgba(255, 255, 255, 0.9);
+
+      .mat-icon {
+        font-size: 18px;
+        height: 18px;
+        width: 18px;
+        line-height: 18px;
+      }
+    }
+
+    .arrow-left {
+      position: absolute;
+      left: 24px;
+      top: 49%;
+    }
+    .arrow-right {
+      position: absolute;
+      right: 24px;
+      top: 49%;
+    }
+  }
+}
+.legend-viewer{
+  min-height: 20px;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 130%;
+  margin-top: 20px;
+}
+.slider-mobile{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+}

@@ -1,0 +1,78 @@
+<div id="list-guides-container">
+  <div [routerLink]="['/list-guides',bookingId]" class="back-btn"><img src="assets/icon/back-icon-btn.svg"/> </div>
+
+  <div class="nav-top" [ngClass]="{'scrolled':guides?.length > 2}">
+    <ul class="nav-list" >
+      <li (click)="selectItem(i)" *ngFor="let menu of guides , let i = index" [ngClass]="{'active':i==selectedIndex}" >{{menu.translations[0].title}}</li>
+    </ul>
+  </div>
+  <div *ngIf="selectedGuide">
+  <span class="title-style">{{selectedGuide?.category}}</span>
+  <div class="list-media" *ngIf="selectedGuide?.pictureUrls?.length > 0">
+    <span class="sub-title">Images</span>
+    <div class="img-list" [ngStyle]="{'width':listStyleWith + 'px'}" >
+      <div mat-button (click)="openDetailImage(photo)" class="img-container" *ngFor="let photo of selectedGuide?.pictureUrls">
+      <img  class="img-header-page" src="{{photo}}" />
+      </div>
+    </div>
+  </div>
+    <div class="video-container" *ngIf="selectedGuide?.translations[0]?.video">
+       <span class="sub-title">videos</span>
+
+      <iframe width="100%" height="auto" [src]="selectedGuide?.translations[0]?.video  | safe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+
+
+<div id="attachement" *ngIf="selectedGuide.translations[0]?.pdf?.length > 0">
+  <span class="sub-title">Downloadable files</span>
+  <div class="list-attachements">
+    <ul >
+      <li *ngFor="let pdf of selectedGuide.translations[0]?.pdf" class="item">
+        <a [href]="pdf"><img class="icon" src="assets/icon/file-download.svg" /> <span>{{getNameOfPdf(pdf)}}</span> </a>
+      </li>
+    </ul>
+  </div>
+</div>
+  <span class="sub-title">Description</span>
+  <p class="content"  [innerHTML]="selectedGuide.translations[0].description">
+  </p>
+
+
+
+
+  </div>
+
+  <div *ngIf="selectedGuide?.videoUrls?.length > 0" class="picture-container">
+    <div class="picture-list-container">
+      <div *ngFor="let videoUrl of selectedGuide?.videoUrls ; let i = index " class="video-list">
+
+        <div *ngIf="videoUrl">
+          <video controls>
+            <source src="{{videoUrl}}" >
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedGuide?.videoUrls?.length > 0" class="picture-container">
+    <div class="picture-list-container">
+      <div *ngFor="let videoUrl of selectedGuide?.videoUrls ; let i = index " class="video-list">
+
+        <div *ngIf="videoUrl">
+          <video controls>
+            <source src="{{videoUrl}}" >
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

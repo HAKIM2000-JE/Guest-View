@@ -1,0 +1,30 @@
+
+<div style="max-width: 1080px; margin-left: auto; margin-right: auto">
+
+  <div class="page-container" >
+
+    <div class="qr-background" >
+      <div class="qr-white" >
+        <div id="{{id}}" style="text-align: center"></div>
+      </div>
+    </div>
+      <div>
+        <div class="link-qrcode" (click)="share()" *ngIf="isCopyVisible">
+          <div class="qr-url" style="white-space: pre-line;">
+            <div class="url">
+              <p class="text-url">
+                {{url}}
+              </p>
+
+              <div class="img-copy" >
+                <img class="copy" src="../../../../assets/icons/button-copy-link-manual-bookings.svg" alt="copy">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="qr-footer">
+      </div>
+  </div>
+</div>

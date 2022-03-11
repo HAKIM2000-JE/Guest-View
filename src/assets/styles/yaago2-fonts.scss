@@ -1,0 +1,43 @@
+$font-Shellana: Shellana-Regular;
+$font-McQueen: McQueenDisplay-Regular;
+$font-Roboto: Roboto;
+$font-Roboto-Light: Roboto-Light;
+$font-Roboto-Bold: Roboto-Bold;
+
+
+.bold {
+  font-weight: bold;
+}
+.normal {
+  font-weight: 300;
+}
+.underline {
+  text-decoration: underline;
+}
+.text-large {
+  font-size: 18px;
+}
+.XX-large {
+  font-size: 32px;
+}
+.X-large {
+  font-size: 24px;
+}
+.Large {
+  font-size: 18px;
+}
+.Medium {
+  font-size: 16px;
+}
+.Small {
+  font-size: 14px;
+}
+.X-small {
+  font-size: 12px;
+}
+.XX-small {
+  font-size: 10px;
+}
+.clickable {
+  cursor: pointer;
+}

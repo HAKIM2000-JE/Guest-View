@@ -1,0 +1,117 @@
+@import "yaago2-colors";
+@import "yaago2-fonts";
+
+.button-fashion {
+  opacity: 1;
+  margin-top: 16px;
+  padding: 16px 32px 16px 32px;
+  cursor: pointer;
+  border-radius: 80px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  font-weight: bold;
+  font-family: $font-Roboto;
+  p {
+    margin-bottom: 0 !important;
+  }
+}
+
+.primary-button {
+  @extend .Medium;
+  opacity: 1;
+  margin-top: 16px;
+  padding: 16px 32px 16px 32px;
+  cursor: pointer;
+  border-radius: 80px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  background-color: $color-dunnessant;
+  color: white;
+  font-family: $font-Roboto-Bold;
+  p {
+    margin-bottom: 0 !important;
+  }
+}
+.primary-not-valid {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+  p {
+    margin-bottom: 0 !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .primary-button {
+    width: 100%;
+    padding: 16px;
+  }
+}
+
+.secondary-button {
+  @extend .Medium;
+  opacity: 1;
+  margin-top: 16px;
+  padding: 16px 32px 16px 32px;
+  cursor: pointer;
+  border-radius: 80px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  background-color: white;
+  border: 1px solid $color-greenVogue;
+  color: $color-greenVogue;
+  font-family: $font-Roboto-Bold;
+  p {
+    margin-bottom: 0 !important;
+  }
+}
+
+.secondary-not-valid {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+  p {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .secondary-button {
+    width: 100%;
+    padding: 16px;
+  }
+}
+
+.tertiary-button {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  color: $color-greenVogue;
+  text-decoration: underline;
+  font-family: $font-Roboto-Bold;
+  font-size: 14px;
+}
+
+
+
+.style-yaago2-btn-back {
+  cursor: pointer;
+  padding:20px 0 0 30px;
+  font-family: $font-Roboto;
+  font-family: $color-greenVogue;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-greenVogue;
+  border:none;
+  img {
+    padding-right: 5px;
+  }
+}

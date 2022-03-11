@@ -1,0 +1,116 @@
+@import "./yaago2-button";
+@import "./yaago2-button2";
+@import "./yaago2-colors";
+@import "./yaago2-fonts";
+@import "./yaago2-material";
+@import "./scss/abstracts/mixins";
+@import "./scss/layout/flex";
+@import "./scss/y2021-components/y2021_cards";
+@import "./scss/y2021-components/y2021-layout";
+
+:host {
+  font-family: $font-Roboto;
+  background-color: white;
+  height: 100%;
+}
+
+.color-greenvogue {
+  color: $color-greenVogue;
+}
+
+.padding-left-8 {
+  padding-left: 8px;
+}
+.padding-top-8 {
+  padding-top: 8px;
+}
+.margin-top-8 {
+  margin-top: 8px;
+}
+.margin-top-16 {
+  margin-top: 16px;
+}
+.margin-top-24 {
+  margin-top: 24px;
+}
+.margin-top-32 {
+  margin-top: 32px;
+}
+
+.margin-right-8 {
+  margin-right: 8px;
+}
+.margin-right-16 {
+  margin-right: 16px;
+}
+.margin-right-24 {
+  margin-right: 24px;
+}
+.margin-right-32 {
+  margin-right: 32px;
+}
+
+.margin-bottom-8 {
+  margin-bottom: 8px;
+}
+.margin-bottom-16 {
+  margin-bottom: 16px;
+}
+.margin-bottom-24 {
+  margin-bottom: 24px;
+}
+.margin-bottom-32 {
+  margin-bottom: 32px;
+}
+
+.margin-left-8 {
+  margin-left: 8px;
+}
+.margin-left-16 {
+  margin-left: 16px;
+}
+.margin-left-24 {
+  margin-left: 24px;
+}
+.margin-left-32 {
+  margin-left: 32px;
+}
+
+h1 {
+  font-family: $font-McQueen;
+  font-size: 64px;
+}
+
+h2 {
+  font-family: $font-McQueen;
+  font-size: 48px;
+}
+
+h5 {
+  font-family: $font-McQueen;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+h3 {
+  font-family: $font-McQueen;
+  font-size: 32px;
+}
+
+h4 {
+  font-family: $font-McQueen;
+  font-size: 24px;
+  font-weight: normal;
+}
+h6{
+  font-family: $font-McQueen;
+  font-size: 18px;
+}
+.empty-space {
+  height: 100px;
+}
+.chat-link-container{
+  max-width: 100%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
