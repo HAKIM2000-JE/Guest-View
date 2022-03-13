@@ -46,9 +46,10 @@ export class CollectDataServiceService {
       id_reviews: 0,
       click: this.click,
       clickRecommendationCard: 0,
-    clickRecommendationMarker:0,
-    clickRecommendationWebsite:0,
-    clickSyRendre:0,
+      clickRecommendationMarker:0,
+      clickRecommendationWebsite:0,
+      clickSyRendre:0,
+      clickNavigation: false
     }
 
 
@@ -179,7 +180,16 @@ export class CollectDataServiceService {
 
   // If click on Next to navigate in PHOTOS in Card
   setOnClickNextInPhotoOfBusiness(profile_id : string, business_id : string){
-    alert('Profile of id [ '+profile_id+' ] Click on Next in Photo of Business in Card [ '+business_id+' ]');
+    
+
+    return this.http.post<any>(this.RecommendationUrl  + "/Navigation" , this.profileReviews).toPromise().then((data:any) => {
+      console.log(data);
+      
+     
+    });
+
+    
+
   }
 
 

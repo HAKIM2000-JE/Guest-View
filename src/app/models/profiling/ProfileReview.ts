@@ -6,4 +6,5 @@ export class ProfileReviews{
     clickRecommendationMarker:number;
     clickRecommendationWebsite:number;
     clickSyRendre:number;
+    clickNavigation: Boolean;
 }
