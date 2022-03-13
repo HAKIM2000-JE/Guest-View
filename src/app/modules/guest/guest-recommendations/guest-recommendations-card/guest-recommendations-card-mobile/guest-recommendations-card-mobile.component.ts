@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UtilsService} from '../../../../../core/services/utils.service';
 import {GuestService} from '../../../../../core/services/guest.service';
 import {GuestRecommendationsCardComponent} from '../guest-recommendations-card.component';
@@ -11,7 +11,7 @@ import { CollectDataServiceService } from 'src/app/core/services/collect-data-se
   styleUrls: ['./guest-recommendations-card-mobile.component.scss']
 })
 export class GuestRecommendationsCardMobileComponent extends GuestRecommendationsCardComponent{
-
+  @Input() bookingId: string;
   constructor(
     public utils: UtilsService,
     public guestService: GuestService,

@@ -1,4 +1,5 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+
 import {Property} from '../../../models/Property';
 import {RecommendationSearchRequestDto} from '../../../models/guestview/RecommendationSearchRequestDto';
 import {GuestService} from '../../../core/services/guest.service';

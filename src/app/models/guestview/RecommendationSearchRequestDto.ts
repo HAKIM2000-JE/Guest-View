@@ -25,6 +25,7 @@ export class RecommendationSearchRequestDto {
 
   bookingStart: any;
   bookingEnd: any;
+  bookingId: string;
 
   constructor() {
     this.categories = [];

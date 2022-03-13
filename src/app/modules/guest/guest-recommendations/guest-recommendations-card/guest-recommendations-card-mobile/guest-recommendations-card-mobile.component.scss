@@ -4,6 +4,18 @@
 @import "../../../../../../assets/styles/y-global-style";
 
 
+.like-container {
+  margin-top: 16px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .like-color {
+    cursor: pointer;
+    color: $color-greenVogue;
+  }
+}
 
 
 .card{

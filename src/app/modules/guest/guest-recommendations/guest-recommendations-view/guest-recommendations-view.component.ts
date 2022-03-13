@@ -10,6 +10,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {LanguageManagementService} from '../../../../core/services/language.service';
 import {BookingForGuest} from "../../../../models/guestview/BookingForGuest";
 import { CollectDataServiceService } from 'src/app/core/services/collect-data-service.service';
+import * as moment from "moment";
 declare var google: any;
 
 @Component({
@@ -59,6 +60,12 @@ export class GuestRecommendationsViewComponent implements OnInit {
 
   async defineSearchQuery() {
     this.recommendationSearch.propertyId = this.property.id;
+    if (this.booking && this.booking.startDate && this.booking.endDate) {
+      this.recommendationSearch.bookingStart = moment(this.booking.startDate).startOf('day');
+      this.recommendationSearch.bookingEnd = moment(this.booking.endDate).endOf('day');
+      this.recommendationSearch.bookingId = this.booking.id;
+    }
+
     this.recommendationSearch.categories = [];
     if (this.selectedCategory !== 'all') {
       this.recommendationSearch.categories.push(this.selectedCategory);
@@ -96,6 +103,9 @@ export class GuestRecommendationsViewComponent implements OnInit {
 
       }
     );
+  }
+  like() {
+
   }
 
 

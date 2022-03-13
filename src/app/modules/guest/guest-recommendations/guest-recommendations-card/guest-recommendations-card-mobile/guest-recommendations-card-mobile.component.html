@@ -124,6 +124,16 @@
         <span class="roboto Small txt-color-scorpion margin-left-12">{{recommendation?.phoneNumber}}</span>
       </div>
 
+      <div *ngIf="bookingId != null" class="like-container">
+        <div *ngIf="recommendation?.bookingWhichLikes?.length<=0" class="roboto Small">{{'guest-recommendation.like' | translate}}</div>
+        <div *ngIf="recommendation?.bookingWhichLikes?.length>0" class="roboto Small">&nbsp;</div>
+        <div class="like-color like-container">
+          <div *ngIf="recommendation?.nbLikes > 0" class="roboto Small">{{recommendation?.nbLikes}}</div>
+          <mat-icon *ngIf="recommendation?.bookingWhichLikes?.length<=0" (click)="like(recommendation)">thumb_up_off_alt</mat-icon>
+          <mat-icon *ngIf="recommendation?.bookingWhichLikes?.length>0" (click)="unlike(recommendation)">thumb_up_alt</mat-icon>
+        </div>
+      </div>
+
 
       <div class="flex flex-row flex-space-between align-items-center margin-top-24"
            *ngIf="recommendation?.webSite || recommendation?.facebook || recommendation.instagram">

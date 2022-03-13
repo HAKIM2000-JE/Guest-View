@@ -524,6 +524,7 @@ export class GuestRecommendationsMapComponent implements OnInit {
     if (this.booking && this.booking.startDate && this.booking.endDate) {
       this.recommendationSearch.bookingStart = moment(this.booking.startDate).startOf('day');
       this.recommendationSearch.bookingEnd = moment(this.booking.endDate).endOf('day');
+      this.recommendationSearch.bookingId = this.booking.id;
     }
 
     this.guestService.getRecommendations(this.recommendationSearch, this.languageService.getLanguageInUrl(), this.property.host ? this.property.host.id : null).subscribe(

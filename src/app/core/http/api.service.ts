@@ -43,6 +43,18 @@ export class ApiService {
     return {headers: new HttpHeaders()};
   }
 
+  likeRecommendation(bookingId: string, recommendationId: string): Observable<boolean> {
+    return this.http.get<boolean>(this.confService.getBackendApiEndPoint() + 'api-v2/guest/recommendation/like/'  + recommendationId + '/' + bookingId,
+      ApiService.getHeaders());
+  }
+
+  unlikeRecommendation(bookingId: string, recommendationId: string): Observable<boolean> {
+    return this.http.get<boolean>(this.confService.getBackendApiEndPoint() + 'api-v2/guest/recommendation/unlike/'  + recommendationId + '/' + bookingId,
+      ApiService.getHeaders());
+  }
+
+  
+
   getGuestBooking(bookingID: string, lang: string): Observable<any> {
     let httpParams = new HttpParams();
     httpParams = httpParams.set('lang', lang);

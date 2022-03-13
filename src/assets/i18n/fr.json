@@ -220,6 +220,7 @@
     "caption":"Légende"
   },
   "guest-recommendation": {
+    "like": "Dites nous si vous avez apprécié cette recommandation ?",
     "recommendation-label": "Nous vous recommandons",
     "btn-seeMore": "Voir plus",
     "km": "km de vous",

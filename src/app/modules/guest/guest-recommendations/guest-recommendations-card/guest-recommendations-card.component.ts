@@ -1,4 +1,4 @@
-import {Component, HostListener, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, HostListener, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {Recommendation} from '../../../../models/guestview/Recommendation';
 import {UtilsService} from '../../../../core/services/utils.service';
 import {GuestService} from '../../../../core/services/guest.service';
@@ -19,7 +19,7 @@ declare var google: any;
   styleUrls: ['./guest-recommendations-card.component.scss']
 })
 export class GuestRecommendationsCardComponent implements OnInit, OnDestroy {
-
+  @Input() bookingId: string;
   _myDestroy = new Subject();
   language = navigator.language;
   recommendation: Recommendation;
@@ -316,6 +316,23 @@ export class GuestRecommendationsCardComponent implements OnInit, OnDestroy {
 
 
 
+  unlike(recommendation: Recommendation) {
+    this.guestService.unlikeRecommendation(this.bookingId, recommendation.id).subscribe( b => {
+      this.recommendation.nbLikes--;
+      this.recommendation.bookingWhichLikes = [];
+    });
+  }
+
+  like(recommendation: Recommendation) {
+    this.guestService.likeRecommendation(this.bookingId, recommendation.id).subscribe( b => {
+      if (this.recommendation.nbLikes == null) {
+        this.recommendation.nbLikes = 0;
+      }
+      this.recommendation.nbLikes++;
+      this.recommendation.bookingWhichLikes = [];
+      this.recommendation.bookingWhichLikes.push(this.bookingId);
+    });
+  }
 
 
 

@@ -182,4 +182,14 @@ export class GuestService {
       }
     ];
   }
+
+
+  likeRecommendation(bookingId: string, recommendationId: string): Observable<boolean> {
+    return this.api.likeRecommendation(bookingId, recommendationId);
+  }
+
+  unlikeRecommendation(bookingId: string, recommendationId: string): Observable<boolean> {
+    return this.api.unlikeRecommendation(bookingId, recommendationId);
+  }
+
 }

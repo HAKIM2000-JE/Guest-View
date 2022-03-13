@@ -34,6 +34,9 @@ export class Recommendation {
 
   startDate: string;
   endDate: string;
+  bookingWhichLikes: string[];
+  nbLikes: number;
+
 
   constructor( obj: any , lang: string, personId?: string) {
     this.language = lang;
@@ -60,6 +63,9 @@ export class Recommendation {
     this.startDate = obj.startDate;
     this.endDate = obj.endDate;
     this.durationSinceCreation = this.getDurationSinceDate();
+    this.bookingWhichLikes = obj.bookingWhichLikes;
+    this.nbLikes = obj.nbLikes;
+
 
     for ( const cat of new RecommendationCategory().list ) {
       if (cat.key === this.category ) {
