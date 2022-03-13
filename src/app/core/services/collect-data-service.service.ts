@@ -49,7 +49,8 @@ export class CollectDataServiceService {
       clickRecommendationMarker:0,
       clickRecommendationWebsite:0,
       clickSyRendre:0,
-      clickNavigation: false
+      clickNavigation: false,
+      isLike: false
     }
 
 
@@ -179,9 +180,9 @@ export class CollectDataServiceService {
 
 
   // If click on Next to navigate in PHOTOS in Card
-  setOnClickNextInPhotoOfBusiness(profile_id : string, business_id : string){
+  setOnClickNextInPhotoOfBusiness(profile_id : string, reccommendation_id: string){
     
-
+      this.createProfileReview(profile_id , reccommendation_id );
     return this.http.post<any>(this.RecommendationUrl  + "/Navigation" , this.profileReviews).toPromise().then((data:any) => {
       console.log(data);
       
@@ -190,6 +191,15 @@ export class CollectDataServiceService {
 
     
 
+  }
+
+  setOnclickOnLike(profile_id: string , reccommendation_id : string){
+      this.createProfileReview(profile_id , reccommendation_id);
+      return this.http.post<any>(this.RecommendationUrl +"/Like" , this.profileReviews).toPromise().then((data:any) => {
+        console.log(data);
+        
+       
+      });
   }
 
 

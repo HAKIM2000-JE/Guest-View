@@ -1,3 +1,4 @@
+import { CollectDataServiceService } from 'src/app/core/services/collect-data-service.service';
 import {Injectable} from '@angular/core';
 import {ApiService} from '../http/api.service';
 import {BehaviorSubject, Observable} from 'rxjs';
@@ -24,6 +25,7 @@ export class GuestService {
   corporate$ = new BehaviorSubject(null);
   upsaleCategoryAndProductDtos: UpsaleCategoryAndProductDto[] = [];
 
+
   openMiniCard(recommendation, property) {
     this.miniCardDetails$.next({recommendation, property});
   }
@@ -37,7 +39,7 @@ export class GuestService {
   }
 
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService  , private collectData : CollectDataServiceService) { }
   showMap(value, property) {
     this.isMap$.next({value, property });
   }
@@ -185,6 +187,7 @@ export class GuestService {
 
 
   likeRecommendation(bookingId: string, recommendationId: string): Observable<boolean> {
+    this.collectData.setOnclickOnLike(bookingId , recommendationId);
     return this.api.likeRecommendation(bookingId, recommendationId);
   }
 
