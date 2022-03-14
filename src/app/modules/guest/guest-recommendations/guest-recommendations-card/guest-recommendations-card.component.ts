@@ -339,15 +339,15 @@ export class GuestRecommendationsCardComponent implements OnInit, OnDestroy {
   
 
   onClickVisteWebSite(Reconmmendation : any , Profil :any){
-    this.CollectData.setOnClickVisteWebSiteOfBusiness(this.booking.id,Reconmmendation.id);
+    this.CollectData.setOnClickVisteWebSite(this.booking.id,Reconmmendation.id);
   }
 
   onClickSyRendre(Reconmmendation : any , Profil :any){
-    this.CollectData.setOnClickSyRendreOfBusiness( this.booking.id ,Reconmmendation.id); 
+    this.CollectData.setOnClickSyRendre( this.booking.id ,Reconmmendation.id); 
   }
 
   onClickNextOnPhotoRecommendation(Reconmmendation: any , Profil :any){
-    this.CollectData.setOnClickNextInPhotoOfBusiness(this.booking.id,Reconmmendation.id);
+    this.CollectData.setOnClickNextInPhoto(this.booking.id,Reconmmendation.id);
   }
 
 

@@ -43,7 +43,7 @@ export class CollectDataServiceService {
     } 
 
     this.profileReviews={
-      id_reviews: 0,
+     
       click: this.click,
       clickRecommendationCard: 0,
       clickRecommendationMarker:0,
@@ -68,10 +68,12 @@ export class CollectDataServiceService {
 
       this.profileCatergorie={
         click: this.clickCategorie,
-        clickOnCategorie:1
+        clickOnCategorie:0
       }
 
   }
+
+
   
   createProfileTag(profile_id: string , tag_id: string){
     this.clickTag={
@@ -81,7 +83,7 @@ export class CollectDataServiceService {
 
     this.ProfileTag={
       click: this.clickTag,
-      clickOnTag:1
+      clickOnTag:0
     }
 
     
@@ -92,7 +94,7 @@ export class CollectDataServiceService {
 
     // If profile click on Tag in Categorie
     setOnClickTag(profile_id : string , tag_id : string){
-      //alert('Profile of id [ '+profile_id+' ] Click on Tag  [ '+tag_id+' ]');
+     
       this.createProfileTag(profile_id , tag_id)
       return this.http.post<any>(this.TagUrl , this.ProfileTag).toPromise().then((data:any) => {
         console.log(data);
@@ -104,10 +106,10 @@ export class CollectDataServiceService {
   
   
 
-  // Get informations about Filter
+
   // If profile click on Categories :
   setOnClickCategorie(profile_id : string , categorie_id : string){
-    //alert('Profile of id [ '+profile_id+' ] Click on Categorie  [ '+categorie_id+' ] start call backend ');
+   
     this.createProfileCategorie(profile_id , categorie_id)
     
     return this.http.post<any>(this.CategorieUrl , this.profileCatergorie ).toPromise().then((data:any) => {
@@ -125,9 +127,9 @@ export class CollectDataServiceService {
 
   
   
-  //Get Informations from Map 
+
   // IF profile click on Marker in Map
-  setOnClickMarkerOfBusiness(profile_id : string , recommendation_id : string){
+  setOnClickMarker(profile_id : string , recommendation_id : string){
    
      this.createProfileReview(profile_id , recommendation_id);
 
@@ -145,10 +147,10 @@ export class CollectDataServiceService {
   }
 
 
-  // Get Informations from Card in Map
+
   // If profile click on Viste web site 
-  // ! we can work with the frequance on consultation 
-  setOnClickVisteWebSiteOfBusiness(profile_id : string , recommendation_id : string){
+
+  setOnClickVisteWebSite(profile_id : string , recommendation_id : string){
   
     this.createProfileReview(profile_id , recommendation_id);
     
@@ -167,7 +169,7 @@ export class CollectDataServiceService {
   
   
   // If profile click on S'y Rendre 
-  setOnClickSyRendreOfBusiness(profile_id : string , recommendation_id : string){
+  setOnClickSyRendre(profile_id : string , recommendation_id : string){
     this.createProfileReview(profile_id , recommendation_id);
     
   
@@ -180,7 +182,7 @@ export class CollectDataServiceService {
 
 
   // If click on Next to navigate in PHOTOS in Card
-  setOnClickNextInPhotoOfBusiness(profile_id : string, reccommendation_id: string){
+  setOnClickNextInPhoto(profile_id : string, reccommendation_id: string){
     
       this.createProfileReview(profile_id , reccommendation_id );
     return this.http.post<any>(this.RecommendationUrl  + "/Navigation" , this.profileReviews).toPromise().then((data:any) => {
@@ -193,6 +195,7 @@ export class CollectDataServiceService {
 
   }
 
+  //if click on Like 
   setOnclickOnLike(profile_id: string , reccommendation_id : string){
       this.createProfileReview(profile_id , reccommendation_id);
       return this.http.post<any>(this.RecommendationUrl +"/Like" , this.profileReviews).toPromise().then((data:any) => {
@@ -205,7 +208,7 @@ export class CollectDataServiceService {
 
   // Get informations from Page Gest View , Home page 
   // If click on Item from recomendation parte :
-  setOnClickItemInRecomendationOfBusiness(profile_id : string , recommendation_id : string ){
+  setOnClickItemInRecomendation(profile_id : string , recommendation_id : string ){
 
 
 

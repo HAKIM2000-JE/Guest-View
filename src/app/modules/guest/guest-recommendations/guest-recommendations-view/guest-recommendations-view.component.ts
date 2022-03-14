@@ -290,7 +290,7 @@ export class GuestRecommendationsViewComponent implements OnInit {
   }
 
   onClickOnRecomendationItemAtPage(profile : any , recomendation : any ){
-    this.CollectData.setOnClickItemInRecomendationOfBusiness(this.booking.id,recomendation.id)
+    this.CollectData.setOnClickItemInRecomendation(this.booking.id,recomendation.id)
     
     //console.log("this is my proprety: ", this.property)
     //console.log("this is my booking : ",  this.booking)

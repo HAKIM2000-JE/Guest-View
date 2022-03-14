@@ -942,7 +942,7 @@ export class GuestRecommendationsMapComponent implements OnInit {
 
 
   onClickMarkerInMAP(profile:any , recommendation:any){
-    this.CollectData.setOnClickMarkerOfBusiness(this.booking.id ,recommendation.id);
+    this.CollectData.setOnClickMarker(this.booking.id ,recommendation.id);
   }
 
 
